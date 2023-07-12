@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #99627A;
+  position: fixed;
+  top: 0;
+  z-index: 500;
+  img {
+    width: 3%;
+  }
+  .menu {
+    display: flex;
+    justify-content: space-around;
+    width: 10%;
+    font-size: large;
+  }
+  .containerList{
+    position: relative;
+    h4{
+      cursor: pointer;
+    }
+  }
+
+  .listShow {
+    position: absolute;
+    width: 230px;
+    left: -80px;
+    top: 45px;
+    list-style: none;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    border-radius: 0.2rem;
+    padding: 5px;
+    li {
+      cursor: pointer;
+      text-align: left;
+      margin-block: 15%;
+      margin-inline: 5%;
+    }
+  }
+  .listHiden {
+    display: none;
+  } 
+}
