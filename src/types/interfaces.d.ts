@@ -110,5 +110,4 @@ export interface ThumbnailImage {
 }
 //!Aversiting types types -----------------------------------><
 
-
-
+export type TypeImage = "cover" | "thumbnail"

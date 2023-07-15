@@ -18,6 +18,8 @@ export  async function generateRequest<B,C>({url,body,querys}:ServiceParams<B,C>
   }
   if(body) {
     config = {
+      headers: "",
+      method:"",
       body:JSON.stringify(body)
     }
   }
