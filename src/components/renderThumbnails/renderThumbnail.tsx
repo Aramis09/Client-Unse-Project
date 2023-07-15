@@ -1,5 +1,5 @@
 import useMakeRequest from "@/customHooks/makeRequest";
-import { ResToGetSubAdversit } from "@/types/interfaces";
+import { ResToGetAdversit } from "@/types/interfaces";
 import { GetWithPage } from "@/types/requestTypes";
 import styles from "./renderThumbnail.module.scss";
 import Advertising from "../advertising/advertising";
@@ -10,11 +10,11 @@ const initialHook = {
   querys: { page: 1 },
 };
 
-export default function RenderThumbnails() {
+export default function RenderAdvertising() {
   const { data: adversitList } = useMakeRequest<
     null,
     GetWithPage,
-    ResToGetSubAdversit
+    ResToGetAdversit
   >(initialHook);
   return (
     <div className={styles.container}>

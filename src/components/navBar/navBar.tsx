@@ -1,5 +1,6 @@
 import { useStylesClick } from "@/customHooks/useStylesClick";
 import styles from "./navBar.module.scss";
+import Link from "next/link";
 
 //className={styles.}
 export default function NavBar() {
@@ -10,10 +11,12 @@ export default function NavBar() {
   });
   return (
     <div className={styles.container}>
-      <img
-        src="https://res.cloudinary.com/dynnwv7md/image/upload/v1688860703/removal.ai__tmp-64a0c01292f03_jhjbha.png"
-        alt="icon"
-      />
+      <Link href="/">
+        <img
+          src="https://res.cloudinary.com/dynnwv7md/image/upload/v1688860703/removal.ai__tmp-64a0c01292f03_jhjbha.png"
+          alt="icon"
+        />
+      </Link>
       <div className={styles.menu}>
         <div className={styles.containerList}>
           <h4 onClick={changeStyles}>Services</h4>

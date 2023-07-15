@@ -1,7 +1,7 @@
 import { ResToGetServices, ResToGetSubAdversit, ResToGetSubServices } from "./interfaces"
 
 //response
-export type ResRequest = ResToGetSubAdversit | ResToGetSubServices |ResToGetServices
+export type ResRequest = ResToGetAdversit | ResToGetSubServices |ResToGetServices | DetailAdvertising
 //response
 
 //!geters //////////////////////-----/////////////////

@@ -5,5 +5,3 @@ export default function ServiceDetail() {
   //!Detalle de SubServicio
   return <div></div>;
 }
-
-1) necesiamos un vista que muestre las noticias que suba el DocumentTimeline,

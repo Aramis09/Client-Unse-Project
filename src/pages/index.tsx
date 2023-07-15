@@ -1,7 +1,6 @@
-import RenderThumbnails from "@/components/renderThumbnails/renderThumbnail";
+import RenderAdvertising from "@/components/renderThumbnails/renderThumbnail";
 import Head from "next/head";
 import styes from "../styles/index.module.scss";
-import NavBar from "@/components/navBar/navBar";
 
 export default function Home() {
   return (
@@ -20,7 +19,7 @@ export default function Home() {
             alt="carrousel"
           />
         </div>
-        <RenderThumbnails />
+        <RenderAdvertising />
       </main>
     </>
   );
