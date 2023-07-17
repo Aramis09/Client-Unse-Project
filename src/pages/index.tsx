@@ -1,4 +1,4 @@
-import RenderAdvertising from "@/components/renderThumbnails/renderThumbnail";
+import Advertisings from "@/components/advertisings/advertisings";
 import Head from "next/head";
 import styes from "../styles/index.module.scss";
 
@@ -19,7 +19,7 @@ export default function Home() {
             alt="carrousel"
           />
         </div>
-        <RenderAdvertising />
+        <Advertisings />
       </main>
     </>
   );

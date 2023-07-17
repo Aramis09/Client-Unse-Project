@@ -7,13 +7,13 @@ const modifications = {
     format: "auto",
   },
   cover: {
-    width: 200,
-    height: 200,
+    width: 1700,
+    height: 600,
   },
   //!Hay que cambiar
   thumbnail: {
-    width: 200,
-    height: 200,
+    width: 700,
+    height: 900,
   },
 };
 export const imageFromCloud = (

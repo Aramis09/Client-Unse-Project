@@ -9,6 +9,7 @@ export default function NavBar() {
     first: "listShow",
     second: "listHiden",
   });
+  //!esto tengo que mejorar
   return (
     <div className={styles.container}>
       <Link href="/">
@@ -21,9 +22,15 @@ export default function NavBar() {
         <div className={styles.containerList}>
           <h4 onClick={changeStyles}>Services</h4>
           <ul className={style}>
-            <li>Servicio para insiticiones</li>
-            <li>Servicio para docentes</li>
-            <li>Servicio para alumnos</li>
+            <Link href="/serviceDetail/institutions">
+              <li>Servicio para insiticiones</li>
+            </Link>
+            <Link href="/serviceDetail/teachers">
+              <li>Servicio para docentes</li>
+            </Link>
+            <Link href="/serviceDetail/students">
+              <li>Servicio para alumnos</li>
+            </Link>
           </ul>
         </div>
         <h4>About</h4>

@@ -1,7 +1,7 @@
 import useMakeRequest from "@/customHooks/makeRequest";
 import { ResToGetAdversit } from "@/types/interfaces";
 import { GetWithPage } from "@/types/requestTypes";
-import styles from "./renderThumbnail.module.scss";
+import styles from "./advertisings.module.scss";
 import Advertising from "../advertising/advertising";
 
 const initialHook = {
@@ -10,7 +10,7 @@ const initialHook = {
   querys: { page: 1 },
 };
 
-export default function RenderAdvertising() {
+export default function Advertisings() {
   const { data: adversitList } = useMakeRequest<
     null,
     GetWithPage,
@@ -19,7 +19,10 @@ export default function RenderAdvertising() {
   return (
     <div className={styles.container}>
       {adversitList?.data.map((advertising) => (
-        <Advertising advertising={advertising} />
+        <Advertising
+          key={Math.random() * Math.random()}
+          advertising={advertising}
+        />
       ))}
     </div>
   );

@@ -1,8 +1,11 @@
 import useMakeRequest from "@/customHooks/makeRequest";
 import styles from "./advertising.module.scss";
-import { DetailAdvertising } from "@/types/interfaces";
+import { AdvertisingType, ResToGetDetailAdversit } from "@/types/interfaces";
 import { GetWithPage } from "@/types/requestTypes";
 import { useRouter } from "next/router";
+import ShowImage from "@/components/showImage/showImage";
+import Sections from "@/components/sections/sections";
+import AsideNavigation from "@/components/asideNavigation/asideNavigation";
 const initialHook = {
   url: "http://localhost:3001/advertising/getAdversiting/",
   body: null,
@@ -13,20 +16,23 @@ export default function AdvertisingDetail() {
   const id = Number(router.query.idAdvertising);
   const initialHookDetail = { ...initialHook, url: initialHook.url + id };
 
-  const { data: adversitList } = useMakeRequest<
+  const { data: advertising } = useMakeRequest<
     null,
     GetWithPage,
-    DetailAdvertising
+    ResToGetDetailAdversit
   >(initialHookDetail);
-
   return (
     <div className={styles.container}>
-      {adversitList && (
+      {advertising && (
         <>
-          <h4 className={styles.title}>{adversitList?.data.title}</h4>
-          <p className={styles.description}>{adversitList?.data.description}</p>
-          <p className={styles.aside}>{adversitList?.data.aside}</p>
-          <p className={styles.footer}>{adversitList?.data.footer}</p>
+          <ShowImage idImage={advertising.data.image} type="cover" />
+          <h4 className={styles.title}>{advertising?.data.title}</h4>
+          <div className={styles.data}>
+            <p className={styles.aside}>{advertising?.data.aside}</p>
+            <Sections sectionsData={advertising.data.SectionsViews} />
+            <AsideNavigation sectionsData={advertising.data.SectionsViews} />
+          </div>
+          <p className={styles.footer}>{advertising?.data.footer}</p>
         </>
       )}
     </div>

@@ -1,9 +1,9 @@
-import LoadImage from "@/loadImages/loadImage";
+import LoadImages from "../../components/loadImage/loadImage";
 
-export default function Index() {
+export default function index() {
   return (
     <div>
-      <LoadImage />
+      <LoadImages/>
     </div>
-  );
+  )
 }

@@ -1,7 +1,7 @@
 import { ResToGetServices, ResToGetSubAdversit, ResToGetSubServices } from "./interfaces"
 
 //response
-export type ResRequest = ResToGetAdversit | ResToGetSubServices |ResToGetServices | DetailAdvertising
+export type ResRequest = ResToGetAdversit | ResToGetSubServices |ResToGetServices | AdvertisingType
 //response
 
 //!geters //////////////////////-----/////////////////
@@ -9,7 +9,9 @@ export type ResRequest = ResToGetAdversit | ResToGetSubServices |ResToGetService
 export interface GetWithPage {
   page:number
 }
-
+export interface GetServiceWithOrientation {
+  orientation
+}
 
 //!geters //////////////////////-----/////////////////
 
