@@ -20,7 +20,7 @@ export default function Advertisings() {
     <div className={styles.container}>
       {adversitList?.data.map((advertising) => (
         <Advertising
-          key={Math.random() * Math.random()}
+          key={advertising.id}
           advertising={advertising}
         />
       ))}

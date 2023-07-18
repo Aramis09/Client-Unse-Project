@@ -23,7 +23,7 @@ export default function NavBar() {
           <h4 onClick={changeStyles}>Services</h4>
           <ul className={style}>
             <Link href="/serviceDetail/institutions">
-              <li>Servicio para insiticiones</li>
+              <li>Servicio para insituciones</li>
             </Link>
             <Link href="/serviceDetail/teachers">
               <li>Servicio para docentes</li>
