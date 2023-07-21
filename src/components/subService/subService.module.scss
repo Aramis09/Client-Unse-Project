@@ -1,14 +1,18 @@
 .container {
   display: flex;
   flex-direction: column;
-  border-radius: 50%;
+  border-radius: 0.2rem;
 }
 .title {
+  padding: 0.2rem;
+  border-radius: 0.2rem 0.2rem;
   background-color: #6C78A3;
   font-size: 1.87rem;
 }
 
 .resume {
-  margin-top: 0.2rem;
+  padding: 1rem;
   font-size: 1rem;
+  background: linear-gradient(white, #403434);
+  border-radius: 0 0 0.2rem 0.2rem;
 }
