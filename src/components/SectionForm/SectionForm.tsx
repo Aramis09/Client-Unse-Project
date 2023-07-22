@@ -1,7 +1,12 @@
+import { TypeForm } from "@/types/interfaces";
 import {useState } from "react";
 
-function SectionForm() {
-  const [typeForm, setTypeForm] = useState("")
+interface ST {
+  Type: TypeForm
+}
+
+function SectionForm({Type}:ST) {
+  const [typeForm] = useState(Type )
   if(typeForm === "below"){
     return (
       <form action="">

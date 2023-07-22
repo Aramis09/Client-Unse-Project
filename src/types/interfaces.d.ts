@@ -106,6 +106,8 @@ export interface SectionsView {
 
 export type TypeImage = "cover" | "thumbnail"
 
+export type TypeForm = "top" | "middle" | "below"
+
 
 
 
