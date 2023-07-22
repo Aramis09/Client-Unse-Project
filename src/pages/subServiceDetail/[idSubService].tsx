@@ -33,7 +33,6 @@ export default function AdvertisingDetail() {
 
   return (
     <div className={styles.container}>
-      <SubServices />
       {service?.data && (
         <>
           <h4 className={styles.title}>{service?.data.title}</h4>
