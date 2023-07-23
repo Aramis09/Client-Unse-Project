@@ -6,13 +6,15 @@
 .title {
   padding: 0.2rem;
   border-radius: 0.2rem 0.2rem;
-  background-color: #6C78A3;
+  background-color: #6c78a3;
   font-size: 1.87rem;
+  border: solid 0.1px;
 }
 
 .resume {
   padding: 1rem;
   font-size: 1rem;
-  background: linear-gradient(white, #403434);
+  background: linear-gradient(#dcd6d6, #5a5757);
   border-radius: 0 0 0.2rem 0.2rem;
+  color: white;
 }
