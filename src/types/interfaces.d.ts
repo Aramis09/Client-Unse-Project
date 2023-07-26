@@ -49,6 +49,10 @@ export interface ResToGetSubServices extends BaseServerResponseGet{
   data:SubServiceTypes[];
 }
 
+export interface ResToGetSubService extends BaseServerResponseGet {
+  data: SubServiceTypes
+}
+
 export interface SubServiceTypes {
   id:                    number;
   title:                 string;
