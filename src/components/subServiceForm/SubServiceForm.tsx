@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SectionForm from "@/components/SectionForm/SectionForm";
 import { TypeForm } from "@/types/interfaces";
+import styles from "./createSubService.module.scss";
 
 function SubServiceForm() {
   const [formData, setFormData] = useState({
@@ -28,13 +29,13 @@ function SubServiceForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title"></label>
-        <input type="text" onChange={handleInputChange} />
-        <label htmlFor="resume"></label>
-        <input type="text" onChange={handleInputChange} />
-        <label htmlFor="description"></label>
-        <input type="text" onChange={handleInputChange} />
+      <form onSubmit={handleSubmit} className={styles.container} >
+        <label htmlFor="title">Titulo</label>
+        <input type="text" onChange={handleInputChange} name="title" />
+        <label htmlFor="resume">Resumen</label>
+        <input type="text" onChange={handleInputChange}  name="resume"/>
+        <label htmlFor="description">Descripcion</label>
+        <input type="text" onChange={handleInputChange} name="description"/>
         {/*Secciones tambien para ir agregando*/}
         <button type="submit">Guardar</button>
       </form>

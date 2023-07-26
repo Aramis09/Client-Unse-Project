@@ -41,8 +41,8 @@ export default function AdvertisingDetail() {
           <span>{service.data.resume}</span>
           <div>{service.data.description}</div>
           <div className={styles.data}>
-            <Sections sectionsData={service.data.SectionsViewsSubServ} />
             <AsideNavigation sectionsData={service.data.SectionsViewsSubServ} />
+            <Sections sectionsData={service.data.SectionsViewsSubServ} />
           </div>
         </>
       )}

@@ -1,15 +1,16 @@
 import { TypeForm } from "@/types/interfaces";
 import { useState } from "react";
+import styles from "./sectionForm.module.scss";
 
 interface ST {
   Type: TypeForm;
 }
 
 function SectionForm({ Type }: ST) {
-  const [typeForm] = useState(Type);
-  if (typeForm === "below") {
+
+  if (Type === "below") {
     return (
-      <form action="">
+      <form className={styles.container}>
         <label htmlFor="">Titulo</label>
         <input type="text" />
         <label htmlFor="">Parte uno</label>
@@ -21,9 +22,9 @@ function SectionForm({ Type }: ST) {
       </form>
     );
   }
-  if (typeForm === "middle") {
+  if (Type === "middle") {
     return (
-      <form action="">
+      <form className={styles.container}>
         <label htmlFor="">Titulo</label>
         <input type="text" />
         <label htmlFor="">Parte uno</label>
@@ -35,9 +36,9 @@ function SectionForm({ Type }: ST) {
       </form>
     );
   }
-  if (typeForm === "top") {
+  if (Type === "top") {
     return (
-      <form action="">
+      <form className={styles.container}>
         <label htmlFor="">Imagen</label>
         <input type="text" />
         <label htmlFor="">Titulo</label>
