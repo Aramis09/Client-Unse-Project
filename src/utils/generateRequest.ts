@@ -30,12 +30,21 @@ export  async function generateRequest<B,C>({url,body,querys}:ServiceParams<B,C>
   return res
 }
 
-function addQuerysOverUrl<d>(url:string,querysObj:d):string {
-  let urlWithQuerys = url
-  for(let queryName in querysObj){
-    const queryValue = String(querysObj[queryName])
-    urlWithQuerys = urlWithQuerys + "?" + String(queryName) + "=" + queryValue
+function addQuerysOverUrl<d>(url: string, querysObj: d): string {
+  let urlWithQuerys = url;
+  let hasQueryParams = false;
+
+  for (let queryName in querysObj) {
+    const queryValue = String(querysObj[queryName]);
+    if (!hasQueryParams) {
+      urlWithQuerys = urlWithQuerys + "?" + String(queryName) + "=" + queryValue;
+      hasQueryParams = true;
+    } else {
+      urlWithQuerys = urlWithQuerys + "&" + String(queryName) + "=" + queryValue;
+    }
   }
-  return urlWithQuerys
+
+  return urlWithQuerys;
 }
+
 

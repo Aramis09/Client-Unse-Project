@@ -8,10 +8,13 @@ export type ResRequest = ResToGetAdversit | ResToGetSubServices |ResToGetService
 
 export interface GetWithPage {
   page:number
+  size: number | null
 }
 export interface GetServiceWithOrientation {
-  orientation
+  orientation:string
 }
+
+// export interface GetSer
 
 //!geters //////////////////////-----/////////////////
 

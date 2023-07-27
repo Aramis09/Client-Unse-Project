@@ -1,37 +1,23 @@
 import useMakeRequest from "@/customHooks/makeRequest";
 import styles from "./subService.module.scss";
-import {
-  ResToGetSubService,
-  SubServiceTypes,
-  SectionsView,
-} from "@/types/interfaces";
-import { GetServiceWithOrientation } from "@/types/requestTypes";
+import { ResToGetSubService } from "@/types/interfaces";
 import { useRouter } from "next/router";
 import Sections from "@/components/sections/sections";
 import AsideNavigation from "@/components/asideNavigation/asideNavigation";
 
 export default function AdvertisingDetail() {
   const router = useRouter();
-  const orientation = router.query.idSubService;
+  const subServiceID = router.query.idSubService;
 
   const initialHook = {
-    url: `http://localhost:3001/subServices/getSubServices/${orientation}`,
+    url: `http://localhost:3001/subServices/getSubServices/${subServiceID}`,
     body: null,
-    querys: {},
+    querys: null,
   };
 
-  const initialHookDetail = {
-    ...initialHook,
-    querys: {
-      orientation,
-    },
-  };
-
-  const { data: service } = useMakeRequest<
-    null,
-    GetServiceWithOrientation,
-    ResToGetSubService
-  >(initialHookDetail);
+  const { data: service } = useMakeRequest<null, null, ResToGetSubService>(
+    initialHook
+  );
 
   return (
     <div className={styles.container}>
