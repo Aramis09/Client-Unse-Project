@@ -1,8 +1,8 @@
-import SubServiceForm from "@/components/subServiceForm/SubServiceForm";
+import Form from "@/components/Form/Form";
 
 function createSubService() {
   return (
-    <SubServiceForm/>
+    <Form/>
   )
 }
 

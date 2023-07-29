@@ -113,10 +113,14 @@ export type TypeImage = "cover" | "thumbnail"
 export type TypeForm = "service" | "subservice" | advertising
 
 export interface DataInForm {
-  title: string
-  description: string
-  resume: string | null
+  topImage: string | null;
+  middleImage: string | null;
+  belowImage: string | null;
+  title: string;
+  partOne: string | null;
+  partTwo: string | null;
 }
+
 
 
 
