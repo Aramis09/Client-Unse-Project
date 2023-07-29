@@ -110,9 +110,13 @@ export interface SectionsView {
 
 export type TypeImage = "cover" | "thumbnail"
 
-export type TypeForm = "top" | "middle" | "below"
+export type TypeForm = "service" | "subservice" | advertising
 
-
+export interface DataInForm {
+  title: string
+  description: string
+  resume: string | null
+}
 
 
 
