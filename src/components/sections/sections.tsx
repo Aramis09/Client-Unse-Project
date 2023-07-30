@@ -8,12 +8,11 @@ export default function Sections({ sectionsData }: P) {
     <div>
       {sectionsData.map((sectionData) => (
         <>
-        <Section
-          key={Math.random()}
-          sectionsData={sectionData}
-          idSection={sectionData.id}
-        />
-        <hr />
+          <Section
+            key={Math.random()}
+            sectionsData={sectionData}
+            idSection={sectionData.id}
+          />
         </>
       ))}
     </div>

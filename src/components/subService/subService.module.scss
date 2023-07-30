@@ -2,19 +2,23 @@
   display: flex;
   flex-direction: column;
   border-radius: 0.2rem;
+  text-align: center;
 }
 .title {
   padding: 0.2rem;
   border-radius: 0.2rem 0.2rem;
-  background-color: #6c78a3;
+  background-color: #1c3a61;
   font-size: 1.87rem;
   border: solid 0.1px;
+  color: #f1f1f1;
 }
 
 .resume {
+  text-align: left;
+  height: 150px;
   padding: 1rem;
   font-size: 1rem;
-  background: linear-gradient(#dcd6d6, #5a5757);
-  border-radius: 0 0 0.2rem 0.2rem;
-  color: white;
+  background: linear-gradient(#dcd6d6, #bbbbbb, #4e4e4e);
+  border-radius: 0 0 0.5rem 0.5rem;
+  color: rgb(5, 5, 5);
 }
