@@ -1,8 +1,14 @@
 .container{
-  background-color: rgb(161, 161, 161);
-  height: 100%;
+  background-color: #454545;
+  color: #f1f1f1;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  gap: 5%;
-  border-radius: 0.2rem;
+  align-self: flex-start;
+  padding: 5%;
+  gap: 30px;
+  border-radius: 0.5rem;
+  position: sticky;
+  top: 100px;
 }

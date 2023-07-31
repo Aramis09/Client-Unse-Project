@@ -4,18 +4,20 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #99627A;
+  background-color: #0D0C0D;
   position: fixed;
   top: 0;
   z-index: 500;
   img {
-    width: 3%;
+    width: 60px;
+    margin-left: 10%;
   }
   .menu {
     display: flex;
-    justify-content: space-around;
     width: 10%;
-    font-size: large;
+    font-size: 2.5ch;
+    margin-right: 5%;
+    gap: 100px;
   }
   .containerList{
     position: relative;

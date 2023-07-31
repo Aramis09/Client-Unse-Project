@@ -11,14 +11,14 @@ const initialHook = {
 };
 
 interface P {
-  pageSize: number | null
+  pageSize: number | null;
 }
 
-export default function SubServices({pageSize}:P) {
-  if(pageSize){
-    initialHook.querys.size = pageSize
+export default function SubServices({ pageSize }: P) {
+  if (pageSize) {
+    initialHook.querys.size = pageSize;
   }
-  const { data: subServiceList} = useMakeRequest<
+  const { data: subServiceList } = useMakeRequest<
     null,
     GetWithPage,
     ResToGetSubServices
@@ -26,7 +26,7 @@ export default function SubServices({pageSize}:P) {
   return (
     <div className={styles.container}>
       {subServiceList?.data.map((subservice) => (
-        <SubService key={subservice.id} subServiceProps={subservice}/>
+        <SubService key={subservice.id} subServiceProps={subservice} />
       ))}
     </div>
   );

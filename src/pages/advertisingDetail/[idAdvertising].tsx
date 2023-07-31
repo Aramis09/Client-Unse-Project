@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import ShowImage from "@/components/showImage/showImage";
 import Sections from "@/components/sections/sections";
 import AsideNavigation from "@/components/asideNavigation/asideNavigation";
+import Carrousel from "@/components/carrousel/carrousel";
 const initialHook = {
   url: "http://localhost:3001/advertising/getAdversiting/",
   body: null,
@@ -28,9 +29,9 @@ export default function AdvertisingDetail() {
           <ShowImage idImage={advertising.data.image} type="cover" />
           <h4 className={styles.title}>{advertising?.data.title}</h4>
           <div className={styles.data}>
-            <p className={styles.aside}>{advertising?.data.aside}</p>
-            <Sections sectionsData={advertising.data.SectionsViews} />
             <AsideNavigation sectionsData={advertising.data.SectionsViews} />
+            <Sections sectionsData={advertising.data.SectionsViews} />
+            <p className={styles.aside}>{advertising?.data.aside}</p>
           </div>
           <p className={styles.footer}>{advertising?.data.footer}</p>
         </>
