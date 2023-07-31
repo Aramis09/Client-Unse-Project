@@ -1,6 +1,7 @@
 import Advertisings from "@/components/advertisings/advertisings";
 import Head from "next/head";
 import styes from "../styles/index.module.scss";
+import Carrousel from "@/components/carrousel/carrousel";
 
 export default function Home() {
   return (
@@ -13,12 +14,7 @@ export default function Home() {
       </Head>
 
       <main className={styes.container}>
-        <div className={styes.conatinerImage}>
-          <img
-            src="https://res.cloudinary.com/dynnwv7md/image/upload/v1689013864/WhatsApp_Image_2023-06-16_at_10.57.29_PM_avnxpe.jpg"
-            alt="carrousel"
-          />
-        </div>
+        <Carrousel />
         <Advertisings />
       </main>
     </>

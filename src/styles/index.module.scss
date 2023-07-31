@@ -1,14 +1,6 @@
 .container {
-  margin-top: 5%;
-  .conatinerImage{
-    display: flex;
-    justify-content: center;
-    height: 300px;
-    max-width: 85%;
-    margin: 0 auto;
-    // overflow: hidden;
-    img {
-      width: 80%;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

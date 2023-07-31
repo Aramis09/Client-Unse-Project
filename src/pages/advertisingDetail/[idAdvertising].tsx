@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import ShowImage from "@/components/showImage/showImage";
 import Sections from "@/components/sections/sections";
 import AsideNavigation from "@/components/asideNavigation/asideNavigation";
+import Carrousel from "@/components/carrousel/carrousel";
 const initialHook = {
   url: "http://localhost:3001/advertising/getAdversiting/",
   body: null,
