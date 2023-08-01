@@ -7,6 +7,7 @@ import ShowImage from "@/components/showImage/showImage";
 import Sections from "@/components/sections/sections";
 import AsideNavigation from "@/components/asideNavigation/asideNavigation";
 import Carrousel from "@/components/carrousel/carrousel";
+import Loader from "@/components/loader/loader";
 const initialHook = {
   url: "http://localhost:3001/advertising/getAdversiting/",
   body: null,
@@ -22,10 +23,12 @@ export default function AdvertisingDetail() {
     GetWithPage,
     ResToGetDetailAdversit
   >(initialHookDetail);
+
+  console.log(advertising, "<----sisoy---");
   return (
     <div className={styles.container}>
       <Carrousel />
-      {advertising && (
+      {(advertising && (
         <>
           {/* <ShowImage idImage={advertising.data.image} type="cover" /> */}
           <h4 className={styles.title}>{advertising?.data.title}</h4>
@@ -36,7 +39,7 @@ export default function AdvertisingDetail() {
           </div>
           <p className={styles.footer}>{advertising?.data.footer}</p>
         </>
-      )}
+      )) || <Loader />}
     </div>
   );
 }

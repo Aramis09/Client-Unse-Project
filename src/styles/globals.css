@@ -33,7 +33,7 @@ a {
 }
 
 html {
-  background-color: #DEDEDE;
+  background: linear-gradient(to bottom, rgb(233, 232, 232), #478ca3);
   scroll-behavior: smooth;
 }
 

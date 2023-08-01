@@ -8,6 +8,7 @@ import Sections from "@/components/sections/sections";
 import AsideNavigation from "@/components/asideNavigation/asideNavigation";
 import SubServices from "@/components/subServices/subServices";
 import { useEffect } from "react";
+import Loader from "@/components/loader/loader";
 
 const initialHook = {
   url: "http://localhost:3001/services/getServices/detail",
@@ -34,20 +35,26 @@ export default function AdvertisingDetail() {
   useEffect(() => reload(), [orientation]); //Es para que vuelva hacer la request
 
   return (
-    <div className={styles.container}>
-      <SubServices pageSize={null} />
-      <Link href="/allSubServices" className={styles.viewAll}>
-        <span>Ver todos</span>
-      </Link>
-      {service?.data && (
-        <>
-          <h4 className={styles.title}>{service?.data.title}</h4>
-          <div className={styles.data}>
-            <AsideNavigation sectionsData={service.data.SectionsViewsService} />
-            <Sections sectionsData={service.data.SectionsViewsService} />
-          </div>
-        </>
+    <>
+      {service && (
+        <div className={styles.container}>
+          <SubServices pageSize={null} />
+          <Link href="/allSubServices" className={styles.viewAll}>
+            <span>Ver todos</span>
+          </Link>
+          {(service?.data && (
+            <>
+              <h4 className={styles.title}>{service?.data.title}</h4>
+              <div className={styles.data}>
+                <AsideNavigation
+                  sectionsData={service.data.SectionsViewsService}
+                />
+                <Sections sectionsData={service.data.SectionsViewsService} />
+              </div>
+            </>
+          )) || <Loader />}
+        </div>
       )}
-    </div>
+    </>
   );
 }

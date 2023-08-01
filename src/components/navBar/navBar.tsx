@@ -13,7 +13,7 @@ export default function NavBar() {
     <div className={styles.container}>
       <Link href="/">
         <img
-          src="https://res.cloudinary.com/dynnwv7md/image/upload/v1688860703/removal.ai__tmp-64a0c01292f03_jhjbha.png"
+          src="https://res.cloudinary.com/dynnwv7md/image/upload/v1690905833/My_project-1_svaban.png"
           alt="icon"
         />
       </Link>
