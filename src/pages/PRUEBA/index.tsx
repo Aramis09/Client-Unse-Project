@@ -1,9 +1,11 @@
+import Carrousel from "@/components/carrousel/carrousel";
 import LoadImages from "../../components/loadImage/loadImage";
 
 export default function index() {
   return (
     <div>
-      <LoadImages/>
+      <Carrousel />
+      <LoadImages />
     </div>
-  )
+  );
 }
