@@ -1,9 +1,9 @@
 import SwitchComponent from "../switchComponent/switchComponent";
 import styles from "./carrouselCard.module.scss";
 const arrowL =
-  "https://res.cloudinary.com/dynnwv7md/image/upload/v1690828738/arrowL_bvpxsh.png";
+  "https://res.cloudinary.com/dynnwv7md/image/upload/v1690897372/arrowL_ihe1hv.png";
 const arrowR =
-  "https://res.cloudinary.com/dynnwv7md/image/upload/v1690828738/arrowR_volhkq.png";
+  "https://res.cloudinary.com/dynnwv7md/image/upload/v1690897366/arrowR_mpxuso.png";
 
 interface P {
   image: string;
@@ -14,8 +14,8 @@ export default function CarrouselCard({ image, index, length }: P) {
   console.log(index);
 
   return (
-    <div className={styles.container} id={`carrouselCard-${index}`}>
-      <div className={styles.containerButtons}>
+    <div className={styles.container}>
+      <div className={styles.containerButtons} id={`carrouselCard-${index}`}>
         {SwitchComponent(
           !!index,
           <a href={`#carrouselCard-${index - 1}`}>

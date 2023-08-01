@@ -24,9 +24,10 @@ export default function AdvertisingDetail() {
   >(initialHookDetail);
   return (
     <div className={styles.container}>
+      <Carrousel />
       {advertising && (
         <>
-          <ShowImage idImage={advertising.data.image} type="cover" />
+          {/* <ShowImage idImage={advertising.data.image} type="cover" /> */}
           <h4 className={styles.title}>{advertising?.data.title}</h4>
           <div className={styles.data}>
             <AsideNavigation sectionsData={advertising.data.SectionsViews} />

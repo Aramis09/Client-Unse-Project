@@ -2,12 +2,11 @@ import { useStylesClick } from "@/customHooks/useStylesClick";
 import styles from "./navBar.module.scss";
 import Link from "next/link";
 
-//className={styles.}
 export default function NavBar() {
   const { style, changeStyles } = useStylesClick({
     styles: styles,
-    first: "listShow",
-    second: "listHiden",
+    first: "listHiden",
+    second: "listShow",
   });
   //!esto tengo que mejorar
   return (

@@ -7,6 +7,7 @@ import Link from "next/link";
 import Sections from "@/components/sections/sections";
 import AsideNavigation from "@/components/asideNavigation/asideNavigation";
 import SubServices from "@/components/subServices/subServices";
+import { useEffect } from "react";
 
 const initialHook = {
   url: "http://localhost:3001/services/getServices/detail",
@@ -16,7 +17,6 @@ const initialHook = {
 export default function AdvertisingDetail() {
   const router = useRouter();
   const orientation = String(router.query.idService);
-  // console.log(orientation, "a verrrrrrrrrrr");
 
   const initialHookDetail = {
     ...initialHook,
@@ -25,16 +25,17 @@ export default function AdvertisingDetail() {
     },
   };
 
-  const { data: service } = useMakeRequest<
+  const { data: service, reload } = useMakeRequest<
     null,
     GetServiceWithOrientation,
     ResToGetDetailServices
   >(initialHookDetail);
-  // console.log(service);
+
+  useEffect(() => reload(), [orientation]); //Es para que vuelva hacer la request
 
   return (
     <div className={styles.container}>
-      <SubServices pageSize={null}/>
+      <SubServices pageSize={null} />
       <Link href="/allSubServices" className={styles.viewAll}>
         <span>Ver todos</span>
       </Link>
