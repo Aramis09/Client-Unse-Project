@@ -19,9 +19,7 @@ const initialData: DataInForm = {
 function SectionForm({ sections, handleSave }: sectionProps) {
   const [formData, setFormData] = useState<DataInForm>(initialData);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -31,6 +29,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleSave(formData);
+    setFormData(initialData);
   };
 
   // Función para convertir el valor null a cadena vacía
@@ -39,64 +38,67 @@ function SectionForm({ sections, handleSave }: sectionProps) {
   };
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit}>
-      <h5>Secciones</h5>
-      {(!formData.belowImage && !formData.middleImage) && (
-        <>
-          <label htmlFor="topIm6age">Imagen</label>
-          <input
-            type="text"
-            name="topImage"
-            value={handleNullToString(formData.topImage)}
-            onChange={handleInputChange}
-          />
-        </>
-      )}
-      <label htmlFor="title">Titulo</label>
-      <input
-        type="text"
-        name="title"
-        value={handleNullToString(formData.title)}
-        onChange={handleInputChange}
-      />
-      <label htmlFor="partOne">Parte uno</label>
-      <input
-        type="text"
-        name="partOne"
-        value={handleNullToString(formData.partOne)}
-        onChange={handleInputChange}
-      />
-      {(!formData.topImage && !formData.belowImage) && (
-        <>
-          <label htmlFor="middleImage">Imagen</label>
-          <input
-            type="text"
-            name="middleImage"
-            value={handleNullToString(formData.middleImage)}
-            onChange={handleInputChange}
-          />
-        </>
-      )}
-      <label htmlFor="partTwo">Parte dos</label>
-      <input
-        type="text"
-        name="partTwo"
-        value={handleNullToString(formData.partTwo)}
-        onChange={handleInputChange}
-      />
-      {(!formData.topImage && !formData.middleImage) && (
-        <>
-          <label htmlFor="belowImage">Imagen</label>
-          <input
-            type="text"
-            name="belowImage"
-            value={handleNullToString(formData.belowImage)}
-            onChange={handleInputChange}
-          />
-        </>
-      )}
-      <button type="submit">Guardar Borrador</button>
-    </form>
+    <>
+      <div className={styles.container}>
+        {sections?.map((section) => (
+          <ul key={section.title}>
+            <li>{section.topImage ? section.topImage : null}</li>
+            <li>{section.title}</li>
+            <li>{section.partOne}</li>
+            <li>{section.middleImage ? section.middleImage : null}</li>
+            <li>{section.partTwo}</li>
+            <li>{section.belowImage ? section.belowImage : null}</li>
+          </ul>
+        ))}
+      </div>
+      <form className={styles.container} onSubmit={handleSubmit}>
+        <h5>Secciones</h5>
+        <label htmlFor="topImage">Imagen</label>
+        <input
+          type="text"
+          name="topImage"
+          value={handleNullToString(formData.topImage)}
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="title">Titulo</label>
+        <input
+          type="text"
+          name="title"
+          value={handleNullToString(formData.title)}
+          onChange={handleInputChange}
+        />
+        <label htmlFor="partOne">Parte uno</label>
+        <input
+          type="text"
+          name="partOne"
+          value={handleNullToString(formData.partOne)}
+          onChange={handleInputChange}
+        />
+        <label htmlFor="middleImage">Imagen</label>
+        <input
+          type="text"
+          name="middleImage"
+          value={handleNullToString(formData.middleImage)}
+          onChange={handleInputChange}
+        />
+        <label htmlFor="partTwo">Parte dos</label>
+        <input
+          type="text"
+          name="partTwo"
+          value={handleNullToString(formData.partTwo)}
+          onChange={handleInputChange}
+        />
+        <label htmlFor="belowImage">Imagen</label>
+        <input
+          type="text"
+          name="belowImage"
+          value={handleNullToString(formData.belowImage)}
+          onChange={handleInputChange}
+        />
+        <button type="submit">Guardar Borrador</button>
+      </form>
+    </>
   );
 }
 

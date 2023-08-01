@@ -1,27 +1,33 @@
-import { ResToGetServices, ResToGetSubAdversit, ResToGetSubServices } from "./interfaces"
+import {
+  ResToGetServices,
+  ResToGetSubAdversit,
+  ResToGetSubServices,
+} from "./interfaces";
 
 //response
-export type ResRequest = ResToGetAdversit | ResToGetSubServices |ResToGetServices | AdvertisingType
+export type ResRequest =
+  | ResToGetAdversit
+  | ResToGetSubServices
+  | ResToGetServices
+  | AdvertisingType;
 //response
 
 //!geters //////////////////////-----/////////////////
 
 export interface GetWithPage {
-  page:number
-  size: number | null
+  page: number;
+  size: number | null;
 }
 export interface GetServiceWithOrientation {
-  orientation:string
+  orientation: string;
 }
 
 // export interface GetSer
 
 //!geters //////////////////////-----/////////////////
 
-
-export interface ServiceParams<B,C> {
-  url:string
-  body:B | null
-  querys: C | null
+export interface ServiceParams<B, C> {
+  url: string;
+  body: B | null;
+  querys: C | null;
 }
-

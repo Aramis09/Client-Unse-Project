@@ -1,7 +1,7 @@
 import useMakeRequest from "@/customHooks/makeRequest";
 import styles from "./service.module.scss";
 import { ResToGetDetailServices } from "@/types/interfaces";
-import { GetServiceWithOrientation, GetWithPage } from "@/types/requestTypes";
+import { GetServiceWithOrientation } from "@/types/requestTypes";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Sections from "@/components/sections/sections";
