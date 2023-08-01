@@ -10,7 +10,8 @@ import Carrousel from "@/components/carrousel/carrousel";
 const initialHook = {
   url: "http://localhost:3001/advertising/getAdversiting/",
   body: null,
-  querys: { page: 1 },
+  querys: { page: 1,
+  size: 6 },
 };
 export default function AdvertisingDetail() {
   const router = useRouter();
