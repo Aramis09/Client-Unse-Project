@@ -30,4 +30,5 @@ export interface ServiceParams<B, C> {
   url: string;
   body: B | null;
   querys: C | null;
+  method: "POST" | "GET" | "PUT" | "DELETE"
 }

@@ -1,12 +1,11 @@
 import useMakeRequest from "@/customHooks/makeRequest";
 import styles from "./advertising.module.scss";
-import { AdvertisingType, ResToGetDetailAdversit } from "@/types/interfaces";
+import { ResToGetDetailAdversit } from "@/types/interfaces";
 import { GetWithPage } from "@/types/requestTypes";
 import { useRouter } from "next/router";
 import ShowImage from "@/components/showImage/showImage";
 import Sections from "@/components/sections/sections";
 import AsideNavigation from "@/components/asideNavigation/asideNavigation";
-import Carrousel from "@/components/carrousel/carrousel";
 const initialHook = {
   url: "http://localhost:3001/advertising/getAdversiting/",
   body: null,

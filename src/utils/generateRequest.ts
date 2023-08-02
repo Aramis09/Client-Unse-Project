@@ -10,7 +10,7 @@ import { ResRequest, ServiceParams } from "@/types/requestTypes"
 
 
 
-export  async function generateRequest<B,C>({url,body,querys}:ServiceParams<B,C>):Promise<ResRequest> {    
+export  async function generateRequest<B,C>({url,body,querys, method}:ServiceParams<B,C>):Promise<ResRequest> {    
   let urlToFetch = url
   let config = {}
   if(querys) {
@@ -18,8 +18,10 @@ export  async function generateRequest<B,C>({url,body,querys}:ServiceParams<B,C>
   }
   if(body) {
     config = {
-      headers: "",
-      method:"",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: method,
       body:JSON.stringify(body)
     }
   }

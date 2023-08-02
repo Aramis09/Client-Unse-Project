@@ -4,13 +4,6 @@ import { DataInForm, DataService } from "@/types/interfaces";
 import { initialDataService } from "./initialData";
 import styles from "./Form.module.scss";
 
-interface dataFromForm {
-  title: string;
-  description: string;
-  orientation: string;
-  sections: DataInForm[];
-}
-
 export default function ServiceForm() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({

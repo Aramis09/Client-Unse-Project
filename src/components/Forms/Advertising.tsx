@@ -3,6 +3,14 @@ import SectionForm from "@/components/SectionForm/SectionForm";
 import { DataInForm, DataAdvertising } from "@/types/interfaces";
 import { initialDataAdvertising } from "./initialData";
 import styles from "./Form.module.scss";
+import { ServiceParams } from "@/types/requestTypes";
+import { generateRequest } from "@/utils/generateRequest";
+const initialHook:ServiceParams<null, null> = {
+  url: "http://localhost:3001/advertising/createAdvertising/",
+  body: null,
+  querys: null,
+  method: "POST"
+};
 
 export default function AdvertisingForm() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +29,12 @@ export default function AdvertisingForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(JSON.stringify(formData)); // Convert formData to string for alert
+    // alert(JSON.stringify(formData)); // Convert formData to string for alert
+    const initialHookPost = {
+      ...initialHook,
+      body: formData,
+    };
+    generateRequest(initialHookPost)
   };
 
   const [formData, setFormData] = useState<DataAdvertising>(
