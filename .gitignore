@@ -4,6 +4,8 @@ auth_config.json
 /node_modules
 /.pnp
 .pnp.js
+package-lock.json
+
 
 # testing
 /coverage
@@ -23,6 +25,7 @@ auth_config.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
 pnpm-lock.*
 
 # local env files

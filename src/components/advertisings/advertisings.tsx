@@ -9,7 +9,9 @@ import Loader from "../loader/loader";
 const initialHook = {
   url: "http://localhost:3001/advertising/getAdversiting",
   body: null,
-  querys: { page: 1 },
+  querys: { page: 1,
+  size: null },
+  method: "GET"
 };
 
 export default function Advertisings() {
