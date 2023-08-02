@@ -2,19 +2,18 @@ import { useStylesClick } from "@/customHooks/useStylesClick";
 import styles from "./navBar.module.scss";
 import Link from "next/link";
 
-//className={styles.}
 export default function NavBar() {
   const { style, changeStyles } = useStylesClick({
     styles: styles,
-    first: "listShow",
-    second: "listHiden",
+    first: "listHiden",
+    second: "listShow",
   });
   //!esto tengo que mejorar
   return (
     <div className={styles.container}>
       <Link href="/">
         <img
-          src="https://res.cloudinary.com/dynnwv7md/image/upload/v1688860703/removal.ai__tmp-64a0c01292f03_jhjbha.png"
+          src="https://res.cloudinary.com/dynnwv7md/image/upload/v1690905833/My_project-1_svaban.png"
           alt="icon"
         />
       </Link>

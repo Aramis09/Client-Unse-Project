@@ -2,11 +2,11 @@ import { SubServiceTypes } from "@/types/interfaces";
 import Link from "next/link";
 import styles from "./subService.module.scss";
 
-interface S {
+interface P {
   subServiceProps: SubServiceTypes;
 }
 
-export default function SubService({ subServiceProps }: S) {
+export default function SubService({ subServiceProps }: P) {
   const { id, title, resume } = subServiceProps;
   return (
     <div>

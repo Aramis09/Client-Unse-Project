@@ -4,6 +4,7 @@ import { GetWithPage } from "@/types/requestTypes";
 import styles from "./advertisings.module.scss";
 import Advertising from "../advertising/advertising";
 import Carrousel from "../carrousel/carrousel";
+import Loader from "../loader/loader";
 
 const initialHook = {
   url: "http://localhost:3001/advertising/getAdversiting",
@@ -18,10 +19,14 @@ export default function Advertisings() {
     ResToGetAdversit
   >(initialHook);
   return (
-    <div className={styles.container}>
-      {adversitList?.data.map((advertising) => (
-        <Advertising key={advertising.id} advertising={advertising} />
-      ))}
-    </div>
+    <>
+      {(adversitList && (
+        <div className={styles.container}>
+          {adversitList?.data.map((advertising) => (
+            <Advertising key={advertising.id} advertising={advertising} />
+          ))}
+        </div>
+      )) || <Loader />}
+    </>
   );
 }
