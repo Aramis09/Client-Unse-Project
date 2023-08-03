@@ -1,20 +1,18 @@
-import AdvertisingForm from "@/components/Forms/Advertising";
-import ServiceForm from "@/components/Forms/ServiceForm";
-import SubServiceForm from "@/components/Forms/SubServiceForm";
+import Forms from "@/components/Forms/Forms";
 import { useRouter } from "next/router";
 
 export default function FormRender() {
   const router = useRouter();
-  const { segments } = router.query;
+  const{ segments  } = router.query;
 
   if (segments === "service") {
-    return <ServiceForm />;
+    return <Forms type="service"/>;
   }
   if (segments === "subservice") {
-    return <SubServiceForm />;
+    return <Forms type="subservice"/>;
   }
   if (segments === "advertising") {
-    return <AdvertisingForm />;
+    return <Forms type="advertising"/>;
   }
 
   return <div>Form not found</div>;

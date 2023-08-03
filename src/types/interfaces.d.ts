@@ -140,3 +140,7 @@ export interface DataAdvertising {
   image: string;
   sections: DataInForm[];
 }
+
+export type DataAdvertisingInForm = Omit<DataAdvertising, "sections">
+export type DataServiceInForm = Omit<DataService, "sections">
+export type DataSubServiceInForm = Omit<DataSubService, "sections">
