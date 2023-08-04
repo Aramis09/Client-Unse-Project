@@ -1,18 +1,18 @@
-import { DataAdvertising } from "@/types/interfaces";
+import { DataAdvertising, DataService, DataSubService } from "@/types/interfaces";
 
-export const initialDataService = {
+export const initialDataService: DataService = {
   title: "",
   description: "",
   orientation: "",
   sections: []
 }
-export const initialDataSubService = {
+export const initialDataSubService: DataSubService= {
   title:"",
   resume:"",
   description:"",
   sections: []
 }
-export const initialDataAdvertising = {
+export const initialDataAdvertising: DataAdvertising= {
   title:"",
   summary:"",
   aside:"",

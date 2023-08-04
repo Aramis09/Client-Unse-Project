@@ -1,5 +1,11 @@
 import { useEffect, useRef } from "react";
+import { DataAdvertisingInForm } from "@/types/interfaces";
+interface imageProps {
+  handleImageUrl: (data: DataAdvertisingInForm ) => void
+}
 export default function UploadWidget() {
+// imageState: imageProps
+
   const cloudinaryRef: any = useRef();
   const widgetRef: any = useRef();
   useEffect(() => {
