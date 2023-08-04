@@ -1,7 +1,6 @@
 .container{
   display: grid;
   max-width: 68%;
-  
   margin-block: 2%;
   margin-bottom: 10%;
   grid-template-columns: 
@@ -40,6 +39,18 @@
     img{
     width: 100%;
     border-radius:0.5rem;
+    }
+  }
+
+  @media (min-width:1280px) and (max-width:1680px){
+    max-width: 80%;
+    .container{
+      grid-template-columns: 
+      repeat(
+        auto-fill,
+        minmax(200px,1fr)
+      );
+      
     }
   }
 }

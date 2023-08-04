@@ -33,3 +33,9 @@
     padding: 5%;
   }
 }
+
+@media (min-width:1280px) and (max-width:1680px){
+  .imageItem{
+    margin-top: 20px;
+  }
+}
