@@ -4,20 +4,21 @@ export const initialDataService: DataService = {
   title: "",
   description: "",
   orientation: "",
-  sections: []
+  sections: [],
+  // image: ""
 }
 export const initialDataSubService: DataSubService= {
   title:"",
   resume:"",
   description:"",
-  sections: []
+  sections: [],
 }
 export const initialDataAdvertising: DataAdvertising= {
   title:"",
   summary:"",
   aside:"",
   footer:"",
-  image:"",
+  image: "",
   sections: []
 }
 

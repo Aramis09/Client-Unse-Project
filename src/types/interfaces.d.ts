@@ -123,6 +123,7 @@ export interface DataService {
   description: string;
   orientation: string;
   sections: DataInForm[];
+  image?: string
 }
 
 export interface DataSubService {
@@ -130,6 +131,7 @@ export interface DataSubService {
   description: string;
   resume: string;
   sections: DataInForm[];
+  image?: string
 }
 
 export interface DataAdvertising {
@@ -140,6 +142,8 @@ export interface DataAdvertising {
   image: string;
   sections: DataInForm[];
 }
+
+
 
 export type DataAdvertisingInForm = Omit<DataAdvertising, "sections">
 export type DataServiceInForm = Omit<DataService, "sections">
