@@ -7,28 +7,48 @@ import { ResRequest, ServiceParams } from "@/types/requestTypes"
 //    queryX:"Holamundo"
 //}
 //
+let myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("auth-token",`${"jwt" || null}`);
+myHeaders.append("auth-secret-key",`${process.env.NEXT_PUBLIC_SECRET_KEY}`);
 
-
-
-export  async function generateRequest<B,C>({url,body,querys}:ServiceParams<B,C>):Promise<ResRequest> {    
+export async function generateRequest<B,C>({url,body,querys, method}:ServiceParams<B,C>):Promise<ResRequest> {        
+  
   let urlToFetch = url
-  let config = {}
+  let config:any = {
+    headers: myHeaders,
+    mode: "cors",
+    credentials: "include"
+  }
+  
   if(querys) {
     urlToFetch = addQuerysOverUrl(url,querys)
   }
   if(body) {
-    config = {
-      headers: "",
-      method:"",
+    config = {...config,
+      method: method,
       body:JSON.stringify(body)
     }
   }
+
+  
   const res:Promise<ResRequest> = fetch(urlToFetch,config)
   .then(res=> res.json())
   .then(res=>res)
   .catch(err=> console.error(err))
   return res
 }
+
+
+
+
+
+
+
+
+
+
+
 
 function addQuerysOverUrl<d>(url: string, querysObj: d): string {
   let urlWithQuerys = url;

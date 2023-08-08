@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
 
       <main className={styes.container}>
-        <Carrousel />
+        <Carrousel imageEdit={[]} locationToEdit="" />
         <Advertisings />
       </main>
     </>

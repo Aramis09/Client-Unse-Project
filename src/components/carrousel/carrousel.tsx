@@ -1,23 +1,71 @@
 import styles from "./carrousel.module.scss";
 import CarrouselCard from "./carrouselCard";
+import GoEdit from "../goEdit/goEdit";
+import useMakeRequest from "@/customHooks/makeRequest";
+import { ServiceParams } from "@/types/requestTypes";
+import { CarrouselImages, ResToGetCarrousel } from "@/types/interfaces";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import Loader from "../loader/loader";
+interface P {
+  imageEdit: string[];
+  locationToEdit: string;
+}
 
-export default function Carrousel() {
-  const images = [
-    "https://res.cloudinary.com/dynnwv7md/image/upload/v1690904762/WhatsApp_Image_2023-07-22_at_7.31.35_PM_xio8mq.jpg",
-    "https://res.cloudinary.com/dynnwv7md/image/upload/v1681742277/u6y8lwmoxwwn2rezuuxh.jpg",
-    "https://res.cloudinary.com/dynnwv7md/image/upload/v1689173737/dadAndBrother_fduowp.jpg",
-    "https://res.cloudinary.com/dynnwv7md/image/upload/v1689177607/IMG_4605_htqllc.jpg",
-  ];
+const initState: ServiceParams<null, { location: string }> = {
+  url: "http://localhost:3001/carrousel/getDetail",
+  body: null,
+  method: "GET",
+  querys: { location: "" }, //!Esto depende de donde este
+};
+export default function Carrousel({ imageEdit, locationToEdit }: P) {
+  const router = useRouter();
+  const [imagesToRender, setImagesToRender] = useState<string[]>([]);
+  const initStatePlus = {
+    ...initState,
+    querys: { location: locationToEdit || router.pathname },
+  };
+
+  const { data: images } = useMakeRequest<
+    null,
+    { location: string },
+    ResToGetCarrousel
+  >(initStatePlus);
+  console.log(router.pathname);
+
+  useEffect(() => setImagesToRender(imageEdit), [imageEdit]);
   return (
     <div className={styles.container}>
-      {images.map((image, index) => (
-        <CarrouselCard
-          image={image}
-          index={index}
-          length={images.length}
-          key={Math.random()}
-        />
-      ))}
+      <GoEdit whereRedirect="/editCarrouselImage" location={router.pathname} />
+      {!!images && !!images.data ? (
+        !imagesToRender.length && images ? (
+          <RenderImagesCarrousel imagesRender={images.data.CarrouselContent} />
+        ) : (
+          <RenderImagesCarrousel imagesRender={imagesToRender} />
+        )
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 }
+
+const RenderImagesCarrousel = ({
+  imagesRender,
+}: {
+  imagesRender: string[] | CarrouselImages[];
+}) => {
+  return (
+    <>
+      {imagesRender &&
+        imagesRender.map((image, index) => (
+          <CarrouselCard
+            image={typeof image === "string" ? image : image.url}
+            index={index}
+            length={imagesRender.length}
+            key={Math.random()}
+          />
+        ))}
+    </>
+  );
+};

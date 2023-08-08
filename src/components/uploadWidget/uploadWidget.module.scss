@@ -1,0 +1,21 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  button {
+    cursor: pointer;
+    height: 30px;
+    border-radius: 0.2rem;
+    border: none;
+    margin-bottom: 10px;
+    transition: transform 0.5s ;
+
+  }
+  button:hover {
+    transition: transform 0.5s ;
+    transform: scale(1.02);
+  }
+  img {
+    border-radius: 0.5rem;
+
+  }
+}

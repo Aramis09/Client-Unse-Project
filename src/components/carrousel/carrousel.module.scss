@@ -4,4 +4,18 @@
   width: 80%;
   height: 600px;
   overflow: hidden;
+  .iconEdit{
+    position: absolute;
+    z-index: 100;
+    width: 100px;
+    top: 100px;
+    left: 100px;
+    filter: invert(0);
+    cursor: pointer;
+  }
+}
+.container:hover {
+  .iconEdit{
+    transform: scale(1.1);
+  }
 }

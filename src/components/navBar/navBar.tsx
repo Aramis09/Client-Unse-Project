@@ -1,14 +1,17 @@
 import { useStylesClick } from "@/customHooks/useStylesClick";
 import styles from "./navBar.module.scss";
 import Link from "next/link";
+import IsLogedIn from "../isLogedIn/isLogedIn";
+import dynamic from "next/dynamic";
 
-export default function NavBar() {
+function NavBar() {
   const { style, changeStyles } = useStylesClick({
     styles: styles,
     first: "listHiden",
     second: "listShow",
   });
   //!esto tengo que mejorar
+
   return (
     <div className={styles.container}>
       <Link href="/">
@@ -18,6 +21,7 @@ export default function NavBar() {
         />
       </Link>
       <div className={styles.menu}>
+        <IsLogedIn />
         <div className={styles.containerList}>
           <h4 onClick={changeStyles}>Services</h4>
           <ul className={style}>
@@ -37,3 +41,4 @@ export default function NavBar() {
     </div>
   );
 }
+export default dynamic(() => Promise.resolve(NavBar), { ssr: false });

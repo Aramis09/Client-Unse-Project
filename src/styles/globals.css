@@ -33,7 +33,10 @@ a {
 }
 
 html {
-  background: linear-gradient(to bottom, rgb(233, 232, 232), #478ca3);
+  background: linear-gradient(to bottom, rgb(199, 217, 236), #478ca3);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   scroll-behavior: smooth;
 }
 
