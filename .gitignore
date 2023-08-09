@@ -6,6 +6,13 @@ auth_config.json
 .pnp.js
 package-lock.json
 
+# Ignorar archivo .env
+.env
+
+# Ignorar archivo pnpm-lock.yaml
+pnpm-lock.yaml
+
+
 
 # testing
 /coverage
@@ -26,7 +33,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
-pnpm-lock.*
+pnpm-lock.yaml
 
 # local env files
 .env*.local
