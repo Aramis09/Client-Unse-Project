@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
 interface ImageProps {
-  handleImageUrl: (data: string) => void;
+  handleImageUrl: (data: string) => void; //modificado Aramis
+  // valueEvent:any //modificado Aramis
 }
 
 export default function UploadWidget({ handleImageUrl }: ImageProps) {
@@ -19,7 +20,6 @@ export default function UploadWidget({ handleImageUrl }: ImageProps) {
       function (err: any, result: any) {
         // setLatestResult(result); // Update the latest result
         if (result.event === "success") {
-          console.log(result, "upload")
           handleImageUrl(result.info.public_id);
         }
       }
