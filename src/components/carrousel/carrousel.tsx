@@ -18,20 +18,30 @@ const initState: ServiceParams<null, { location: string }> = {
   method: "GET",
   querys: { location: "" }, //!Esto depende de donde este
 };
+
 export default function Carrousel({ imageEdit, locationToEdit }: P) {
   const router = useRouter();
+  const idAd =
+    router.query["idAdvertising"] === "undefined" ||
+    !router.query["idAdvertising"]
+      ? ""
+      : router.query["idAdvertising"];
+
   const [imagesToRender, setImagesToRender] = useState<string[]>([]);
   const initStatePlus = {
     ...initState,
-    querys: { location: locationToEdit || router.pathname },
+    querys: {
+      location: locationToEdit || router.pathname,
+      idAdvertising: idAd, //! tengo que ver de mandar null cuando se requira
+    },
   };
+  console.log(initStatePlus);
 
   const { data: images } = useMakeRequest<
     null,
     { location: string },
     ResToGetCarrousel
   >(initStatePlus);
-  console.log(router.pathname);
 
   useEffect(() => setImagesToRender(imageEdit), [imageEdit]);
   return (

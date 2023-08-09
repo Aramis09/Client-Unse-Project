@@ -1,4 +1,5 @@
 import { ResRequest, ServiceParams } from "@/types/requestTypes"
+import { getCookie } from "./actionCookie";
 
 //!El response tiene que ser lo que devuelve la Api 
 //todo Example querys 
@@ -7,15 +8,16 @@ import { ResRequest, ServiceParams } from "@/types/requestTypes"
 //    queryX:"Holamundo"
 //}
 //
-let myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-myHeaders.append("auth-token",`${"jwt" || null}`);
-myHeaders.append("auth-secret-key",`${process.env.NEXT_PUBLIC_SECRET_KEY}`);
 
 export async function generateRequest<B,C>({url,body,querys, method}:ServiceParams<B,C>):Promise<ResRequest> {        
+  let myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("auth-token",`${getCookie({nameCookie:"messiEntroAJugar"}).cookiesFound || null}`);
+  myHeaders.append("auth-secret-key",`${process.env.NEXT_PUBLIC_SECRET_KEY}`);
   
   let urlToFetch = url
   let config:any = {
+    method: method,
     headers: myHeaders,
     mode: "cors",
     credentials: "include"
@@ -38,13 +40,6 @@ export async function generateRequest<B,C>({url,body,querys, method}:ServicePara
   .catch(err=> console.error(err))
   return res
 }
-
-
-
-
-
-
-
 
 
 

@@ -25,7 +25,6 @@ export default function AdvertisingDetail() {
     ResToGetDetailAdversit
   >(initialHookDetail);
   useEffect(() => reload, [id, advertising]);
-  console.log(id);
 
   return (
     <div className={styles.container}>

@@ -1,7 +1,6 @@
 import Carrousel from "@/components/carrousel/carrousel";
 import styles from "./editCarrouselImage.module.scss";
 import { useState, useRef } from "react";
-import UploadWidget from "@/components/uploadWidget/uploadWidget";
 import SaveDataCarrousel from "@/components/saveDataCarrousel/saveDataCarrousel";
 import RenderUploadsCarrousel from "@/components/renderUploadCarrousel/renderUploadCarrousel";
 import { useRouter } from "next/router";
@@ -10,6 +9,12 @@ export default function EditCarrouselImage() {
   const [numberImage, setNumberImage] = useState(3);
   const [imagesToCarrousel, setimagesToCarrousel] = useState<string[]>([]);
   const router = useRouter();
+  const idAdvertising =
+    router.query["idAdvertising"] === "undefined" ||
+    !router.query["idAdvertising"] ||
+    typeof router.query["idAdvertising"] !== "string"
+      ? null
+      : router.query["idAdvertising"];
 
   const handleArrayImage = (urlNewImage: string) => {
     setimagesToCarrousel((prevImages) => [...prevImages, urlNewImage]);
@@ -21,7 +26,11 @@ export default function EditCarrouselImage() {
         imageEdit={imagesToCarrousel}
         locationToEdit={String(router.query["location"])}
       />
-      <SaveDataCarrousel newImages={imagesToCarrousel} />
+      <SaveDataCarrousel
+        images={imagesToCarrousel}
+        location={String(router.query["location"])}
+        idAdvertising={idAdvertising} //! tengo que ver de mandar null cuando se requira
+      />
       <div className={styles.numberUploads}>
         <label htmlFor="numberImage">Cuantas imagenes quiere subir?</label>
         <input
