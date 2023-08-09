@@ -7,7 +7,6 @@ interface ImageProps {
 export default function UploadWidget({ handleImageUrl }: ImageProps) {
   const cloudinaryRef: any = useRef();
   const widgetRef: any = useRef();
-  const [latestResult, setLatestResult] = useState<any>(null);
 
   useEffect(() => {
     // @ts-ignore
@@ -18,17 +17,14 @@ export default function UploadWidget({ handleImageUrl }: ImageProps) {
         uploadPreset: "tyz13h75",
       },
       function (err: any, result: any) {
-        setLatestResult(result); // Update the latest result
+        // setLatestResult(result); // Update the latest result
+        if (result.event === "success") {
+          console.log(result, "upload")
+          handleImageUrl(result.info.public_id);
+        }
       }
     );
   }, []);
-
-  // useEffect(() => {
-  //   // Check if there is a latest result and if it is "success"
-  //   if (latestResult && latestResult.event === "success") {
-  //     handleImageUrl(latestResult.info.public_id);
-  //   }
-  // }, []);
 
   return <button onClick={() => widgetRef.current.open()}>aqui</button>;
 }

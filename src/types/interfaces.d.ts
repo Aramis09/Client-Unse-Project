@@ -107,7 +107,9 @@ export interface SectionsView {
 
 export type TypeImage = "cover" | "thumbnail";
 
-export type TypeForm = "service" | "subservice" | "advertising";
+export interface optionsForm {
+  type: "service" | "subservice" | "advertising";
+}
 
 export interface DataInForm {
   topImage: string | null;

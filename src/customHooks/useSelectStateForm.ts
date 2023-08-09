@@ -3,40 +3,71 @@ import {
   initialDataService,
   initialDataSubService,
 } from "@/components/Forms/initialData";
-import { useState } from "react";
-export interface optionsForm {
-  type: "service" | "subservice" | "advertising";
-}
+import { DataAdvertising, DataService, DataSubService, optionsForm } from "@/types/interfaces";
+import { useState, useEffect } from "react";
+
+
+type AllData = DataAdvertising | DataService | DataSubService
 
 const getInitialFormData = (typeForm: optionsForm["type"]) => {
-  console.log("tipo de formulario", typeForm)
   switch (typeForm) {
     case "advertising":
-      console.log("soy una publicidad")
       return initialDataAdvertising;
     case "service":
-      console.log("soy un servicio")
       return initialDataService;
     case "subservice":
-      console.log("soy un subservicio")
-
       return initialDataSubService;
   }
 };
 
-export default function useSelectStateForm(linkForm: string) {
-  var typeForm = null
+// const createUrl = (typeForm: optionsForm["type"]) => {
+//   switch (typeForm) {
+//     case "service":
+//       baseUrl = baseUrl + "/services/createService";
+//       break;
+//     case "subservice":
+//       baseUrl = baseUrl + "/subServices/createSubService";
+//       break;
+//     case "advertising":
+//       baseUrl = baseUrl + "/advertising/createAdvertising";
+//       break;
 
-  if (linkForm === "service") {
-    typeForm = getInitialFormData(linkForm)
-  } else if (linkForm === "subservice") {
-    typeForm = getInitialFormData(linkForm)
-  } else if (linkForm === "advertising") {
-    typeForm = getInitialFormData(linkForm)
-  } else {
-    typeForm = getInitialFormData("advertising")
-  }
-  const [formData, setFormData] = useState(typeForm);
-  return {formData, setFormData}
+//     default:
+//       baseUrl = baseUrl + "/advertising/createAdvertising";
+//       break;
+//   }
+// };
+
+export default function useSelectStateForm(linkForm: string) {
+  const [formData, setFormData] = useState<any>(null);
+  const [url, setUrl] = useState<string>('');
+
+  useEffect(() => {
+    let typeForm = null;
+    let baseUrl = "http://localhost:3001"; // Initialize baseUrl here
+
+    switch (linkForm) {
+      case "service":
+        typeForm = initialDataService;
+        baseUrl += "/services/createService";
+        break;
+      case "subservice":
+        typeForm = initialDataSubService;
+        baseUrl += "/subServices/createSubService";
+        break;
+      case "advertising":
+        typeForm = initialDataAdvertising;
+        baseUrl += "/advertising/createAdvertising";
+        break;
+      default:
+        typeForm = initialDataAdvertising;
+        baseUrl += "/advertising/createAdvertising";
+        break;
+    }
+
+    setFormData(typeForm);
+    setUrl(baseUrl);
+  }, [linkForm]);
+
+  return { formData, setFormData, url };
 }
- 
