@@ -9,9 +9,8 @@ import Loader from "../loader/loader";
 const initialHook = {
   url: "http://localhost:3001/advertising/getAdversiting",
   body: null,
-  querys: { page: 1,
-  size: null },
-  method: "GET"
+  querys: { page: 1, size: null },
+  method: "GET",
 };
 
 export default function Advertisings() {
@@ -22,7 +21,7 @@ export default function Advertisings() {
   >(initialHook);
   return (
     <>
-      {(adversitList && (
+      {(adversitList?.data && (
         <div className={styles.container}>
           {adversitList?.data.map((advertising) => (
             <Advertising key={advertising.id} advertising={advertising} />

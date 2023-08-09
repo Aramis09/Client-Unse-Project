@@ -2,7 +2,7 @@ import Advertisings from "@/components/advertisings/advertisings";
 import Head from "next/head";
 import styes from "../styles/index.module.scss";
 import Carrousel from "@/components/carrousel/carrousel";
-
+import { verificationToken } from "@/helpers/verifyToken";
 export default function Home() {
   return (
     <>
@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
 
       <main className={styes.container}>
-        <Carrousel />
+        <Carrousel imageEdit={[]} locationToEdit="" />
         <Advertisings />
       </main>
     </>

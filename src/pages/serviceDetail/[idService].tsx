@@ -36,7 +36,7 @@ export default function AdvertisingDetail() {
 
   return (
     <>
-      {service && (
+      {service?.data && (
         <div className={styles.container}>
           <SubServices pageSize={null} />
           <Link href="/allSubServices" className={styles.viewAll}>

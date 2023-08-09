@@ -1,4 +1,5 @@
 import { ResRequest, ServiceParams } from "@/types/requestTypes"
+import { getCookie } from "./actionCookie";
 
 //!El response tiene que ser lo que devuelve la Api 
 //todo Example querys 
@@ -8,29 +9,41 @@ import { ResRequest, ServiceParams } from "@/types/requestTypes"
 //}
 //
 
-
-
-export  async function generateRequest<B,C>({url,body,querys, method}:ServiceParams<B,C>):Promise<ResRequest> {    
+export async function generateRequest<B,C>({url,body,querys, method}:ServiceParams<B,C>):Promise<ResRequest> {        
+  let myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("auth-token",`${getCookie({nameCookie:"messiEntroAJugar"}).cookiesFound || null}`);
+  myHeaders.append("auth-secret-key",`${process.env.NEXT_PUBLIC_SECRET_KEY}`);
+  
   let urlToFetch = url
-  let config = {}
+  let config:any = {
+    method: method,
+    headers: myHeaders,
+    mode: "cors",
+    credentials: "include"
+  }
+  
   if(querys) {
     urlToFetch = addQuerysOverUrl(url,querys)
   }
   if(body) {
-    config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
+    config = {...config,
       method: method,
       body:JSON.stringify(body)
     }
   }
+
+  
   const res:Promise<ResRequest> = fetch(urlToFetch,config)
   .then(res=> res.json())
   .then(res=>res)
   .catch(err=> console.error(err))
   return res
 }
+
+
+
+
 
 function addQuerysOverUrl<d>(url: string, querysObj: d): string {
   let urlWithQuerys = url;

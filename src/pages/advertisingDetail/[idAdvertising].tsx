@@ -8,28 +8,28 @@ import Sections from "@/components/sections/sections";
 import AsideNavigation from "@/components/asideNavigation/asideNavigation";
 import Carrousel from "@/components/carrousel/carrousel";
 import Loader from "@/components/loader/loader";
+import { useEffect } from "react";
 const initialHook = {
   url: "http://localhost:3001/advertising/getAdversiting/",
   body: null,
-  querys: { page: 1,
-  size: 6 },
+  querys: { page: 1, size: 6 },
 };
 export default function AdvertisingDetail() {
   const router = useRouter();
   const id = Number(router.query.idAdvertising);
   const initialHookDetail = { ...initialHook, url: initialHook.url + id };
 
-  const { data: advertising } = useMakeRequest<
+  const { data: advertising, reload } = useMakeRequest<
     null,
     GetWithPage,
     ResToGetDetailAdversit
   >(initialHookDetail);
+  useEffect(() => reload, [id, advertising]);
 
-  console.log(advertising, "<----sisoy---");
   return (
     <div className={styles.container}>
-      <Carrousel />
-      {(advertising && (
+      <Carrousel imageEdit={[]} locationToEdit="" />
+      {(advertising?.data && (
         <>
           {/* <ShowImage idImage={advertising.data.image} type="cover" /> */}
           <h4 className={styles.title}>{advertising?.data.title}</h4>

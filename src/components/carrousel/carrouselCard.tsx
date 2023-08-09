@@ -1,3 +1,4 @@
+import { CarrouselImages } from "@/types/interfaces";
 import SwitchComponent from "../switchComponent/switchComponent";
 import styles from "./carrouselCard.module.scss";
 const arrowL =
@@ -11,8 +12,6 @@ interface P {
   length: number;
 }
 export default function CarrouselCard({ image, index, length }: P) {
-  console.log(index);
-
   return (
     <div className={styles.container}>
       <div className={styles.containerButtons} id={`carrouselCard-${index}`}>

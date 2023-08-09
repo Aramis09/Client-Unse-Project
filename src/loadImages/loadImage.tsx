@@ -6,14 +6,12 @@ interface sectionProps {
 
 export default function LoadImage({imageData}: sectionProps) {
   const [selectedImage, setSelectedImage] = useState<string>("");
-  // console.log(selectedImage);
 
   const handleDrop = (event: any) => {
     event.preventDefault();
     const file = event.dataTransfer.files[0];
     if (file && file.type.match("image.*")) {
       const reader = new FileReader();
-      console.log(file);
 
       reader.onload = () => {
         reader.result &&

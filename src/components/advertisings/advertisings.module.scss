@@ -1,12 +1,12 @@
 .container{
   display: grid;
-  max-width: 68%;
+  max-width:70%;
   margin-block: 2%;
   margin-bottom: 10%;
   grid-template-columns: 
   repeat(
     auto-fill,
-    minmax(200px,1fr)
+    minmax(280px,1fr)
   );
   gap: 10%;
   justify-content: center;
