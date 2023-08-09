@@ -9,7 +9,6 @@ import SectionForm from "@/components/SectionForm/SectionForm";
 import useSelectStateForm from "@/customHooks/useSelectStateForm";
 import ShowImage from "../showImage/showImage";
 
-
 const initialHook: ServiceParams<null, null> = {
   url: "http://localhost:3001",
   body: null,
@@ -19,23 +18,6 @@ const initialHook: ServiceParams<null, null> = {
 
 export default function Forms({ type }: optionsForm) {
   const { formData, setFormData, url } = useSelectStateForm(type);
-
-  // switch (type) {
-  //   case "service":
-  //     baseUrl = baseUrl + "/services/createService";
-  //     break;
-  //   case "subservice":
-  //     baseUrl = baseUrl + "/subServices/createSubService";
-  //     break;
-  //   case "advertising":
-  //     baseUrl = baseUrl + "/advertising/createAdvertising";
-  //     break;
-
-  //   default:
-  //     baseUrl = baseUrl + "/advertising/createAdvertising";
-  //     break;
-  // }
-
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     formData &&
@@ -53,25 +35,27 @@ export default function Forms({ type }: optionsForm) {
       });
   };
 
+  console.log(formData, "<------Soy el formData dentro del handle, tengo que tener algo");
   const handleImageUrl = (imageData: string) => {
-    formData &&
-      setFormData({
-        ...formData,
-        image: imageData,
-      });
+    //! modificado Aramis
+    setFormData((prevFormData) => (prevFormData && {
+      ...prevFormData,
+      image: imageData,
+    }));
+
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log(url)
     e.preventDefault();
-    // alert(JSON.stringify(formData)); // Convert formData to string for alert
     const initialHookPost = {
       ...initialHook,
       body: formData,
       url: url,
     };
     generateRequest(initialHookPost);
+    setFormData() 
   };
+
   const fieldNames = formData && getFilteredFieldNames(formData);
   return (
     <>
@@ -89,6 +73,7 @@ export default function Forms({ type }: optionsForm) {
                 // If formData.image is empty, use the UploadWidget component
                 <>
                   <label>{fieldName}</label>
+                  {/* //modificado Arammis */}
                   <UploadWidget handleImageUrl={handleImageUrl} />
                 </>
               )
@@ -107,10 +92,10 @@ export default function Forms({ type }: optionsForm) {
         <button type="submit">Publicar</button>
       </form>
       {formData && (
-        <SectionForm
-          sections={formData.sections}
-          handleSave={handleSectionSave}
-        />
+      <SectionForm
+        sections={formData.sections}
+        handleSave={handleSectionSave}
+      />
       )}
     </>
   );
