@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { DataInForm } from "@/types/interfaces";
 import styles from "./sectionForm.module.scss";
+import UploadWidget from "@/components/uploadWidget/uploadWidget";
 
 interface sectionProps {
   sections: DataInForm[] | null;
@@ -18,6 +19,13 @@ const initialData: DataInForm = {
 
 function SectionForm({ sections, handleSave }: sectionProps) {
   const [formData, setFormData] = useState<DataInForm>(initialData);
+  const [imageUrls, setImageUrls] = useState<{
+    [fieldName: string]: string | null;
+  }>({
+    topImage: null,
+    middleImage: null,
+    belowImage: null,
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -28,11 +36,32 @@ function SectionForm({ sections, handleSave }: sectionProps) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    handleSave(formData);
+    console.log("ando aca");
+    handleSave({
+      ...formData,
+      topImage: imageUrls.topImage,
+      middleImage: imageUrls.middleImage,
+      belowImage: imageUrls.belowImage,
+    });
     setFormData(initialData);
   };
 
-  // Función para convertir el valor null a cadena vacía
+  const handleImageTop = (imageData: string) => {
+    setImageUrls((prevFormData) => ({
+      ...prevFormData,
+      topImage: imageData,
+    }));
+  }
+
+  const handleImageUpload = (
+    fieldName: keyof typeof imageUrls,
+    imageUrl: string
+  ) => {
+    setImageUrls((prevImageUrls) => ({
+      ...prevImageUrls,
+      [fieldName]: imageUrl,
+    }));
+  };
   const handleNullToString = (value: string | null): string => {
     return value === null ? "" : value;
   };
@@ -54,11 +83,8 @@ function SectionForm({ sections, handleSave }: sectionProps) {
       <form className={styles.container} onSubmit={handleSubmit}>
         <h5>Secciones</h5>
         <label htmlFor="topImage">Imagen</label>
-        <input
-          type="text"
-          name="topImage"
-          value={handleNullToString(formData.topImage)}
-          onChange={handleInputChange}
+        <UploadWidget
+          imageUrl={handleImageTop}
         />
 
         <label htmlFor="title">Titulo</label>
@@ -76,12 +102,12 @@ function SectionForm({ sections, handleSave }: sectionProps) {
           onChange={handleInputChange}
         />
         <label htmlFor="middleImage">Imagen</label>
-        <input
-          type="text"
-          name="middleImage"
-          value={handleNullToString(formData.middleImage)}
-          onChange={handleInputChange}
+        <UploadWidget
+          imageUrl={(imageData) =>
+            handleImageUpload("middleImage", imageData)
+          }
         />
+
         <label htmlFor="partTwo">Parte dos</label>
         <input
           type="text"
@@ -90,16 +116,16 @@ function SectionForm({ sections, handleSave }: sectionProps) {
           onChange={handleInputChange}
         />
         <label htmlFor="belowImage">Imagen</label>
-        <input
-          type="text"
-          name="belowImage"
-          value={handleNullToString(formData.belowImage)}
-          onChange={handleInputChange}
+        <UploadWidget
+          imageUrl={(imageData) =>
+            handleImageUpload("belowImage", imageData)
+          }
         />
+
         <button type="submit">Guardar Borrador</button>
       </form>
     </>
   );
 }
 
-export default SectionForm;
+export default memo(SectionForm) ;

@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import styles from "./uploadWidget.module.scss";
 import { ImageData } from "@/types/interfaces";
 interface P {
   addImageToCarrousel?: (urlNewImage: string) => void;
   handleImageUrl?: (data: string) => void;
+  imageUrl?: (data: string) => void;
 }
 
-export default function UploadWidget({ addImageToCarrousel, handleImageUrl }: P) {
+function UploadWidget({ addImageToCarrousel, handleImageUrl, imageUrl }: P) {
   const [imageData, setImageData] = useState<ImageData>();
   const cloudinaryRef: any = useRef();
   const widgetRef: any = useRef();
@@ -22,9 +23,10 @@ export default function UploadWidget({ addImageToCarrousel, handleImageUrl }: P)
       function (err: any, result: any) {
         // setLatestResult(result); // Update the latest result
         if (result.event === "success") {
-            setImageData(result.info);
-            addImageToCarrousel && addImageToCarrousel(result.info.url);
-            handleImageUrl && handleImageUrl(result.info.public_id);
+          setImageData(result.info);
+          addImageToCarrousel && addImageToCarrousel(result.info.url);
+          handleImageUrl && handleImageUrl(result.info.public_id);
+          imageUrl && imageUrl(result.info.public_id);
         }
       }
     );
@@ -32,10 +34,10 @@ export default function UploadWidget({ addImageToCarrousel, handleImageUrl }: P)
 
   return (
     <div className={styles.container}>
-      <button onClick={() => widgetRef.current.open()}>Subir imagen</button>
+      <button type="button" onClick={() => widgetRef.current.open()}>Subir imagen</button>
       {imageData && <img src={imageData.url} alt="imageLoad" />}
     </div>
   );
 }
 
-
+export default memo(UploadWidget);

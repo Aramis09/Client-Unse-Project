@@ -17,7 +17,7 @@ const initialHook: ServiceParams<null, null> = {
 };
 
 export default function Forms({ type }: optionsForm) {
-  const { formData, setFormData, url } = useSelectStateForm(type);
+  const { formData, setFormData, url, initialData } = useSelectStateForm(type);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     formData &&
@@ -35,14 +35,14 @@ export default function Forms({ type }: optionsForm) {
       });
   };
 
-  console.log(formData, "<------Soy el formData dentro del handle, tengo que tener algo");
   const handleImageUrl = (imageData: string) => {
-    //! modificado Aramis
-    setFormData((prevFormData) => (prevFormData && {
-      ...prevFormData,
-      image: imageData,
-    }));
-
+    setFormData(
+      (prevFormData) =>
+        prevFormData && {
+          ...prevFormData,
+          image: imageData,
+        }
+    );
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -53,7 +53,7 @@ export default function Forms({ type }: optionsForm) {
       url: url,
     };
     generateRequest(initialHookPost);
-    setFormData() 
+    setFormData(initialData);
   };
 
   const fieldNames = formData && getFilteredFieldNames(formData);
@@ -65,15 +65,12 @@ export default function Forms({ type }: optionsForm) {
           fieldNames.map((fieldName) =>
             fieldName.includes("image") ? (
               formData.image ? (
-                // If formData.image has data, use the LoadImage component
                 <div className={styles.imgContainer}>
                   <ShowImage idImage={formData.image} type="thumbnail" />
                 </div>
               ) : (
-                // If formData.image is empty, use the UploadWidget component
                 <>
                   <label>{fieldName}</label>
-                  {/* //modificado Arammis */}
                   <UploadWidget handleImageUrl={handleImageUrl} />
                 </>
               )
@@ -92,10 +89,10 @@ export default function Forms({ type }: optionsForm) {
         <button type="submit">Publicar</button>
       </form>
       {formData && (
-      <SectionForm
-        sections={formData.sections}
-        handleSave={handleSectionSave}
-      />
+        <SectionForm
+          sections={formData.sections}
+          handleSave={handleSectionSave}
+        />
       )}
     </>
   );
