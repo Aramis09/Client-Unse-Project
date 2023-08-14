@@ -1,7 +1,8 @@
 import { memo, useState } from "react";
-import { DataInForm } from "@/types/interfaces";
+import { DataInForm, errorForm } from "@/types/interfaces";
 import styles from "./sectionForm.module.scss";
 import UploadWidget from "@/components/uploadWidget/uploadWidget";
+import { validateSection } from "../Forms/validate";
 
 interface sectionProps {
   sections: DataInForm[] | null;
@@ -19,6 +20,9 @@ const initialData: DataInForm = {
 
 function SectionForm({ sections, handleSave }: sectionProps) {
   const [formData, setFormData] = useState<DataInForm>(initialData);
+  const [errors , setErrors] = useState<errorForm>({
+    message: ""
+  })
   const [imageUrls, setImageUrls] = useState<{
     [fieldName: string]: string | null;
   }>({
@@ -32,6 +36,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
       ...formData,
       [e.target.name]: e.target.value,
     });
+    setErrors(validateSection(formData))
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

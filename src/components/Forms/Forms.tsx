@@ -1,13 +1,14 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import styles from "./Form.module.scss";
 import { getFilteredFieldNames } from "./initialData";
 import UploadWidget from "@/components/uploadWidget/uploadWidget";
-import { DataInForm, optionsForm } from "@/types/interfaces";
+import { DataInForm, optionsForm, errorForm } from "@/types/interfaces";
 import { ServiceParams } from "@/types/requestTypes";
 import { generateRequest } from "@/utils/generateRequest";
 import SectionForm from "@/components/SectionForm/SectionForm";
 import useSelectStateForm from "@/customHooks/useSelectStateForm";
 import ShowImage from "../showImage/showImage";
+import validation from "./validate";
 
 const initialHook: ServiceParams<null, null> = {
   url: "http://localhost:3001",
@@ -18,6 +19,10 @@ const initialHook: ServiceParams<null, null> = {
 
 export default function Forms({ type }: optionsForm) {
   const { formData, setFormData, url, initialData } = useSelectStateForm(type);
+  const [errors, setErrors] = useState<errorForm>({
+    message: "",
+    type: "",
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     formData &&
@@ -25,6 +30,7 @@ export default function Forms({ type }: optionsForm) {
         ...formData,
         [e.target.name]: e.target.value,
       });
+    setErrors(validation(formData, type));
   };
 
   const handleSectionSave = (sectionData: DataInForm) => {
@@ -43,23 +49,27 @@ export default function Forms({ type }: optionsForm) {
           image: imageData,
         }
     );
+    setErrors(validation(formData, type));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const initialHookPost = {
-      ...initialHook,
-      body: formData,
-      url: url,
-    };
-    generateRequest(initialHookPost);
-    setFormData(initialData);
+    if (!errors.message) {
+      const initialHookPost = {
+        ...initialHook,
+        body: formData,
+        url: url,
+      };
+      generateRequest(initialHookPost);
+      setFormData(initialData);
+    }
   };
 
   const fieldNames = formData && getFilteredFieldNames(formData);
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.container}>
+        {errors.message ? (<p>{errors.message}</p>) : null}
         {formData &&
           fieldNames &&
           fieldNames.map((fieldName) =>

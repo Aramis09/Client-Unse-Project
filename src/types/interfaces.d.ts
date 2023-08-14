@@ -122,7 +122,7 @@ export interface DataInForm {
 
 export interface DataService {
   title: string;
-  description: string;
+  description?: string;
   orientation: string;
   sections: DataInForm[];
   image?: string
@@ -201,4 +201,9 @@ export interface CarrouselImages {
   createdAt:         string;
   updatedAt:         string;
   setCarrouselOwner: number;
+}
+
+export interface errorForm {
+  message: string
+  type?: string
 }
