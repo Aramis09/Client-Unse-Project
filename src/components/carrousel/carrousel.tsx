@@ -6,7 +6,6 @@ import { ServiceParams } from "@/types/requestTypes";
 import { CarrouselImages, ResToGetCarrousel } from "@/types/interfaces";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import Loader from "../loader/loader";
 interface P {
   imageEdit: string[];
   locationToEdit: string;
@@ -35,8 +34,6 @@ export default function Carrousel({ imageEdit, locationToEdit }: P) {
       idAdvertising: idAd, //! tengo que ver de mandar null cuando se requira
     },
   };
-  console.log(initStatePlus);
-
   const { data: images } = useMakeRequest<
     null,
     { location: string },
@@ -45,18 +42,32 @@ export default function Carrousel({ imageEdit, locationToEdit }: P) {
 
   useEffect(() => setImagesToRender(imageEdit), [imageEdit]);
   return (
-    <div className={styles.container}>
-      <GoEdit whereRedirect="/editCarrouselImage" location={router.pathname} />
+    <>
       {!!images && !!images.data ? (
-        !imagesToRender.length && images ? (
-          <RenderImagesCarrousel imagesRender={images.data.CarrouselContent} />
-        ) : (
-          <RenderImagesCarrousel imagesRender={imagesToRender} />
-        )
+        <div className={styles.container}>
+          <GoEdit
+            whereRedirect="/editCarrouselImage"
+            location={router.pathname}
+            action="edit"
+          />
+          {!imagesToRender.length && images ? (
+            <RenderImagesCarrousel
+              imagesRender={images.data.CarrouselContent}
+            />
+          ) : (
+            <RenderImagesCarrousel imagesRender={imagesToRender} />
+          )}
+        </div>
       ) : (
-        <Loader />
+        <section className={styles.containerCreate}>
+          <GoEdit
+            whereRedirect="/editCarrouselImage"
+            location={router.pathname}
+            action="create"
+          />
+        </section>
       )}
-    </div>
+    </>
   );
 }
 
@@ -73,7 +84,7 @@ const RenderImagesCarrousel = ({
             image={typeof image === "string" ? image : image.url}
             index={index}
             length={imagesRender.length}
-            key={Math.random()}
+            key={Math.random() * Math.random()}
           />
         ))}
     </>

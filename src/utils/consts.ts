@@ -34,3 +34,13 @@ export let messajes = {
     marginBottom: "20px",
   },
 };
+
+
+
+
+
+export const iconSaveDataCarrousel = "https://res.cloudinary.com/dynnwv7md/image/upload/v1691506691/save_nvyiex.png"
+export const iconEdit =
+    "https://res.cloudinary.com/dynnwv7md/image/upload/v1691505197/edit-image_wxxstt.png";
+export const iconCreate =
+    "https://res.cloudinary.com/dynnwv7md/image/upload/v1691970445/2524748_add_add_photo_plus_upload_icon_oi2lt1.png";

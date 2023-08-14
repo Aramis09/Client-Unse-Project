@@ -8,7 +8,9 @@ interface P {
 }
 
 export default function Advertising({ advertising }: P) {
-  const { id, title, image, summary } = advertising;
+  console.log(advertising);
+
+  const { id, title, image, summary, date } = advertising;
   return (
     <article key={id} className={styles.containerCard}>
       <Link href={`/advertisingDetail/${id}`}>
@@ -16,6 +18,7 @@ export default function Advertising({ advertising }: P) {
       </Link>
       <ShowImage idImage={image} type="thumbnail" />
       <h4>{title}</h4>
+      <p className={styles.date}>{date}</p>
       <section className={styles.containerSummary}>
         <p>{summary}</p>
       </section>

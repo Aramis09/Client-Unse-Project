@@ -1,0 +1,31 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.container img {
+  width: 15%;
+  cursor: pointer;
+}
+.button{
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 5rem;
+  font-weight: 700;
+  border: solid 2px #C70039;
+}
+
+.buttonCurrentPage{
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 5rem;
+  font-weight: 700;
+  border: solid 2.5px #C70039;
+  background-color: #16213E;
+  color: wheat;
+}

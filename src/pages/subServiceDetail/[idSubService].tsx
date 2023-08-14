@@ -24,8 +24,6 @@ export default function AdvertisingDetail() {
       {service?.data && (
         <>
           <h4 className={styles.title}>{service.data.title}</h4>
-          <span>{service.data.resume}</span>
-          <div>{service.data.description}</div>
           <div className={styles.data}>
             <AsideNavigation sectionsData={service.data.SectionsViewsSubServ} />
             <Sections sectionsData={service.data.SectionsViewsSubServ} />

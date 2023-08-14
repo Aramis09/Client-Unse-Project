@@ -86,6 +86,7 @@ export interface AdvertisingType {
   aside: string;
   footer: string;
   image: string;
+  date:string,
   createdAt: string;
   updatedAt: string;
   SectionsViews: SectionsView[];

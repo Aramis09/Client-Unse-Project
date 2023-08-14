@@ -4,9 +4,10 @@ import { useState, useRef } from "react";
 import SaveDataCarrousel from "@/components/saveDataCarrousel/saveDataCarrousel";
 import RenderUploadsCarrousel from "@/components/renderUploadCarrousel/renderUploadCarrousel";
 import { useRouter } from "next/router";
+import UploadWidget from "../../components/uploadWidget/uploadWidget";
+import ShowImage from "@/components/showImage/showImage";
 
 export default function EditCarrouselImage() {
-  const [numberImage, setNumberImage] = useState(3);
   const [imagesToCarrousel, setimagesToCarrousel] = useState<string[]>([]);
   const router = useRouter();
   const idAdvertising =
@@ -19,6 +20,7 @@ export default function EditCarrouselImage() {
   const handleArrayImage = (urlNewImage: string) => {
     setimagesToCarrousel((prevImages) => [...prevImages, urlNewImage]);
   };
+  console.log(router.query["action"], "<-------------");
 
   return (
     <section className={styles.container}>
@@ -30,8 +32,28 @@ export default function EditCarrouselImage() {
         images={imagesToCarrousel}
         location={String(router.query["location"])}
         idAdvertising={idAdvertising} //! tengo que ver de mandar null cuando se requira
+        action={String(router.query["action"])}
       />
-      <div className={styles.numberUploads}>
+
+      <section className={styles.uploadWidget}>
+        <UploadWidget addImageToCarrousel={handleArrayImage} />
+      </section>
+      <p>
+        Por favor, haga click abajo y selecciones todas las imagenes que desea
+        agreagar al carrusel
+      </p>
+      {/* {imagesToCarrousel.map((image) => {
+        return <ShowImage idImage={image} type="thumbnail" />;
+      })} */}
+    </section>
+  );
+}
+
+{
+  /* Esto se puede ir, al final te deja subir varias imagenes */
+}
+{
+  /* <div className={styles.numberUploads}>
         <label htmlFor="numberImage">Cuantas imagenes quiere subir?</label>
         <input
           type="number"
@@ -41,11 +63,14 @@ export default function EditCarrouselImage() {
             setNumberImage(Math.min(10, Number(evt.target.value)))
           }
         />
-      </div>
-      <RenderUploadsCarrousel
+      </div> */
+}
+{
+  /* Esto se puede ir, al final te deja subir varias imagenes */
+}
+{
+  /* <RenderUploadsCarrousel
         numberImage={numberImage}
         handleArrayImage={handleArrayImage}
-      />
-    </section>
-  );
+      /> */
 }

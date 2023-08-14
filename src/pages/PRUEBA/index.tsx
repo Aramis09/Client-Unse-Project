@@ -10,7 +10,7 @@ export default function index() {
       <button onClick={() => loginWithPopup()}>Inicio session</button>
       <LoadImages />
       {/* <UploadWidget addImageToCarrousel={[]}/> */}
-      <GoEdit whereRedirect="" />
+      <GoEdit whereRedirect="" action="edit" location="" />
     </div>
   );
 }

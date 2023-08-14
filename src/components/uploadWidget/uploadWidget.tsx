@@ -19,9 +19,11 @@ export default function UploadWidget({ addImageToCarrousel }: P) {
         uploadPreset: process.env.NEXT_PUBLIC_UPLOAD_PRESET,
       },
       function (err: any, result: any) {
+        const info: ImageData = result.info;
         if (result.event === "success") {
           setImageData(result.info);
-          addImageToCarrousel(result.info.url);
+          addImageToCarrousel(info.url);
+          console.log(result);
         }
       }
     );
@@ -34,5 +36,3 @@ export default function UploadWidget({ addImageToCarrousel }: P) {
     </div>
   );
 }
-
-

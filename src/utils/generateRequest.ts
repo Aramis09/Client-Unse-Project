@@ -9,7 +9,7 @@ import { getCookie } from "./actionCookie";
 //}
 //
 
-export async function generateRequest<B,C>({url,body,querys, method}:ServiceParams<B,C>):Promise<ResRequest> {        
+export async function generateRequest<B,C>({url,body,querys, method}:ServiceParams<B,C>):Promise<ResRequest> {          
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("auth-token",`${getCookie({nameCookie:"messiEntroAJugar"}).cookiesFound || null}`);

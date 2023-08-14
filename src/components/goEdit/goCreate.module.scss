@@ -1,16 +1,14 @@
 .container{
-  position: absolute;
-  top: 20%;
-  right: 5%;
-  z-index: 100;
+  margin-top: 5%;
   transition: transform 0.1s;
-  width: 100px;
+  display: flex;
+  justify-content: center;
+  
 }
 .container img {
-  width: 50px;
+  width: 10rem;
 }
 .container:hover {
   transition: transform 0.1s;
   transform: scale(1.1);
 }
-

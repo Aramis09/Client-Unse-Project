@@ -23,7 +23,6 @@ export default function Login() {
       <form className={styles.formLogin} onSubmit={handleSubmit}>
         <h4>Ingrese las credenciales requeridas</h4>
         <input
-          type="password"
           name="user"
           placeholder="User"
           required
