@@ -30,6 +30,12 @@ export interface GetServiceWithOrientation {
 
 //!geters //////////////////////-----/////////////////
 
+export type QueryParams = {
+  page?: number | null;
+  size?: number | null;
+  orientation?: string;
+};
+
 
 export interface ServiceParams<B, C> {
   url: string;

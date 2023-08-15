@@ -1,6 +1,6 @@
 import Carrousel from "@/components/carrousel/carrousel";
 import styles from "./editCarrouselImage.module.scss";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import SaveDataCarrousel from "@/components/saveDataCarrousel/saveDataCarrousel";
 import RenderUploadsCarrousel from "@/components/renderUploadCarrousel/renderUploadCarrousel";
 import { useRouter } from "next/router";

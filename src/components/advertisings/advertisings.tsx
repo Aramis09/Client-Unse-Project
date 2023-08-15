@@ -1,12 +1,11 @@
 import useMakeRequest from "@/customHooks/makeRequest";
 import { ResToGetAdversit } from "@/types/interfaces";
-import { GetWithPage } from "@/types/requestTypes";
+import { GetWithPage, ServiceParams, QueryParams } from "@/types/requestTypes";
 import styles from "./advertisings.module.scss";
 import Advertising from "../advertising/advertising";
-import Carrousel from "../carrousel/carrousel";
 import Loader from "../loader/loader";
 
-const initialHook = {
+const initialHook:ServiceParams<null, QueryParams> = {
   url: "http://localhost:3001/advertising/getAdversiting",
   body: null,
   querys: { page: 1, size: null },

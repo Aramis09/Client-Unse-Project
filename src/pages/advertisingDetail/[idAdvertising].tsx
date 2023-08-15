@@ -1,18 +1,24 @@
 import useMakeRequest from "@/customHooks/makeRequest";
 import styles from "./advertising.module.scss";
 import { ResToGetDetailAdversit } from "@/types/interfaces";
-import { GetWithPage } from "@/types/requestTypes";
+import { GetWithPage, ServiceParams } from "@/types/requestTypes";
 import { useRouter } from "next/router";
-import ShowImage from "@/components/showImage/showImage";
 import Sections from "@/components/sections/sections";
 import AsideNavigation from "@/components/asideNavigation/asideNavigation";
 import Carrousel from "@/components/carrousel/carrousel";
 import Loader from "@/components/loader/loader";
 import { useEffect } from "react";
-const initialHook = {
+
+type QueryParams = {
+  page: number;
+  size: number;
+};
+
+const initialHook: ServiceParams<null, QueryParams> = {
   url: "http://localhost:3001/advertising/getAdversiting/",
   body: null,
   querys: { page: 1, size: 6 },
+  method: "GET"
 };
 export default function AdvertisingDetail() {
   const router = useRouter();
