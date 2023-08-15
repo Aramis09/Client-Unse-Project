@@ -5,7 +5,7 @@
   margin-top: 50px;
   height: 400px;
   overflow: hidden;
-  .iconEdit{
+  .ICON_EDIT{
     position: absolute;
     z-index: 100;
     width: 100px;
@@ -23,7 +23,7 @@
   align-items: center;
 }
 .container:hover {
-  .iconEdit{
+  .ICON_EDIT{
     transform: scale(1.1);
   }
 }

@@ -4,16 +4,10 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { verificationToken } from "@/helpers/verifyToken";
 import { useRouter } from "next/router";
+import useVerifyToken from "@/customHooks/useVerifyAdmin";
 
 export default function IsLogedIn() {
-  const router = useRouter();
-  const [statusToken, setStatusToken] = useState<boolean>(false);
-
-  useEffect(() => {
-    verificationToken().then((res) => {
-      setStatusToken(res.acces);
-    });
-  }, [router]);
+  const { statusToken } = useVerifyToken();
 
   return (
     <div className={styles.container}>
@@ -24,7 +18,7 @@ export default function IsLogedIn() {
             window.location.reload();
           }}
         >
-          Desloguear
+          Cerrar sesion
         </h4>
       ) : (
         <>

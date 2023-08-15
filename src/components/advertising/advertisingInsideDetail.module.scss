@@ -1,0 +1,23 @@
+.containerCard{
+  position: relative;
+  padding: 10%;
+  text-align: left;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F2F2F2;
+  flex-direction: column;
+  .date{
+    display: none;
+  }
+  .coverImage{
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: rgba(207, 130, 231, 0);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+  }
+}

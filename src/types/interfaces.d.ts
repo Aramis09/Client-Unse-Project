@@ -106,7 +106,7 @@ export interface SectionsView {
 
 //!Aversiting types types -----------------------------------><
 
-export type TypeImage = "cover" | "thumbnail";
+export type TypeImage = "cover" | "thumbnail" | "auto";
 
 export type TypeForm = "service" | "subservice" | "advertising";
 

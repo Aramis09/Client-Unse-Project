@@ -1,6 +1,7 @@
 import { createArrayPagination } from "@/helpers/paginate";
 import styles from "./paginate.module.scss";
-import ShowImage from "../showImage/showImage";
+import { ARROW_PAGINATE_L, ARROW_PAGINATE_R } from "@/utils/consts";
+
 export default function Pagination({
   currentPage,
   setPageNumber,
@@ -13,8 +14,8 @@ export default function Pagination({
   return (
     <div className={styles.container}>
       <img
-        src="https://res.cloudinary.com/dynnwv7md/image/upload/v1691869581/icons8-back-to-96_gxejsr.png"
-        alt="arrowL"
+        src={ARROW_PAGINATE_L}
+        alt="ICON_ARROW_LEFT"
         onClick={() => setPageNumber(currentPage - 1 || 1)}
       />
       {arrayOfPages.map((page) => (
@@ -37,8 +38,8 @@ export default function Pagination({
         </>
       ))}
       <img
-        src="https://res.cloudinary.com/dynnwv7md/image/upload/v1691869581/icons8-next-page-96_vsud1m.png"
-        alt="arrowR"
+        src={ARROW_PAGINATE_R}
+        alt="ICON_ARROW_RIGHT"
         onClick={() => {
           setPageNumber(currentPage + 1);
         }}

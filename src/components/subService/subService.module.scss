@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   border-radius: 0.2rem;
   text-align: center;
   transition:  transform 0.5s;
@@ -16,7 +17,7 @@
 
 .resume {
   text-align: left;
-  height: 150px;
+  height: auto;
   padding: 1rem;
   font-size: 1rem;
   background: linear-gradient(#f5f5f5, #ffffff, rgb(114, 114, 114));

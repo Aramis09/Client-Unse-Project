@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./uploadWidget.module.scss";
 import { ImageData } from "@/types/interfaces";
+import ShowImage from "../showImage/showImage";
 interface P {
   addImageToCarrousel: (urlNewImage: string) => void;
 }
@@ -22,8 +23,8 @@ export default function UploadWidget({ addImageToCarrousel }: P) {
         const info: ImageData = result.info;
         if (result.event === "success") {
           setImageData(result.info);
-          addImageToCarrousel(info.url);
-          console.log(result);
+          // addImageToCarrousel(info.url);//!modificado, descomentar si es necesario
+          addImageToCarrousel(info.public_id);
         }
       }
     );
@@ -32,7 +33,10 @@ export default function UploadWidget({ addImageToCarrousel }: P) {
   return (
     <div className={styles.container}>
       <button onClick={() => widgetRef.current.open()}>Subir imagen</button>
-      {imageData && <img src={imageData.url} alt="imageLoad" />}
+      {/* {imageData && <img src={imageData.url} alt="imageLoad" />}  */}
+      {imageData && (
+        <ShowImage idImage={imageData.public_id} type="thumbnail" />
+      )}
     </div>
   );
 }

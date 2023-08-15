@@ -50,7 +50,6 @@ export default function SubServices({
     GetWithPage,
     ResToGetSubServices
   >(initialHook);
-  console.log(subServiceList);
 
   useEffect(() => reload(), [router, pageNumber]);
   return (

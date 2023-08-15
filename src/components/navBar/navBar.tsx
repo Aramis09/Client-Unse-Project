@@ -3,6 +3,7 @@ import styles from "./navBar.module.scss";
 import Link from "next/link";
 import IsLogedIn from "../isLogedIn/isLogedIn";
 import dynamic from "next/dynamic";
+import { LOGO } from "@/utils/consts";
 
 function NavBar() {
   const { style, changeStyles } = useStylesClick({
@@ -15,10 +16,7 @@ function NavBar() {
   return (
     <div className={styles.container}>
       <Link href="/">
-        <img
-          src="https://res.cloudinary.com/dynnwv7md/image/upload/v1690905833/My_project-1_svaban.png"
-          alt="icon"
-        />
+        <img src={LOGO} alt="icon" />
       </Link>
       <div className={styles.menu}>
         <IsLogedIn />

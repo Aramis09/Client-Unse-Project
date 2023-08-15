@@ -9,8 +9,6 @@ interface P {
 const useChangeStyles = ({depedence,condition,falseStyle,trueStyle}:P) => {
   const [stylesChosen, setStylesChosen] = useState(falseStyle)
   useEffect(()=>{
-    console.log(condition,"soy la condicion");
-    
     if(condition) setStylesChosen(trueStyle)
     else setStylesChosen(falseStyle)
   },[depedence])

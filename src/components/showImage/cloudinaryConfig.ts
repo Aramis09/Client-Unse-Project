@@ -2,6 +2,6 @@ import {Cloudinary} from "@cloudinary/url-gen";
 
 export const cld = new Cloudinary({
   cloud: {
-    cloudName: 'dynnwv7md'
+    cloudName: process.env.NEXT_PUBLIC_CLOUD_NAME
   }
 });

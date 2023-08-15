@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export default function useMakeRequest<B, C, D extends ResRequest>(
   serviceParams: ServiceParams<B, C>
 ) {
+  
   const [data, setData] = useState<D>();
   const [reloadRequest, setReloadRequest] = useState<boolean>(false);
   useEffect(() => {

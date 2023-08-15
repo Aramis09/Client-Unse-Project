@@ -2,10 +2,7 @@ import { CarrouselImages } from "@/types/interfaces";
 import SwitchComponent from "../switchComponent/switchComponent";
 import styles from "./carrouselCard.module.scss";
 import ShowImage from "../showImage/showImage";
-const arrowL =
-  "https://res.cloudinary.com/dynnwv7md/image/upload/v1690897372/arrowL_ihe1hv.png";
-const arrowR =
-  "https://res.cloudinary.com/dynnwv7md/image/upload/v1690897366/arrowR_mpxuso.png";
+import { ICON_ARROW_LEFT, ICON_ARROW_RIGHT } from "@/utils/consts";
 
 interface P {
   image: string;
@@ -20,10 +17,10 @@ export default function CarrouselCard({ image, index, length }: P) {
           {SwitchComponent(
             !!index,
             <a href={`#carrouselCard-${index - 1}`}>
-              <img src={arrowL} alt="arrowL" />
+              <img src={ICON_ARROW_LEFT} alt="ICON_ARROW_LEFT" />
             </a>,
             <a href={`#carrouselCard-${length - 1}`}>
-              <img src={arrowL} alt="arrowL" />
+              <img src={ICON_ARROW_LEFT} alt="ICON_ARROW_LEFT" />
             </a>
           )}
         </div>
@@ -31,16 +28,17 @@ export default function CarrouselCard({ image, index, length }: P) {
           {SwitchComponent(
             index !== length - 1,
             <a href={`#carrouselCard-${index + 1}`}>
-              <img src={arrowR} alt="arrowR" />
+              <img src={ICON_ARROW_RIGHT} alt="ICON_ARROW_RIGHT" />
             </a>,
             <a href={`#carrouselCard-0`}>
-              <img src={arrowR} alt="arrowR" />
+              <img src={ICON_ARROW_RIGHT} alt="ICON_ARROW_RIGHT" />
             </a>
           )}
         </div>
       </div>
 
-      <img className={styles.imageItem} src={image} alt="carrouselImage" />
+      {/* <img className={styles.imageItem} src={image} alt="carrouselImage" /> */}
+      <ShowImage idImage={image} type="auto" externalStyle={styles.imageItem} />
     </div>
   );
 }

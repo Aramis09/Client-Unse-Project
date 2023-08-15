@@ -1,12 +1,14 @@
 import useMakeRequest from "@/customHooks/makeRequest";
 import { ResToGetAdversit } from "@/types/interfaces";
-import { GetWithPage } from "@/types/requestTypes";
+import { GetWithPage, ServiceParams } from "@/types/requestTypes";
+import stylesFalse from "./advertisingsInsideDetail.module.scss";
 import styles from "./advertisings.module.scss";
 import Advertising from "../advertising/advertising";
-import Carrousel from "../carrousel/carrousel";
 import Loader from "../loader/loader";
+import useChangeStyles from "@/customHooks/useChangeStyles";
+import { useRouter } from "next/router";
 
-const initialHook = {
+const initialHook: ServiceParams<null, any> = {
   url: "http://localhost:3001/advertising/getAdversiting",
   body: null,
   querys: { page: 1, size: null },
@@ -14,15 +16,24 @@ const initialHook = {
 };
 
 export default function Advertisings() {
+  const router = useRouter();
   const { data: adversitList } = useMakeRequest<
     null,
     GetWithPage,
     ResToGetAdversit
   >(initialHook);
+  const condition = router.pathname !== "/advertisingDetail/[idAdvertising]";
+
+  const { stylesChosen } = useChangeStyles({
+    condition,
+    depedence: router,
+    falseStyle: stylesFalse,
+    trueStyle: styles,
+  });
   return (
     <>
       {(adversitList?.data && (
-        <div className={styles.container}>
+        <div className={stylesChosen.container}>
           {adversitList?.data.map((advertising) => (
             <Advertising key={advertising.id} advertising={advertising} />
           ))}

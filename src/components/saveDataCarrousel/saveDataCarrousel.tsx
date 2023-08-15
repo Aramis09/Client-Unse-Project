@@ -1,7 +1,7 @@
 import { sendEditCarrouselHelper } from "@/helpers/ediCarrouselHelpers";
 import styles from "./saveDataCarrousel.module.scss";
 import { useState } from "react";
-import { StatusSend, iconSaveDataCarrousel, messajes } from "@/utils/consts";
+import { StatusSend, ICON_SAVE_DATA_CARROUSEL, messajes } from "@/utils/consts";
 interface P {
   images: string[];
   location: string;
@@ -26,7 +26,7 @@ const SaveDataCarrousel = ({ images, location, idAdvertising, action }: P) => {
   return (
     <>
       <img
-        src={iconSaveDataCarrousel}
+        src={ICON_SAVE_DATA_CARROUSEL}
         alt="iconSave"
         onClick={() => hanlderSendData()}
         className={styles.iconSave}

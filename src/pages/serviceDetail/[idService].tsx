@@ -7,7 +7,7 @@ import Link from "next/link";
 import Sections from "@/components/sections/sections";
 import AsideNavigation from "@/components/asideNavigation/asideNavigation";
 import SubServices from "@/components/subServices/subServices";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Loader from "@/components/loader/loader";
 
 const initialHook: ServiceParams<null, any> = {
@@ -16,14 +16,16 @@ const initialHook: ServiceParams<null, any> = {
   querys: {},
   method: "GET",
 };
-export default function AdvertisingDetail() {
+
+//!Solucionar eerro de que esto cuando lo recargo no carga
+export default function ServiceDetail() {
   const router = useRouter();
   const orientation = String(router.query.idService);
 
   const initialHookDetail = {
     ...initialHook,
     querys: {
-      orientation,
+      orientation: orientation,
     },
   };
 
@@ -33,9 +35,7 @@ export default function AdvertisingDetail() {
     ResToGetDetailServices
   >(initialHookDetail);
 
-  console.log(service, "<----------service");
-
-  useEffect(() => reload(), [orientation]); //Es para que vuelva hacer la request
+  useEffect(() => reload(), [orientation, service]); //Es para que vuelva hacer la request
 
   return (
     <>
