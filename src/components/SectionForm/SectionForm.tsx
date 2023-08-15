@@ -42,13 +42,14 @@ function SectionForm({ sections, handleSave }: sectionProps) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("ando aca");
-    handleSave({
-      ...formData,
-      topImage: imageUrls.topImage,
-      middleImage: imageUrls.middleImage,
-      belowImage: imageUrls.belowImage,
-    });
+    if(!errors.message){
+      handleSave({
+        ...formData,
+        topImage: imageUrls.topImage,
+        middleImage: imageUrls.middleImage,
+        belowImage: imageUrls.belowImage,
+      });
+    }
     setFormData(initialData);
   };
 
@@ -121,14 +122,3 @@ function SectionForm({ sections, handleSave }: sectionProps) {
 }
 
 export default memo(SectionForm);
-
-  {/* {sections?.map((section) => (
-    <ul key={section.title}>
-      <li>{section.topImage ? section.topImage : null}</li>
-      <li>{section.title}</li>
-      <li>{section.partOne}</li>
-      <li>{section.middleImage ? section.middleImage : null}</li>
-      <li>{section.partTwo}</li>
-      <li>{section.belowImage ? section.belowImage : null}</li>
-    </ul>
-  ))} */}

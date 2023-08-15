@@ -11,25 +11,28 @@ function SectionPreview({ sections }: sectionsToDisplay) {
     <>
       {sections &&
         sections?.map((section) => (
-          <ul key={section.title} className={styles.noListBullets}>
-            {section.topImage ? (
-              <ShowImage idImage={section.topImage} type="thumbnail" />
-            ) : null}
+          <>
+            <ul key={section.title} className={styles.noListBullets}>
+              {section.topImage ? (
+                <ShowImage idImage={section.topImage} type="thumbnail" />
+              ) : null}
 
-            <li>{section.title}</li>
+              <li>{section.title}</li>
 
-            <li>{section.partOne}</li>
+              <li>{section.partOne}</li>
 
-            {section.middleImage ? (
-              <ShowImage idImage={section.middleImage} type="thumbnail" />
-            ) : null}
+              {section.middleImage ? (
+                <ShowImage idImage={section.middleImage} type="thumbnail" />
+              ) : null}
 
-            <li>{section.partTwo}</li>
+              <li>{section.partTwo}</li>
 
-            {section.belowImage ? (
-              <ShowImage idImage={section.belowImage} type="thumbnail" />
-            ) : null}
-          </ul>
+              {section.belowImage ? (
+                <ShowImage idImage={section.belowImage} type="thumbnail" />
+              ) : null}
+            <hr />
+            </ul>
+          </>
         ))}
     </>
   );
