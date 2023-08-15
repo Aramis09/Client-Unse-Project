@@ -11,4 +11,10 @@
   }
 }
 
-
+.errorMessage {
+  height: 1rem;
+  p {
+    margin: 0;
+    color: red;
+  }
+}

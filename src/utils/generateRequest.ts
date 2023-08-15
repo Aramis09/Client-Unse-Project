@@ -1,14 +1,6 @@
 import { ResRequest, ServiceParams } from "@/types/requestTypes"
 import { getCookie } from "./actionCookie";
 
-//!El response tiene que ser lo que devuelve la Api 
-//todo Example querys 
-// querys = {
-//    page: 1
-//    queryX:"Holamundo"
-//}
-//
-
 export async function generateRequest<B,C>({url,body,querys, method}:ServiceParams<B,C>):Promise<ResRequest> {        
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");

@@ -69,7 +69,9 @@ export default function Forms({ type }: optionsForm) {
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.container}>
-        {errors.message ? (<p>{errors.message}</p>) : null}
+        <div className="errorMessage">
+          {errors.message ? <p>{errors.message}</p> : null}
+        </div>
         {formData &&
           fieldNames &&
           fieldNames.map((fieldName) =>

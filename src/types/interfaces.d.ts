@@ -113,17 +113,17 @@ export interface optionsForm {
 
 export interface DataInForm {
   topImage: string | null;
-  middleImage: string | null;
-  belowImage: string | null;
   title: string;
   partOne: string | null;
+  middleImage: string | null;
   partTwo: string | null;
+  belowImage: string | null;
 }
 
 export interface DataService {
   title: string;
   description?: string;
-  orientation: string;
+  orientation?: string;
   sections: DataInForm[];
   image?: string
 }

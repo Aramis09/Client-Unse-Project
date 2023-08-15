@@ -16,3 +16,11 @@
   width: 200px;
   height: 200px;
 }
+
+.errorMessage {
+  margin: 1rem;
+  p {
+    margin: 0;
+    color: red;
+  }
+}

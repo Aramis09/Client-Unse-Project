@@ -2,7 +2,8 @@ import { memo, useState } from "react";
 import { DataInForm, errorForm } from "@/types/interfaces";
 import styles from "./sectionForm.module.scss";
 import UploadWidget from "@/components/uploadWidget/uploadWidget";
-import { validateSection } from "../Forms/validate";
+import validateSection from "./validateSection";
+import SectionPreview from "@/components/sectionPreview/SectionPreview";
 
 interface sectionProps {
   sections: DataInForm[] | null;
@@ -20,9 +21,9 @@ const initialData: DataInForm = {
 
 function SectionForm({ sections, handleSave }: sectionProps) {
   const [formData, setFormData] = useState<DataInForm>(initialData);
-  const [errors , setErrors] = useState<errorForm>({
-    message: ""
-  })
+  const [errors, setErrors] = useState<errorForm>({
+    message: "",
+  });
   const [imageUrls, setImageUrls] = useState<{
     [fieldName: string]: string | null;
   }>({
@@ -36,7 +37,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
       ...formData,
       [e.target.name]: e.target.value,
     });
-    setErrors(validateSection(formData))
+    setErrors(validateSection(formData));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -56,7 +57,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
       ...prevFormData,
       topImage: imageData,
     }));
-  }
+  };
 
   const handleImageUpload = (
     fieldName: keyof typeof imageUrls,
@@ -74,23 +75,13 @@ function SectionForm({ sections, handleSave }: sectionProps) {
   return (
     <>
       <div className={styles.container}>
-        {sections?.map((section) => (
-          <ul key={section.title}>
-            <li>{section.topImage ? section.topImage : null}</li>
-            <li>{section.title}</li>
-            <li>{section.partOne}</li>
-            <li>{section.middleImage ? section.middleImage : null}</li>
-            <li>{section.partTwo}</li>
-            <li>{section.belowImage ? section.belowImage : null}</li>
-          </ul>
-        ))}
+      <SectionPreview sections={sections}/>
       </div>
       <form className={styles.container} onSubmit={handleSubmit}>
         <h5>Secciones</h5>
+        <div className={styles.errorMessage}>{errors.message ? <p>{errors.message}</p> : null}</div>
         <label htmlFor="topImage">Imagen</label>
-        <UploadWidget
-          imageUrl={handleImageTop}
-        />
+        <UploadWidget imageUrl={handleImageTop} />
 
         <label htmlFor="title">Titulo</label>
         <input
@@ -108,9 +99,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
         />
         <label htmlFor="middleImage">Imagen</label>
         <UploadWidget
-          imageUrl={(imageData) =>
-            handleImageUpload("middleImage", imageData)
-          }
+          imageUrl={(imageData) => handleImageUpload("middleImage", imageData)}
         />
 
         <label htmlFor="partTwo">Parte dos</label>
@@ -122,9 +111,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
         />
         <label htmlFor="belowImage">Imagen</label>
         <UploadWidget
-          imageUrl={(imageData) =>
-            handleImageUpload("belowImage", imageData)
-          }
+          imageUrl={(imageData) => handleImageUpload("belowImage", imageData)}
         />
 
         <button type="submit">Guardar Borrador</button>
@@ -133,4 +120,15 @@ function SectionForm({ sections, handleSave }: sectionProps) {
   );
 }
 
-export default memo(SectionForm) ;
+export default memo(SectionForm);
+
+  {/* {sections?.map((section) => (
+    <ul key={section.title}>
+      <li>{section.topImage ? section.topImage : null}</li>
+      <li>{section.title}</li>
+      <li>{section.partOne}</li>
+      <li>{section.middleImage ? section.middleImage : null}</li>
+      <li>{section.partTwo}</li>
+      <li>{section.belowImage ? section.belowImage : null}</li>
+    </ul>
+  ))} */}

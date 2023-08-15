@@ -2,7 +2,6 @@ import {
   DataAdvertisingInForm,
   DataServiceInForm,
   DataSubServiceInForm,
-  DataInForm,
   errorForm,
 } from "@/types/interfaces";
 import * as allRegex from "@/utils/regex";
@@ -16,7 +15,7 @@ let errors: errorForm = {
 
 function validateAdvertise(object: DataAdvertisingInForm) {
   errors.type = "advertising";
-  
+
   //validaciones titulo
   if (!object.title) return (errors.message = "El titulo no puede estar vacio");
   if (!allRegex.regexInTitles.test(object.title))
@@ -43,6 +42,8 @@ function validateAdvertise(object: DataAdvertisingInForm) {
   // validaciones summary
   if (!object.summary)
     return (errors.message = "El resumen no puede estar vacio");
+    if (!(object.summary.length < 230))
+    return (errors.message = "El resumen no puede tener mas de 230 caracteres");
 
   if (!allRegex.regexInTitles.test(object.title))
     return (errors.message =
@@ -54,12 +55,6 @@ function validateService(object: DataServiceInForm) {
   errors.type = "service";
 
   if (!object.title) return (errors.message = "El titulo no puede estar vacio");
-  if (!allRegex.regexInTitles.test(object.title))
-    return (errors.message =
-      "No se pueden usar caracteres especiales como: -, _ o (");
-
-  if (!object.orientation)
-    return (errors.message = "La orientacion no puede estar vacia");
   if (!allRegex.regexInTitles.test(object.title))
     return (errors.message =
       "No se pueden usar caracteres especiales como: -, _ o (");
@@ -77,6 +72,11 @@ function validateSubService(object: DataSubServiceInForm) {
     return (errors.message = "La descripcion no puede estar vacia");
   if (!object.resume)
     return (errors.message = "El resumen no puede estar vacio");
+  if (!allRegex.regextInTextFields.test(object.resume))
+    return (errors.message =
+      "No se pueden usar caracteres especiales como: -, _ o (");
+  if (!(object.resume.length < 230))
+    return (errors.message = "El resumen no puede tener mas de 230 caracteres");
   else errors.message = "";
 }
 
@@ -99,15 +99,3 @@ export default function validation(object: any, type: options): errorForm {
   }
 }
 
-let errorsInSection: errorForm = {
-  message: "",
-};
-
-export function validateSection(object: DataInForm) {
-  if (!object.title)
-    return (errorsInSection.message = "El titulo no puede estar vacio");
-  if (!allRegex.regexInTitles.test(object.title))
-    return (errorsInSection.message =
-      "No se pueden usar caracteres especiales como: -, _ o (");
-  else return errors;
-}

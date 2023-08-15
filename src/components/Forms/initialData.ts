@@ -2,9 +2,7 @@ import { DataAdvertising, DataService, DataSubService } from "@/types/interfaces
 
 export const initialDataService: DataService = {
   title: "",
-  orientation: "",
   sections: [],
-  // image: ""
 }
 export const initialDataSubService: DataSubService= {
   title:"",
