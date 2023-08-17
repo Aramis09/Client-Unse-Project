@@ -39,11 +39,12 @@ export default function SubServices({
   initialHook.querys.page = pageNumber;
 
   const { stylesChosen } = useChangeStyles({
-    condition: router.asPath === "/allSubServices/students",
+    condition: router.route === "/allSubServices/[typesSubServices]",
     depedence: router,
     falseStyle: styles,
     trueStyle: stylesOnView,
   });
+  console.log();
 
   const { data: subServiceList, reload } = useMakeRequest<
     null,

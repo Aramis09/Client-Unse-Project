@@ -25,23 +25,18 @@ export default function ServiceDetail() {
   const initialHookDetail = {
     ...initialHook,
     querys: {
-      orientation: orientation,
+      orientation,
     },
   };
+  console.log(initialHookDetail);
 
   const { data: service, reload } = useMakeRequest<
     null,
     GetServiceWithOrientation,
     ResToGetDetailServices
   >(initialHookDetail);
-  console.log("renders Service");
 
-  useEffect(() => {
-    if (service && !service["data"]) {
-      reload();
-    }
-  }, [orientation, service]); //!Esta es la forma que mas se entiende y anda
-  // useEffect(() => reload, [orientation, service]); //!esta es la forma magica, no sabemos porque anda pero anda
+  useEffect(() => reload, [orientation, service]); //!esta es la forma magica, no sabemos porque anda pero anda
 
   return (
     <>

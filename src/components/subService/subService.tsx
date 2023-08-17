@@ -10,7 +10,6 @@ interface P {
 
 export default function SubService({ subServiceProps }: P) {
   const { id, title, resume } = subServiceProps;
-  console.log("renders subService");
 
   return (
     <Link href={`/subServiceDetail/${id}`} className={styles.container}>
