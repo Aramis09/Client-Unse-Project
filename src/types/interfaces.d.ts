@@ -125,7 +125,7 @@ export interface DataService {
   description?: string;
   orientation?: string;
   sections: DataInForm[];
-  image?: string
+  image?: string;
 }
 
 export interface DataSubService {
@@ -133,7 +133,8 @@ export interface DataSubService {
   description: string;
   resume: string;
   sections: DataInForm[];
-  image?: string
+  image?: string;
+  orientation?: string;
 }
 
 export interface DataAdvertising {
@@ -143,67 +144,70 @@ export interface DataAdvertising {
   footer: string;
   image: string;
   sections: DataInForm[];
+  orientation?: string;
 }
 
-
-
-export type DataAdvertisingInForm = Omit<DataAdvertising, "sections">
-export type DataServiceInForm = Omit<DataService, "sections">
-export type DataSubServiceInForm = Omit<DataSubService, "sections">
-
-
+export type DataAdvertisingInForm = Omit<DataAdvertising, "sections">;
+export type DataServiceInForm = Omit<DataService, "sections">;
+export type DataSubServiceInForm = Omit<DataSubService, "sections">;
 
 interface ImageData {
-access_mode:string
-asset_id: string
-batchId: string
-bytes: number
-created_at: string
-etag: string
-folder: string
-format: string
-height: number
-id: string
-original_extension: string
-original_filename: string
-path: string
-placeholder: boolean
-public_id: string
-resource_type: string
-secure_url: string
-signature: string
-tags: []
-thumbnail_url: string
-type: string
-url: string
-version: number
-version_id: string
-width: number
+  access_mode: string;
+  asset_id: string;
+  batchId: string;
+  bytes: number;
+  created_at: string;
+  etag: string;
+  folder: string;
+  format: string;
+  height: number;
+  id: string;
+  original_extension: string;
+  original_filename: string;
+  path: string;
+  placeholder: boolean;
+  public_id: string;
+  resource_type: string;
+  secure_url: string;
+  signature: string;
+  tags: [];
+  thumbnail_url: string;
+  type: string;
+  url: string;
+  version: number;
+  version_id: string;
+  width: number;
 }
-
-
 
 export interface ResToGetCarrousel extends BaseServerResponseGet {
   data: CarrouselContent;
 }
 
 export interface CarrouselContent {
-  id:               number;
-  location:         string;
-  createdAt:        string;
-  updatedAt:        string;
+  id: number;
+  location: string;
+  createdAt: string;
+  updatedAt: string;
   CarrouselContent: CarrouselImages[];
 }
 
 export interface CarrouselImages {
-  id:                number;
-  url:               string;
-  createdAt:         string;
-  updatedAt:         string;
+  id: number;
+  url: string;
+  createdAt: string;
+  updatedAt: string;
   setCarrouselOwner: number;
 }
 
 export interface errorForm {
-  message: string
-  type?: string
+  message: string;
+  type?: string;
+}
+
+export interface contactData {
+  name: string;
+  subservice: string;
+  email: string;
+  reason: string;
+  phone: string;
 }

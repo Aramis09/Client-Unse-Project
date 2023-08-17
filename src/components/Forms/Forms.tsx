@@ -9,6 +9,7 @@ import SectionForm from "@/components/SectionForm/SectionForm";
 import useSelectStateForm from "@/customHooks/useSelectStateForm";
 import ShowImage from "../showImage/showImage";
 import validation from "./validate";
+import CheckBox from "../CheckBox/CheckBox";
 
 const initialHook: ServiceParams<null, null> = {
   url: "http://localhost:3001",
@@ -40,6 +41,15 @@ export default function Forms({ type }: optionsForm) {
         sections: [...formData.sections, sectionData],
       });
   };
+
+  const handleOrientationUpdate = (data: string) =>{
+      setFormData((prevFormData)=> 
+        prevFormData && {
+          ...prevFormData,
+          orientation: data
+        }
+      )
+  }
 
   const handleImageUrl = (imageData: string) => {
     setFormData(
@@ -86,6 +96,11 @@ export default function Forms({ type }: optionsForm) {
                   <UploadWidget handleImageUrl={handleImageUrl} />
                 </>
               )
+            ) : fieldName.includes("orientation") ? (
+              <>
+                <label htmlFor={fieldName}>{fieldName}</label>
+                <CheckBox handleCheck={handleOrientationUpdate} fieldName={fieldName}/>
+              </>
             ) : (
               <Fragment key={fieldName}>
                 <label htmlFor={fieldName}>{fieldName}</label>

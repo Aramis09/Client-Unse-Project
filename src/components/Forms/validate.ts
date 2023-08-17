@@ -42,7 +42,7 @@ function validateAdvertise(object: DataAdvertisingInForm) {
   // validaciones summary
   if (!object.summary)
     return (errors.message = "El resumen no puede estar vacio");
-    if (!(object.summary.length < 230))
+  if (!(object.summary.length < 230))
     return (errors.message = "El resumen no puede tener mas de 230 caracteres");
 
   if (!allRegex.regexInTitles.test(object.title))
@@ -58,7 +58,10 @@ function validateService(object: DataServiceInForm) {
   if (!allRegex.regexInTitles.test(object.title))
     return (errors.message =
       "No se pueden usar caracteres especiales como: -, _ o (");
-  else errors.message = "";
+  if (!object.orientation)
+    return (errors.message = "Se requiere una orientacion");
+
+  return (errors.message = "");
 }
 
 function validateSubService(object: DataSubServiceInForm) {
@@ -98,4 +101,3 @@ export default function validation(object: any, type: options): errorForm {
       return errors;
   }
 }
-

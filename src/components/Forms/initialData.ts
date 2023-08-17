@@ -2,6 +2,7 @@ import { DataAdvertising, DataService, DataSubService } from "@/types/interfaces
 
 export const initialDataService: DataService = {
   title: "",
+  orientation: "",
   sections: [],
 }
 export const initialDataSubService: DataSubService= {
@@ -29,3 +30,9 @@ export const getFilteredFieldNames = <T extends object>(formData: T) => {
   })
   return filteredFieldNames;
 };
+
+export const valueForCheckBox = {
+  institutions: 'Servicio para instituciones',
+  teachers: 'Servicio para docentes',
+  students: 'Servicio para alumnos'
+}
