@@ -4,7 +4,7 @@ import { MoonLoader } from "react-spinners";
 export default function Loader() {
   return (
     <div className={styles.loader}>
-      <MoonLoader color="black" size="160" />
+      <MoonLoader color="rgb(0, 0, 0)" size="200px" />
       <section>
         <p>Puede que este cargando...</p>
         <br />

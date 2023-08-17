@@ -9,9 +9,9 @@ interface P {
 }
 
 export default function SubService({ subServiceProps }: P) {
-  const router = useRouter();
-
   const { id, title, resume } = subServiceProps;
+  console.log("renders subService");
+
   return (
     <Link href={`/subServiceDetail/${id}`} className={styles.container}>
       <span className={styles.title}>{title}</span>
