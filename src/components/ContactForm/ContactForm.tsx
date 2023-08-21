@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./contactForm.module.scss";
 import { contactData, errorForm } from "@/types/interfaces";
 import validation from "./validate";
+import { sendMail } from "./emailSender";
 
 interface props {
   subservice: string;
@@ -34,6 +35,7 @@ export default function ContactForm({ subservice }: props) {
       alert("Datos incorrectos");
     } else {
       alert("Se enviaron los datos correctamente");
+      sendMail(formData)
       setFormData(initialData);
     }
   };
