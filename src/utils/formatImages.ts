@@ -10,11 +10,14 @@ const modifications = {
     width: 1700,
     height: 600,
   },
-  //!Hay que cambiar
   thumbnail: {
     width: 700,
     height: 900,
   },
+  auto:{
+    width:"auto",
+    height: 1500,
+  }
 };
 export const imageFromCloud = (
   publicId: string,
@@ -26,6 +29,6 @@ export const imageFromCloud = (
     .quality(`${modifications.default.quality}`)
     .format(`${modifications.default.format}`)
     .resize(thumbnail().width(config.width).height(config.height)) // Crop the image.
-    .toURL();
+    .toURL();    
   return imageUrl;
 };

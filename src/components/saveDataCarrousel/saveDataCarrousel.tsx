@@ -1,22 +1,24 @@
 import { sendEditCarrouselHelper } from "@/helpers/ediCarrouselHelpers";
 import styles from "./saveDataCarrousel.module.scss";
 import { useState } from "react";
-import { StatusSend, messajes } from "@/utils/consts";
+import { StatusSend, ICON_SAVE_DATA_CARROUSEL, messajes } from "@/utils/consts";
 interface P {
   images: string[];
   location: string;
   idAdvertising: string | null;
+  action: string;
 }
 
-const SaveDataCarrousel = ({ images, location, idAdvertising }: P) => {
+const SaveDataCarrousel = ({ images, location, idAdvertising, action }: P) => {
   const [statusSend, setStatusSend] = useState<StatusSend>(messajes.noSend);
-  const url =
-    "https://res.cloudinary.com/dynnwv7md/image/upload/v1691506691/save_nvyiex.png";
+  const condition = action === "edit";
+  const actionSend = condition ? "edit" : "create";
   const hanlderSendData = async () => {
     const process = await sendEditCarrouselHelper({
       images,
       location,
       idAdvertising,
+      action: actionSend,
     });
     if (process.error) return setStatusSend(messajes.SendFail);
     setStatusSend(messajes.SendSuccessful);
@@ -24,7 +26,7 @@ const SaveDataCarrousel = ({ images, location, idAdvertising }: P) => {
   return (
     <>
       <img
-        src={url}
+        src={ICON_SAVE_DATA_CARROUSEL}
         alt="iconSave"
         onClick={() => hanlderSendData()}
         className={styles.iconSave}

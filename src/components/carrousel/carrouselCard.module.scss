@@ -1,7 +1,6 @@
 .container {
   height: 100%;
   width: 100%;
-
   .containerButtons{
     position: absolute;
     z-index: 99;
@@ -16,15 +15,26 @@
   .containerButtons a img{
     width: 70px;
     transition: 0.5s;
-    
+  }
+
+  .arrow{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
 
   }
-  .containerButtons a img:hover {
-    cursor: pointer;
-    padding: 5%;
-    transform: scale(1.02);
-    transition: 0.5s;
+
+  .arrow:hover{
+    transition: 0.05s;
+    transform: scale(1.2);
+    filter:invert(11%) sepia(65%) saturate(4469%) hue-rotate(324deg) brightness(92%) contrast(100%);
+
   }
+ 
+
   .imageItem {
     position: absolute;
     border-radius: 1rem;
@@ -35,8 +45,20 @@
   }
 }
 
-@media (min-width:1280px) and (max-width:1680px){
-  .imageItem{
-    margin-top: 20px;
+
+@media (min-width:0px) and (max-width:1680px){
+  .container{
+    width: 100%;
+    height: 100%;
+    .containerButtons{
+      width: 100%;
+      height: 100%;
+    }
+    .imageItem{
+      width: 100%;
+      height: 100%;
+    }
   }
 }
+
+

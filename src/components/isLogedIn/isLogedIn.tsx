@@ -1,15 +1,10 @@
-import { deleteCookie, getCookie } from "@/utils/actionCookie";
+import { deleteCookie } from "@/utils/actionCookie";
 import styles from "./isLofedIn.module.scss";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { verificationToken } from "@/helpers/verifyToken";
+import useVerifyToken from "@/customHooks/useVerifyAdmin";
 
 export default function IsLogedIn() {
-  const [statusToken, setStatusToken] = useState<boolean>(false);
-
-  useEffect(() => {
-    verificationToken().then((res) => setStatusToken(res.acces));
-  }, []);
+  const { statusToken } = useVerifyToken();
 
   return (
     <div className={styles.container}>
@@ -20,7 +15,7 @@ export default function IsLogedIn() {
             window.location.reload();
           }}
         >
-          Desloguear
+          Cerrar sesion
         </h4>
       ) : (
         <>

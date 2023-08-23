@@ -86,6 +86,7 @@ export interface AdvertisingType {
   aside: string;
   footer: string;
   image: string;
+  date:string,
   createdAt: string;
   updatedAt: string;
   SectionsViews: SectionsView[];
@@ -105,7 +106,7 @@ export interface SectionsView {
 
 //!Aversiting types types -----------------------------------><
 
-export type TypeImage = "cover" | "thumbnail";
+export type TypeImage = "cover" | "thumbnail" | "auto";
 
 export interface optionsForm {
   type: "service" | "subservice" | "advertising";

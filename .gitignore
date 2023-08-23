@@ -23,11 +23,11 @@ pnpm-lock.yaml
 
 # production
 /build
-
+.env
 # misc
 .DS_Store
 *.pem
-
+.env
 # debug
 npm-debug.log*
 yarn-debug.log*

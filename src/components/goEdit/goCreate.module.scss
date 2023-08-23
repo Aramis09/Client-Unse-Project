@@ -1,0 +1,14 @@
+.container{
+  margin-top: 5%;
+  transition: transform 0.1s;
+  display: flex;
+  justify-content: center;
+  
+}
+.container img {
+  width: 10rem;
+}
+.container:hover {
+  transition: transform 0.1s;
+  transform: scale(1.1);
+}

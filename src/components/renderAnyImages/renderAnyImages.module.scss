@@ -1,0 +1,57 @@
+.containerRender{
+  width: 60%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 
+  repeat(
+    auto-fill,
+    minmax(210px,1fr)
+    );
+  gap: 10px;
+  margin-bottom: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+.containerCard{
+  padding: 30px;
+  position: relative;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, rgb(9, 74, 170), rgb(19, 135, 202) );
+  img{
+    width: 180px;
+  }
+  button{
+    cursor: pointer;
+    position: absolute;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    border: none;
+    font-weight: 700;
+    color: black;
+    background-color: #E9B384;
+    border-bottom-left-radius: 0.5rem; /* Redondeo en la esquina inferior izquierda */
+    border-bottom-right-radius:  0.5rem; 
+    transition: transform 0.2s;
+
+  }
+  button:hover{
+    transition: transform 0.2s;
+    transform: scale(101%);
+  }
+}
+
+.containerCardHiden{
+  display: none;
+}

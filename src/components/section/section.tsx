@@ -11,11 +11,11 @@ export default function Section({ sectionsData, idSection }: P) {
   return (
     <div id={String(idSection)} className={styles.container}>
       <h4>{title}</h4>
-      {topImage && <ShowImage idImage={topImage} type="cover" />}
+      {topImage && <ShowImage idImage={topImage} type="auto" />}
       <p>{textPartOne}</p>
-      {middleImage && <ShowImage idImage={middleImage} type="cover" />}
+      {middleImage && <ShowImage idImage={middleImage} type="auto" />}
       <p>{textPartTwo}</p>
-      {belowImage && <ShowImage idImage={belowImage} type="cover" />}
+      {belowImage && <ShowImage idImage={belowImage} type="auto" />}
     </div>
   );
 }

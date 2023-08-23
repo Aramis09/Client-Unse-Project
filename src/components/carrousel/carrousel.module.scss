@@ -1,10 +1,11 @@
 .container {
   z-index: 10;
   position: relative;
-  width: 80%;
-  height: 600px;
+  width: 70%;
+  margin-top: 50px;
+  height: 400px;
   overflow: hidden;
-  .iconEdit{
+  .ICON_EDIT{
     position: absolute;
     z-index: 100;
     width: 100px;
@@ -14,8 +15,27 @@
     cursor: pointer;
   }
 }
+.containerCreate{
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
 .container:hover {
-  .iconEdit{
+  .ICON_EDIT{
     transform: scale(1.1);
+  }
+}
+
+@media (min-width:0px) and (max-width:1681px){
+  .container{
+    height: 300px;
+  }
+}
+
+@media (min-width:0px) and (max-width:1681px){
+  .container{
+    height: 300px;
   }
 }
