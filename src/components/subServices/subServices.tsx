@@ -30,7 +30,6 @@ export default function SubServices({
   const orientation =
     orientationFromInPageService || String(router.query["typesSubServices"]);
   initialHook.querys.orientation = orientation;
-
   if (pageSize) {
     initialHook.querys.size = pageSize;
   } else {
