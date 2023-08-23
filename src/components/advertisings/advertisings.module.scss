@@ -42,18 +42,24 @@
     border-radius:0.5rem;
     }
   }
+}
 
-  @media (min-width:1280px) and (max-width:1680px){
-    max-width: 80%;
+  @media (min-width:0px) and (max-width:1681px){
     .container{
-      grid-template-columns: 
-      repeat(
-        auto-fill,
-        minmax(200px,1fr)
-      );
-      
+      grid-template-columns: auto auto auto;
+      gap: 0;
+      column-gap: 1%;
+      row-gap: 0;
+      margin-bottom: 0;
     }
   }
-}
+
+// @media (min-width:0px) and (max-width:1366px){
+//   .container{
+//     grid-template-columns: auto auto auto;
+//     column-gap: 0;
+//     row-gap: 0;
+//   }
+// }
 
 

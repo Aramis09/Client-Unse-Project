@@ -23,13 +23,13 @@ export default function Advertisings() {
     ResToGetAdversit
   >(initialHook);
   const condition = router.pathname !== "/advertisingDetail/[idAdvertising]";
-
   const { stylesChosen } = useChangeStyles({
     condition,
     depedence: router,
     falseStyle: stylesFalse,
     trueStyle: styles,
   });
+
   return (
     <>
       {(adversitList?.data && (

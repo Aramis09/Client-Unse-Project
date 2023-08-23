@@ -1,9 +1,6 @@
-import { deleteCookie, getCookie } from "@/utils/actionCookie";
+import { deleteCookie } from "@/utils/actionCookie";
 import styles from "./isLofedIn.module.scss";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { verificationToken } from "@/helpers/verifyToken";
-import { useRouter } from "next/router";
 import useVerifyToken from "@/customHooks/useVerifyAdmin";
 
 export default function IsLogedIn() {

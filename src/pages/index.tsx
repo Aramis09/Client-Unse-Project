@@ -2,8 +2,6 @@ import Advertisings from "@/components/advertisings/advertisings";
 import Head from "next/head";
 import styes from "../styles/index.module.scss";
 import Carrousel from "@/components/carrousel/carrousel";
-import { verificationToken } from "@/helpers/verifyToken";
-import ShowImage from "@/components/showImage/showImage";
 export default function Home() {
   return (
     <>

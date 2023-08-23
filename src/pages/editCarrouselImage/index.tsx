@@ -8,6 +8,8 @@ import UploadWidget from "../../components/uploadWidget/uploadWidget";
 import ShowImage from "@/components/showImage/showImage";
 import useVerifyToken from "@/customHooks/useVerifyAdmin";
 import Loader from "@/components/loader/loader";
+import { deleteImage } from "@/helpers/imagesHelper";
+import RenderAnyImage from "@/components/renderAnyImages/renderAnyImages";
 
 export default function EditCarrouselImage() {
   const { statusToken } = useVerifyToken();
@@ -40,42 +42,20 @@ export default function EditCarrouselImage() {
           />
 
           <section className={styles.uploadWidget}>
-            <UploadWidget addImageToCarrousel={handleArrayImage} />
+            <p className={styles.text}>
+              Por favor, haga click abajo y selecciones todas las imagenes que
+              desea agreagar al carrusel
+            </p>
+            <UploadWidget
+              addImageToCarrousel={handleArrayImage}
+              hidenImageUploaded={true}
+            />
           </section>
-          <p>
-            Por favor, haga click abajo y selecciones todas las imagenes que
-            desea agreagar al carrusel
-          </p>
+          <RenderAnyImage arrayImages={imagesToCarrousel} />
         </>
       ) : (
         <Loader />
       )}
     </section>
   );
-}
-
-{
-  /* Esto se puede ir, al final te deja subir varias imagenes */
-}
-{
-  /* <div className={styles.numberUploads}>
-        <label htmlFor="numberImage">Cuantas imagenes quiere subir?</label>
-        <input
-          type="number"
-          pattern="[0-9]|10"
-          max={10}
-          onChange={(evt) =>
-            setNumberImage(Math.min(10, Number(evt.target.value)))
-          }
-        />
-      </div> */
-}
-{
-  /* Esto se puede ir, al final te deja subir varias imagenes */
-}
-{
-  /* <RenderUploadsCarrousel
-        numberImage={numberImage}
-        handleArrayImage={handleArrayImage}
-      /> */
 }

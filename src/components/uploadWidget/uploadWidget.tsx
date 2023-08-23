@@ -4,9 +4,13 @@ import { ImageData } from "@/types/interfaces";
 import ShowImage from "../showImage/showImage";
 interface P {
   addImageToCarrousel: (urlNewImage: string) => void;
+  hidenImageUploaded?: boolean;
 }
 
-export default function UploadWidget({ addImageToCarrousel }: P) {
+export default function UploadWidget({
+  addImageToCarrousel,
+  hidenImageUploaded,
+}: P) {
   const [imageData, setImageData] = useState<ImageData>();
 
   const cloudinaryRef: any = useRef();
@@ -25,6 +29,7 @@ export default function UploadWidget({ addImageToCarrousel }: P) {
           setImageData(result.info);
           // addImageToCarrousel(info.url);//!modificado, descomentar si es necesario
           addImageToCarrousel(info.public_id);
+          console.log(info.public_id);
         }
       }
     );
@@ -34,9 +39,11 @@ export default function UploadWidget({ addImageToCarrousel }: P) {
     <div className={styles.container}>
       <button onClick={() => widgetRef.current.open()}>Subir imagen</button>
       {/* {imageData && <img src={imageData.url} alt="imageLoad" />}  */}
-      {imageData && (
-        <ShowImage idImage={imageData.public_id} type="thumbnail" />
-      )}
+      <div className={hidenImageUploaded ? styles.hiden : ""}>
+        {imageData && (
+          <ShowImage idImage={imageData.public_id} type="thumbnail" />
+        )}
+      </div>
     </div>
   );
 }
