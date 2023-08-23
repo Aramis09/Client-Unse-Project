@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, memo } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./uploadWidget.module.scss";
 import { ImageData } from "@/types/interfaces";
 import ShowImage from "../showImage/showImage";
@@ -9,7 +9,7 @@ interface P {
   hidenImageUploaded?: boolean;
 }
 
-function UploadWidget({
+export default function UploadWidget({
   addImageToCarrousel, handleImageUrl, imageUrl,
   hidenImageUploaded,
 }: P) {
@@ -28,10 +28,10 @@ function UploadWidget({
       function (err: any, result: any) {
         const info: ImageData = result.info;
         if (result.event === "success") {
-          setImageData(result.info);
-          addImageToCarrousel && addImageToCarrousel(result.info.url);
-          handleImageUrl && handleImageUrl(result.info.public_id);
-          imageUrl && imageUrl(result.info.public_id);
+          setImageData(info);
+          addImageToCarrousel && addImageToCarrousel(info.public_id);
+          handleImageUrl && handleImageUrl(info.public_id);
+          imageUrl && imageUrl(info.public_id);
         }
       }
     );

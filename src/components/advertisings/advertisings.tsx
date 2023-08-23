@@ -1,6 +1,6 @@
 import useMakeRequest from "@/customHooks/makeRequest";
 import { ResToGetAdversit } from "@/types/interfaces";
-import { GetWithPage, ServiceParams, QueryParams } from "@/types/requestTypes";
+import { GetWithPage, ServiceParams } from "@/types/requestTypes";
 import stylesFalse from "./advertisingsInsideDetail.module.scss";
 import styles from "./advertisings.module.scss";
 import Advertising from "../advertising/advertising";
@@ -8,7 +8,7 @@ import Loader from "../loader/loader";
 import useChangeStyles from "@/customHooks/useChangeStyles";
 import { useRouter } from "next/router";
 
-const initialHook:ServiceParams<null, QueryParams> = {
+const initialHook:ServiceParams<null, GetWithPage> = {
   url: "http://localhost:3001/advertising/getAdversiting",
   body: null,
   querys: { page: 1, size: null },

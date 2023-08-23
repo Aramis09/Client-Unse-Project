@@ -30,9 +30,3 @@ export const getFilteredFieldNames = <T extends object>(formData: T) => {
   })
   return filteredFieldNames;
 };
-
-export const valueForCheckBox = {
-  institutions: 'Servicio para instituciones',
-  teachers: 'Servicio para docentes',
-  students: 'Servicio para alumnos'
-}

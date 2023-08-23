@@ -1,14 +1,11 @@
 import Carrousel from "@/components/carrousel/carrousel";
 import styles from "./editCarrouselImage.module.scss";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import SaveDataCarrousel from "@/components/saveDataCarrousel/saveDataCarrousel";
-import RenderUploadsCarrousel from "@/components/renderUploadCarrousel/renderUploadCarrousel";
 import { useRouter } from "next/router";
 import UploadWidget from "../../components/uploadWidget/uploadWidget";
-import ShowImage from "@/components/showImage/showImage";
 import useVerifyToken from "@/customHooks/useVerifyAdmin";
 import Loader from "@/components/loader/loader";
-import { deleteImage } from "@/helpers/imagesHelper";
 import RenderAnyImage from "@/components/renderAnyImages/renderAnyImages";
 
 export default function EditCarrouselImage() {

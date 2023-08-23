@@ -14,6 +14,7 @@ const initialHook:ServiceParams<null, QueryParams> = {
   url: "http://localhost:3001/services/getServices/detail",
   body: null,
   querys: {},
+  method: 'GET'
 };
 
 //!Solucionar eerro de que esto cuando lo recargo no carga
@@ -34,9 +35,9 @@ export default function ServiceDetail() {
     GetServiceWithOrientation,
     ResToGetDetailServices
   >(initialHookDetail);
-
-  useEffect(() => reload, [orientation, service]); //!esta es la forma magica, no sabemos porque anda pero anda
-
+  // !NO TOCAR LA LINEA DE ABAJO
+  useEffect(() => reload, [orientation, service]); //!No importa lo que suceda en la vida, NO TOCAR
+  // !NO TOCAR LA LINEA DE ARRIBA
   return (
     <>
       {service && service.data ? (

@@ -1,7 +1,6 @@
 import useMakeRequest from "@/customHooks/makeRequest";
 import { ResToGetSubServices } from "@/types/interfaces";
 import { GetWithPage, ServiceParams } from "@/types/requestTypes";
-import { GetWithPage, ServiceParams } from "@/types/requestTypes";
 import styles from "./subServices.module.scss";
 import stylesOnView from "./viewPageSubServices.module.scss";
 import SubService from "../subService/subService";
@@ -22,7 +21,7 @@ type QueryParams = {
   orientation: string;
 };
 
-const initialHook: ServiceParams<null, QueryParams> = {
+const initialHook: ServiceParams<null, any> = {
   url: "http://localhost:3001/subServices/getSubservices",
   body: null,
   querys: { page: 1, size: 6, orientation: "" },

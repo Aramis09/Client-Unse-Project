@@ -1,4 +1,3 @@
-import { CarrouselImages } from "@/types/interfaces";
 import SwitchComponent from "../switchComponent/switchComponent";
 import styles from "./carrouselCard.module.scss";
 import ShowImage from "../showImage/showImage";

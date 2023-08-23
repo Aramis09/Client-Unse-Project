@@ -2,7 +2,6 @@ import useMakeRequest from "@/customHooks/makeRequest";
 import styles from "./advertising.module.scss";
 import { ResToGetDetailAdversit } from "@/types/interfaces";
 import { GetWithPage, ServiceParams } from "@/types/requestTypes";
-import { GetWithPage, ServiceParams } from "@/types/requestTypes";
 import { useRouter } from "next/router";
 import Sections from "@/components/sections/sections";
 import AsideNavigation from "@/components/asideNavigation/asideNavigation";
@@ -16,7 +15,7 @@ type QueryParams = {
   size: number;
 };
 
-const initialHook: ServiceParams<null, any>: ServiceParams<null, QueryParams> = {
+const initialHook: ServiceParams<null, QueryParams> = {
   url: "http://localhost:3001/advertising/getAdversiting/",
   body: null,
   querys: { page: 1, size: 6 },
@@ -32,8 +31,9 @@ export default function AdvertisingDetail() {
     GetWithPage,
     ResToGetDetailAdversit
   >(initialHookDetail);
-  useEffect(() => reload, [id, advertising]);
-
+  // !NO TOCAR LA LINEA DE ABAJO
+  useEffect(() => reload, [id, advertising]); //!No importa lo que suceda en la vida, NO TOCAR
+  // !NO TOCAR LA LINEA DE ARRIBA
   return (
     <div className={styles.container}>
       <Carrousel imageEdit={[]} locationToEdit="" />
