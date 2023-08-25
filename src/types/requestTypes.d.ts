@@ -30,11 +30,18 @@ export interface GetServiceWithOrientation {
 
 //!geters //////////////////////-----/////////////////
 
+export type QueryParams = {
+  page?: number | null;
+  size?: number | null;
+  orientation?: string;
+};
+
+
 export interface ServiceParams<B, C> {
   url: string;
   body: B | null;
   querys: C | null;
-  method: "POST" | "GET" | "PUT" | "DELETE"
+  method: "GET" | "POST" | "PUT" | "DELETE"
 }
 
 

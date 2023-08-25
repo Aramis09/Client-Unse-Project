@@ -1,6 +1,10 @@
 import { useState } from "react";
 import styles from "./loadImage.module.scss";
-export default function LoadImage() {
+interface sectionProps {
+  imageData: string
+}
+
+export default function LoadImage({imageData}: sectionProps) {
   const [selectedImage, setSelectedImage] = useState<string>("");
 
   const handleDrop = (event: any) => {

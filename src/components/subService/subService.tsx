@@ -2,8 +2,6 @@ import { SubServiceTypes } from "@/types/interfaces";
 import Link from "next/link";
 import styles from "./subService.module.scss";
 
-import { useRouter } from "next/router";
-
 interface P {
   subServiceProps: SubServiceTypes;
 }

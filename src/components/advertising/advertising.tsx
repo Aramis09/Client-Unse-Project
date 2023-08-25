@@ -23,14 +23,14 @@ export default function Advertising({ advertising }: P) {
   });
 
   return (
-    <article key={id} className={stylesChosen.containerCard}>
+    <article key={id} className={stylesChosen && stylesChosen.containerCard}>
       <Link href={`/advertisingDetail/${id}`}>
-        <span className={stylesChosen.coverImage}></span>
+        <span className={stylesChosen && stylesChosen.coverImage}></span>
       </Link>
       <h4>{title}</h4>
       <ShowImage idImage={image} type="thumbnail" />
-      <p className={stylesChosen.date}>{date}</p>
-      <section className={stylesChosen.containerSummary}>
+      <p className={stylesChosen && stylesChosen.date}>{date}</p>
+      <section className={stylesChosen && stylesChosen.containerSummary}>
         <p>{summary}</p>
       </section>
     </article>

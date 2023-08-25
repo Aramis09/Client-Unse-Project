@@ -2,29 +2,31 @@ import { DataAdvertising, DataService, DataSubService } from "@/types/interfaces
 
 export const initialDataService: DataService = {
   title: "",
-  description: "",
   orientation: "",
-  sections: []
+  sections: [],
 }
 export const initialDataSubService: DataSubService= {
   title:"",
   resume:"",
   description:"",
-  sections: []
+  sections: [],
 }
 export const initialDataAdvertising: DataAdvertising= {
   title:"",
   summary:"",
   aside:"",
   footer:"",
-  image:"",
+  image: "",
   sections: []
 }
 
 export const getFilteredFieldNames = <T extends object>(formData: T) => {
   const formFieldNames = Object.keys(formData) as (keyof T)[];
-  const filteredFieldNames = formFieldNames.filter(
+  let filteredFieldNames = formFieldNames.filter(
     (fieldName) => fieldName !== "sections"
   );
+  filteredFieldNames.filter(fieldName => {
+    fieldName !== "description"
+  })
   return filteredFieldNames;
 };

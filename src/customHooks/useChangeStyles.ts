@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 
 interface P {
   depedence?:any
-  falseStyle:{ readonly [key: string]: string }
-  trueStyle:{ readonly [key: string]: string }
+  falseStyle?:{ readonly [key: string]: string }
+  trueStyle?:{ readonly [key: string]: string }
   condition:string | number | boolean
 }
 const useChangeStyles = ({depedence,condition,falseStyle,trueStyle}:P) => {

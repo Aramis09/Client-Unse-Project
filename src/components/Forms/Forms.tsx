@@ -1,143 +1,205 @@
-import { useState, Fragment } from "react";
+import { Fragment, useState } from "react";
 import styles from "./Form.module.scss";
-import {
-  getFilteredFieldNames,
-  initialDataAdvertising,
-  initialDataService,
-  initialDataSubService,
-} from "./initialData";
+import { getFilteredFieldNames } from "./initialData";
 import UploadWidget from "@/components/uploadWidget/uploadWidget";
-import {
-  DataAdvertising,
-  DataService,
-  DataSubService,
-  DataAdvertisingInForm,
-  DataServiceInForm,
-  DataSubServiceInForm,
-  DataInForm,
-} from "@/types/interfaces";
+import { DataInForm, optionsForm, errorForm } from "@/types/interfaces";
 import { ServiceParams } from "@/types/requestTypes";
 import { generateRequest } from "@/utils/generateRequest";
 import SectionForm from "@/components/SectionForm/SectionForm";
 import useSelectStateForm from "@/customHooks/useSelectStateForm";
-
-let baseUrl = "http://localhost:3001";
-
+import validation from "./validate";
+import CheckBox from "../checkBox/checkBox";
+import ChooseInput from "./components/chooseInputs/chooseInput";
+import ErrorMessage from "./components/errorMessage/errorMessage";
+import AsideNavigation from "../asideNavigation/asideNavigation";
+import generateKeys from "@/utils/generateKeys";
+import otherStleToAside from "../asideNavigation/asideNavigationOnCreateNew.module.scss";
 const initialHook: ServiceParams<null, null> = {
-  url: baseUrl,
+  url: "http://localhost:3001",
   body: null,
   querys: null,
   method: "POST",
 };
 
-interface optionsForm {
-  type: "service" | "subservice" | "advertising";
-}
-
-type DataToMap =
-  | DataAdvertisingInForm
-  | DataServiceInForm
-  | DataSubServiceInForm;
-
 export default function Forms({ type }: optionsForm) {
-  // const getInitialFormData = (type: optionsForm["type"]) => {
-  //   switch (type) {
-  //     case "advertising":
-  //       return initialDataAdvertising;
-  //     case "service":
-  //       return initialDataService;
-  //     case "subservice":
-  //       return initialDataSubService;
-  //     default:
-  //       return initialDataAdvertising;
-  //   }
-  // };
+  const { formData, setFormData, url, initialData } = useSelectStateForm(type);
+  const [errors, setErrors] = useState<errorForm>({
+    message: "",
+    type: "",
+  });
+  const handleInputChange = (
+    evt:
+      | React.ChangeEvent<HTMLTextAreaElement>
+      | React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setFormData((prevFormData) => {
+      const newState = prevFormData && {
+        ...prevFormData,
+        [evt.target.name]: evt.target.value,
+      };
+      setErrors(validation(newState, type));
 
-  switch (type) {
-    case "service":
-      baseUrl = baseUrl + "/services/createService";
-      break;
-    case "subservice":
-      baseUrl = baseUrl + "/subServices/createSubService";
-      break;
-    case "advertising":
-      baseUrl = baseUrl + "/advertising/createAdvertising";
-      break;
-
-    default:
-      baseUrl = baseUrl + "/advertising/createAdvertising";
-      break;
-  }
-
-  // const [formData, setFormData] = useState<
-  //   DataAdvertising | DataService | DataSubService
-  // >(getInitialFormData(type));
-  const {formData, setFormData} = useSelectStateForm(type)
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+      return newState;
     });
-    console.log(formData)
   };
 
   const handleSectionSave = (sectionData: DataInForm) => {
-    setFormData({
-      ...formData,
-      sections: [...formData.sections, sectionData],
+    formData &&
+      setFormData({
+        ...formData,
+        sections: [...formData.sections, sectionData],
+      });
+  };
+
+  const handleOrientationUpdate = (data: string) => {
+    setFormData((prevFormData) => {
+      const newState = prevFormData && {
+        ...prevFormData,
+        orientation: data,
+      };
+      setErrors(validation(newState, type));
+      return newState;
     });
   };
-  
-  const handleImageUrl = (imageData: DataAdvertisingInForm) => {
-    if(formData["image"]){
-      
-    }
-    setFormData({
-      ...formData,
-      image: [...formData.image, imageData]
-    })
-  }
+
+  const handleImageUrl = (imageData: string) => {
+    setFormData((prevFormData) => {
+      const newState = prevFormData && {
+        ...prevFormData,
+        image: imageData,
+      };
+      setErrors(validation(newState, type));
+
+      return newState;
+    });
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // alert(JSON.stringify(formData)); // Convert formData to string for alert
-    const initialHookPost = {
-      ...initialHook,
-      body: formData,
-      url: baseUrl
-    };
-    generateRequest(initialHookPost);
+
+    if (!errors.message) {
+      const initialHookPost = {
+        ...initialHook,
+        body: formData,
+        url: url,
+      };
+      generateRequest(initialHookPost);
+      setFormData(initialData);
+    }
   };
-  const fieldNames = getFilteredFieldNames(formData);
+  console.log(formData);
+
+  const fieldNames = formData && getFilteredFieldNames(formData);
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.container}>
+        <ErrorMessage errors={errors} />
         {formData &&
-          fieldNames.map((fieldName) =>
+          fieldNames &&
+          fieldNames.map((fieldName, index) =>
             fieldName.includes("image") ? (
-              <>
-                <label htmlFor={fieldName}>{fieldName}</label>
-                <UploadWidget/>
-              </>
-            ) : (
-              <Fragment key={fieldName}>
-                <label htmlFor={fieldName}>{fieldName}</label>
-                <input
-                  type="text"
-                  name={fieldName}
-                  value={String(formData[fieldName])}
-                  onChange={handleInputChange}
+              <div className={styles.containerUploadImage}>
+                <label>Suba la imagen de portada de la publicidad</label>
+                <UploadWidget
+                  handleImageUrl={handleImageUrl}
+                  showImageToUpload={true}
+                  typeShowImage="auto"
                 />
-              </Fragment>
+              </div>
+            ) : (
+              <ChooseInput
+                fieldName={fieldName}
+                formData={formData}
+                handleInputChange={handleInputChange}
+                handleOrientationUpdate={handleOrientationUpdate}
+                type={type}
+                index={index}
+              />
             )
           )}
-        <button type="submit">Publicar</button>
+        {type === "subservice" ? (
+          <CheckBox
+            handleCheck={handleOrientationUpdate}
+            fieldName={"orientation"}
+          />
+        ) : (
+          <></>
+        )}
+        <button type="submit" className={styles.buttonSendPost}>
+          Publicar en la web
+        </button>
       </form>
-      <SectionForm
-        sections={formData.sections}
-        handleSave={handleSectionSave}
+      {formData && (
+        <SectionForm
+          sections={formData.sections}
+          handleSave={handleSectionSave}
+        />
+      )}
+      <AsideNavigation
+        sectionsData={formData && formData.sections}
+        key={generateKeys()}
+        otherStyle={otherStleToAside}
       />
     </>
   );
 }
+
+// fieldName.includes("orientation") ? (
+//   <CheckBox
+//     handleCheck={handleOrientationUpdate}
+//     fieldName={"orientation"}
+//   />
+// ) :
+
+// formData.image ? (
+//   <div className={styles.imgContainer}>
+//     <ShowImage idImage={formData.image} type="auto" />
+//   </div>
+// ) : (
+//   <>
+//     <label>Suba la imagen de portada de la publicidad</label>
+//     <UploadWidget
+//       handleImageUrl={handleImageUrl}
+//       showImageToUpload={true}
+//       typeShowImage="auto"
+//     />
+//   </>
+// )
+
+// fieldName.includes("image") ? (
+//   formData.image ? (
+//     <div className={styles.imgContainer}>
+//       <ShowImage idImage={formData.image} type="thumbnail" />
+//     </div>
+//   ) : (
+//     <>
+//       <label>{fieldName}</label>
+//       <UploadWidget handleImageUrl={handleImageUrl} />
+//     </>
+//   )
+// ) : fieldName.includes("orientation") ? (
+//   <>
+//     <label htmlFor={fieldName}>{fieldName}</label>
+//     <CheckBox
+//       handleCheck={handleOrientationUpdate}
+//       fieldName={fieldName}
+//     />
+//   </>
+// ) : (
+//   <ChooseInput
+//     fieldName={fieldName}
+//     formData={formData}
+//     handleInputChange={handleInputChange}
+//   />
+// )
+
+//  <ChooseForm
+//           fieldNames={fieldNames}
+//           fieldName={fieldName}
+//           formData={formData}
+//           handleImageUrl={handleImageUrl}
+//           handleInputChange={handleInputChange}
+//           handleOrientationUpdate={handleOrientationUpdate}
+//           styles={styles}
+//           key={Math.random() * Math.random()}
+//         />

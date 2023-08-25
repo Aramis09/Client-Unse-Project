@@ -8,7 +8,7 @@ import Loader from "../loader/loader";
 import useChangeStyles from "@/customHooks/useChangeStyles";
 import { useRouter } from "next/router";
 
-const initialHook: ServiceParams<null, any> = {
+const initialHook: ServiceParams<null, GetWithPage> = {
   url: "http://localhost:3001/advertising/getAdversiting",
   body: null,
   querys: { page: 1, size: null },
@@ -33,7 +33,7 @@ export default function Advertisings() {
   return (
     <>
       {(adversitList?.data && (
-        <div className={stylesChosen.container}>
+        <div className={stylesChosen && stylesChosen.container}>
           {adversitList?.data.map((advertising) => (
             <Advertising key={advertising.id} advertising={advertising} />
           ))}

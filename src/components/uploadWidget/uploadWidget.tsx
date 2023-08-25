@@ -3,18 +3,26 @@ import styles from "./uploadWidget.module.scss";
 import { ImageData } from "@/types/interfaces";
 import ShowImage from "../showImage/showImage";
 interface P {
-  addImageToCarrousel: (urlNewImage: string) => void;
+  addImageToCarrousel?: (urlNewImage: string) => void;
+  handleImageUrl?: (data: string) => void;
+  imageUrl?: (data: string) => void;
   hidenImageUploaded?: boolean;
+  showImageToUpload?: boolean;
+  typeShowImage?: "thumbnail" | "cover" | "auto";
 }
 
 export default function UploadWidget({
   addImageToCarrousel,
+  handleImageUrl,
+  imageUrl,
   hidenImageUploaded,
+  showImageToUpload,
+  typeShowImage,
 }: P) {
   const [imageData, setImageData] = useState<ImageData>();
-
   const cloudinaryRef: any = useRef();
   const widgetRef: any = useRef();
+
   useEffect(() => {
     // @ts-ignore
     cloudinaryRef.current = window.cloudinary;
@@ -26,10 +34,10 @@ export default function UploadWidget({
       function (err: any, result: any) {
         const info: ImageData = result.info;
         if (result.event === "success") {
-          setImageData(result.info);
-          // addImageToCarrousel(info.url);//!modificado, descomentar si es necesario
-          addImageToCarrousel(info.public_id);
-          console.log(info.public_id);
+          setImageData(info);
+          addImageToCarrousel && addImageToCarrousel(info.public_id);
+          handleImageUrl && handleImageUrl(info.public_id); //!volver a public_id
+          imageUrl && imageUrl(info.public_id);
         }
       }
     );
@@ -37,11 +45,30 @@ export default function UploadWidget({
 
   return (
     <div className={styles.container}>
-      <button onClick={() => widgetRef.current.open()}>Subir imagen</button>
+      <button
+        type="button"
+        onClick={() => widgetRef.current.open()}
+        className={showImageToUpload ? styles.hidenButton : ""}
+      >
+        Subir imagen
+      </button>
+      <img
+        src="https://res.cloudinary.com/dzqxa7jfj/image/upload/v1692816510/image_qdcz9d.png"
+        alt="uploadImage"
+        onClick={() => widgetRef.current.open()}
+        className={
+          showImageToUpload
+            ? styles.showImageToUpload
+            : styles.hidenImageToUpload
+        }
+      />
       {/* {imageData && <img src={imageData.url} alt="imageLoad" />}  */}
-      <div className={hidenImageUploaded ? styles.hiden : ""}>
+      <div className={hidenImageUploaded ? styles.hiden : styles.show}>
         {imageData && (
-          <ShowImage idImage={imageData.public_id} type="thumbnail" />
+          <ShowImage
+            idImage={imageData.public_id}
+            type={typeShowImage || "thumbnail"}
+          />
         )}
       </div>
     </div>

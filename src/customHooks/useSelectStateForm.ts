@@ -8,36 +8,45 @@ import {
   DataService,
   DataSubService,
 } from "@/types/interfaces";
-import { useState } from "react";
-export interface optionsForm {
-  type: "service" | "subservice" | "advertising";
-}
+import { useState, useEffect } from "react";
 
-const getInitialFormData = (typeForm: optionsForm["type"]) => {
-  switch (typeForm) {
-    case "advertising":
-      return initialDataAdvertising;
-    case "service":
-      return initialDataService;
-    case "subservice":
-      return initialDataSubService;
-  }
-};
+export type AllData = DataAdvertising | DataService | DataSubService;
 
 export default function useSelectStateForm(linkForm: string) {
+  const [formData, setFormData] = useState<AllData>();
+  const [url, setUrl] = useState<string>("");
+  const [initialData, setInitialData] = useState<AllData>();
 
-  if (linkForm === "service") {
-    var typeForm = getInitialFormData(linkForm)
-  }
-  if (linkForm === "subservice") {
-    var typeForm = getInitialFormData(linkForm)
-  }
-  if (linkForm === "advertising") {
-    var typeForm = getInitialFormData(linkForm)
-  } else {
-    var typeForm = getInitialFormData("advertising")
-  }
+  useEffect(() => {
+    let typeForm = null;
+    let baseUrl = "http://localhost:3001"; // Initialize baseUrl here
 
-  const [formData, setFormData] = useState(typeForm);
-  return {formData, setFormData}
+    switch (linkForm) {
+      case "service":
+        typeForm = initialDataService;
+        baseUrl += "/services/createService";
+        setInitialData(initialDataService);
+        break;
+      case "subservice":
+        typeForm = initialDataSubService;
+        baseUrl += "/subServices/createSubService";
+        setInitialData(initialDataSubService);
+        break;
+      case "advertising":
+        typeForm = initialDataAdvertising;
+        baseUrl += "/advertising/createAdvertising";
+        setInitialData(initialDataAdvertising);
+        break;
+      default:
+        typeForm = initialDataAdvertising;
+        baseUrl += "/advertising/createAdvertising";
+        setInitialData(initialDataAdvertising);
+        break;
+    }
+
+    typeForm && setFormData(typeForm);
+    setUrl(baseUrl);
+  }, [linkForm]);
+
+  return { formData, setFormData, url, initialData};
 }

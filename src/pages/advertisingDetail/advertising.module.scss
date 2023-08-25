@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   color: black;
+  
   font-weight: 900;
   img {
     width: 60%;
@@ -16,6 +17,7 @@
   }
   .data {
     width: 80%;
+    
     height: 100%;
     display: grid;
     grid-template-columns: 0.20fr 0.60fr 0.20fr;

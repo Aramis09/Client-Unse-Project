@@ -1,7 +1,11 @@
 import useMakeRequest from "@/customHooks/makeRequest";
 import styles from "./service.module.scss";
 import { ResToGetDetailServices } from "@/types/interfaces";
-import { GetServiceWithOrientation, ServiceParams } from "@/types/requestTypes";
+import {
+  GetServiceWithOrientation,
+  QueryParams,
+  ServiceParams,
+} from "@/types/requestTypes";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Sections from "@/components/sections/sections";
@@ -10,7 +14,7 @@ import SubServices from "@/components/subServices/subServices";
 import { useEffect, useRef, useState } from "react";
 import Loader from "@/components/loader/loader";
 
-const initialHook: ServiceParams<null, any> = {
+const initialHook: ServiceParams<null, QueryParams> = {
   url: "http://localhost:3001/services/getServices/detail",
   body: null,
   querys: {},
@@ -28,16 +32,15 @@ export default function ServiceDetail() {
       orientation,
     },
   };
-  console.log(initialHookDetail);
 
   const { data: service, reload } = useMakeRequest<
     null,
     GetServiceWithOrientation,
     ResToGetDetailServices
   >(initialHookDetail);
-
-  useEffect(() => reload, [orientation, service]); //!esta es la forma magica, no sabemos porque anda pero anda
-
+  // !NO TOCAR LA LINEA DE ABAJO
+  useEffect(() => reload, [orientation, service]); //!No importa lo que suceda en la vida, NO TOCAR
+  // !NO TOCAR LA LINEA DE ARRIBA
   return (
     <>
       {service && service.data ? (

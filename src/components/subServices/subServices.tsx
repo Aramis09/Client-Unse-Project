@@ -14,10 +14,17 @@ interface P {
   orientationFromInPageService?: string;
   pageNumber?: number;
 }
+
+type QueryParams = {
+  page: number;
+  size: number;
+  orientation: string;
+};
+
 const initialHook: ServiceParams<null, any> = {
-  url: "http://localhost:3001/subServices/getSubServices",
+  url: "http://localhost:3001/subServices/getSubservices",
   body: null,
-  querys: { page: 1, pageSize: 6, orientation: "" },
+  querys: { page: 1, size: 6, orientation: "" },
   method: "GET",
 };
 
@@ -55,7 +62,7 @@ export default function SubServices({
   return (
     <>
       {(subServiceList?.data && (
-        <div className={stylesChosen.container}>
+        <div className={stylesChosen && stylesChosen.container}>
           {subServiceList?.data.map((subservice) => (
             <SubService
               key={subservice.id * Math.random()}

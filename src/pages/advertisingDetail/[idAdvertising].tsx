@@ -9,11 +9,17 @@ import Carrousel from "@/components/carrousel/carrousel";
 import Loader from "@/components/loader/loader";
 import { useEffect } from "react";
 import Advertisings from "@/components/advertisings/advertisings";
-const initialHook: ServiceParams<null, any> = {
+
+type QueryParams = {
+  page: number;
+  size: number;
+};
+
+const initialHook: ServiceParams<null, QueryParams> = {
   url: "http://localhost:3001/advertising/getAdversiting/",
   body: null,
   querys: { page: 1, size: 6 },
-  method: "GET",
+  method: "GET"
 };
 export default function AdvertisingDetail() {
   const router = useRouter();
@@ -25,8 +31,9 @@ export default function AdvertisingDetail() {
     GetWithPage,
     ResToGetDetailAdversit
   >(initialHookDetail);
-  useEffect(() => reload, [id, advertising]);
-
+  // !NO TOCAR LA LINEA DE ABAJO
+  useEffect(() => reload, [id, advertising]); //!No importa lo que suceda en la vida, NO TOCAR
+  // !NO TOCAR LA LINEA DE ARRIBA
   return (
     <div className={styles.container}>
       <Carrousel imageEdit={[]} locationToEdit="" />
