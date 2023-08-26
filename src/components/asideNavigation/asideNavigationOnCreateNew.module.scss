@@ -1,0 +1,23 @@
+.container{
+  width: 300px;
+  position: fixed;
+  right: 100px;
+  top: 377px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #2e78e7;
+  color: #f1f1f1;
+  padding: 1%;
+  gap: 30px;
+  border-radius: 0.2rem;
+  a{
+    transition:transform 0.2s;
+  }
+
+  a:hover{
+    transition:transform 0.2s;
+    transform: scale(1.03);
+  }
+}

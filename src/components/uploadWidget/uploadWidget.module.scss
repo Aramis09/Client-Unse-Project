@@ -1,0 +1,51 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  button {
+    cursor: pointer;
+    height: 30px;
+    border-radius: 0.2rem;
+    border: none;
+    margin-bottom: 10px;
+    transition: transform 0.5s ;
+
+  }
+  button:hover {
+    transition: transform 0.5s ;
+    transform: scale(1.02);
+  }
+  img {
+    border-radius: 0.5rem;
+
+  }
+
+  .showImageToUpload{
+    width: 300px;
+    cursor: pointer;
+    transition:transform 0.2s ;
+
+  }
+  .showImageToUpload:hover {
+    transition:transform 0.2s ;
+    transform: scale(1.03);
+  }
+  .show{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .hiden{
+    display: none;
+  }
+
+  .hidenButton{
+    display: none;
+  }
+  .hidenImageToUpload{
+    display: none;
+  }
+}
+
