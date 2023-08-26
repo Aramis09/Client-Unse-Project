@@ -13,7 +13,8 @@ import ErrorMessage from "./components/errorMessage/errorMessage";
 import AsideNavigation from "../asideNavigation/asideNavigation";
 import generateKeys from "@/utils/generateKeys";
 import otherStleToAside from "../asideNavigation/asideNavigationOnCreateNew.module.scss";
-import CheckBox from "../checkBox/checkBox";
+import CheckBox from "@/components/checkBox/checkBox";
+
 const initialHook: ServiceParams<null, null> = {
   url: "https://servidor-unse.onrender.com",
   body: null,
