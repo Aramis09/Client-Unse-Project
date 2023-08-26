@@ -8,12 +8,12 @@ import { generateRequest } from "@/utils/generateRequest";
 import SectionForm from "@/components/SectionForm/SectionForm";
 import useSelectStateForm from "@/customHooks/useSelectStateForm";
 import validation from "./validate";
-import CheckBox from "../checkBox/checkBox";
 import ChooseInput from "./components/chooseInputs/chooseInput";
 import ErrorMessage from "./components/errorMessage/errorMessage";
 import AsideNavigation from "../asideNavigation/asideNavigation";
 import generateKeys from "@/utils/generateKeys";
 import otherStleToAside from "../asideNavigation/asideNavigationOnCreateNew.module.scss";
+import CheckBox from "../checkBox/checkBox";
 const initialHook: ServiceParams<null, null> = {
   url: "https://servidor-unse.onrender.com",
   body: null,
