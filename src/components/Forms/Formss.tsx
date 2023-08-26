@@ -12,7 +12,7 @@
 // import CheckBox from "../checkBox/checkBox";
 
 // const initialHook: ServiceParams<null, null> = {
-//   url: "https://servidor-unse.onrender.com",
+//   url: "${process.env.NEXT_PUBLIC_DOMAIN_API_REST}",
 //   body: null,
 //   querys: null,
 //   method: "POST",

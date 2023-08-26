@@ -14,9 +14,10 @@ import AsideNavigation from "../asideNavigation/asideNavigation";
 import generateKeys from "@/utils/generateKeys";
 import otherStleToAside from "../asideNavigation/asideNavigationOnCreateNew.module.scss";
 import CheckBox from "../checkBoxx/checkBoxx";
+import { NEXT_PUBLIC_DOMAIN_API_REST } from "@/utils/consts";
 
 const initialHook: ServiceParams<null, null> = {
-  url: "https://servidor-unse.onrender.com",
+  url: `${NEXT_PUBLIC_DOMAIN_API_REST}`,
   body: null,
   querys: null,
   method: "POST",
