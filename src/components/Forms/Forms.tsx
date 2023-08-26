@@ -15,7 +15,7 @@ import AsideNavigation from "../asideNavigation/asideNavigation";
 import generateKeys from "@/utils/generateKeys";
 import otherStleToAside from "../asideNavigation/asideNavigationOnCreateNew.module.scss";
 const initialHook: ServiceParams<null, null> = {
-  url: "http://localhost:3001",
+  url: "https://servidor-unse.onrender.com",
   body: null,
   querys: null,
   method: "POST",

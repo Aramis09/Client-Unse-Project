@@ -12,7 +12,7 @@ import validation from "./validate";
 import CheckBox from "../checkBox/checkBox";
 
 const initialHook: ServiceParams<null, null> = {
-  url: "http://localhost:3001",
+  url: "https://servidor-unse.onrender.com",
   body: null,
   querys: null,
   method: "POST",
