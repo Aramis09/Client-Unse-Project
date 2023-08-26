@@ -9,11 +9,8 @@
   top: 0;
   text-align: center;
   z-index: 500;
- 
-  img {
-    width: 70px;
-    margin-left: 10%;
-  }
+ .containerLinks{
+  width: 43%;
   h4{
     width: 160px;
   }
@@ -31,6 +28,13 @@
       cursor: pointer;
     }
   }
+  }
+  img {
+    width: 70px;
+    margin-left: 10%;
+  }
+ 
+  
 
   .listShow {
     position: absolute;
@@ -56,10 +60,14 @@
 
 @media (min-width:0px) and (max-width:1681px){
  .container{
+  .containerLinks{
+    width: 60%;
+  }
   .menu{
     width: 200px;
     font-size: 2ch;
-    margin-right: 18%;
+    margin-right: 0px;
+    font-size:medium;
   }
  }
 }

@@ -48,7 +48,10 @@ export default function Advertising({ advertising }: P) {
           entitie="advertising"
           oldValue={String(summary)}
         />
-        <p>{summary}</p>
+        <Link href={`/advertisingDetail/${id}`}>
+          {" "}
+          <p>{summary}</p>
+        </Link>
       </section>
     </article>
   );

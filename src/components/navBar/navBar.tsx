@@ -14,15 +14,17 @@ function NavBar() {
       <Link href="/">
         <img src={LOGO} alt="icon" />
       </Link>
-      <div className={styles.menu}>
-        {/* !protected options menu */}
-        <IsLogedIn>
-          <OptionMenuCreateNew styles={styles} />
-        </IsLogedIn>
-        <OptionMenuGoServices styles={styles} />
-        <Link href="/about">
-          <h4 className={styles.about}>Quienes somos?</h4>
-        </Link>
+      <div className={styles.containerLinks}>
+        <div className={styles.menu}>
+          {/* !protected options menu */}
+          <IsLogedIn>
+            <OptionMenuCreateNew styles={styles} />
+          </IsLogedIn>
+          <OptionMenuGoServices styles={styles} />
+          <Link href="/about">
+            <h4 className={styles.about}>Quienes somos?</h4>
+          </Link>
+        </div>
       </div>
     </div>
   );

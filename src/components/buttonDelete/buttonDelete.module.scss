@@ -23,3 +23,17 @@
     color: red;
   }
 }
+
+@media (min-width:0px) and (max-width:1681px){
+  .container {
+
+    .button{
+    width: 200px;
+    
+    }
+    p{
+      width: 200px;
+
+    }
+  }
+}

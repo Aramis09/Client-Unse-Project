@@ -41,3 +41,12 @@
 .viewAll {
   margin-top: 3rem;
 }
+@media (min-width:0px) and (max-width:1681px){
+  .container{
+    .title {
+      text-align: center;
+      margin-block: 3%;
+      font-size: 3ch;
+    }
+  }
+}

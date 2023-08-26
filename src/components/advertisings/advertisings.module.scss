@@ -46,8 +46,8 @@
 
   @media (min-width:0px) and (max-width:1681px){
     .container{
+      padding-bottom: 5%; 
       grid-template-columns: auto auto auto;
-      gap: 0;
       column-gap: 1%;
       row-gap: 0;
       margin-bottom: 0;

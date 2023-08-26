@@ -6,3 +6,11 @@
   justify-content: center;
   gap: 5%;
 }
+
+
+@media (min-width:0px) and (max-width:1681px){
+  .container {
+  gap: 0px;
+
+  }
+}
