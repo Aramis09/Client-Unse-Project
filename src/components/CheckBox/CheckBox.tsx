@@ -34,7 +34,7 @@ export default function CheckBox({ handleCheck, fieldName }: CheckProps) {
         Por favor elija la orientacion del servicio
       </label>
       {orientations?.map((orientationObj) => (
-        <CheckBocCard
+        <CheckBoxCard
           key={generateKeys()}
           fieldName={fieldName}
           handleSelect={handleSelect}
@@ -52,7 +52,7 @@ interface P {
   handleSelect: (value: React.ChangeEvent<HTMLInputElement>) => void;
   option: string;
 }
-const CheckBocCard = ({
+const CheckBoxCard = ({
   fieldName,
   selectedOption,
   handleSelect,
