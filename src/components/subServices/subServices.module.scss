@@ -1,0 +1,16 @@
+.container {
+  max-width: 50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  justify-content: center;
+  gap: 5%;
+}
+
+
+@media (min-width:0px) and (max-width:1681px){
+  .container {
+  gap: 0px;
+
+  }
+}

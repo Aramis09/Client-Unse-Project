@@ -11,10 +11,10 @@
 }
 html,
 body {
-  max-width: 100%;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   font-family: "Aramis";
   color: white;
+
 }
 
 body {
@@ -33,7 +33,11 @@ a {
 }
 
 html {
-  background-color: #FFDDDD;
+  background-image: linear-gradient(to right, #919191, #ffffff, #a0a0a0);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  scroll-behavior: smooth;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

@@ -1,0 +1,17 @@
+.errorMessage  {
+  margin: 1rem;
+  border: solid 1px red;
+  border-radius: 0.5rem;
+  padding: 30px;
+  background-color: rgba($color: #eedfe6, $alpha: 1.0);
+  position: fixed;
+  left: 90px;
+  top: 82px;
+  p {
+    margin: 0;
+    color: red;
+  }
+}
+.hiden{
+  display: none;
+}

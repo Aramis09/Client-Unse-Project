@@ -1,0 +1,46 @@
+.container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 200vh;
+
+  .numberUploads{
+    background: linear-gradient(to bottom, rgb(9, 74, 170), rgb(19, 135, 202) );
+    padding: 2%;
+    border-radius: 0.5rem;
+    display: flex;
+    font-size: 2ch;
+    font-weight: 700;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .numberUploads input {
+    text-align: center;
+    font-weight: 900;
+    border-radius: 0.5rem;
+    border-style: none;
+    height: 30px;
+  }
+
+  .uploadWidget{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    button{
+      margin-top: 15%;
+      color: whitesmoke;
+      background-color: #900C3F;
+      margin-top: 300px;
+      width: 255px;
+      font-weight: 600;
+      font-size: 2ch;
+      height: 100px;
+    }
+  }
+  .text{
+    color: black;
+    font-weight: 600;
+    font-size: 2ch;
+  }
+}

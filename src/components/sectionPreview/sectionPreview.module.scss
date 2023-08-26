@@ -1,0 +1,27 @@
+.container{
+  margin-block: 5%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+  background-image: linear-gradient(to right, #2e78e748, #8d73d331, #900c3f46);
+  padding: 2%;
+  border-radius:0.5rem ;
+  color: rgb(70, 70, 70);
+  font-weight: 900;
+  img {
+    width: 50%;
+  }
+  h4{
+    font-size: 3ch;
+  }
+}
+.noListBullets li {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  list-style-type: none;
+  text-decoration: none;
+}

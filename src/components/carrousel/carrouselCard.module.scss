@@ -1,0 +1,64 @@
+.container {
+  height: 100%;
+  width: 100%;
+  .containerButtons{
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    transition: 0.5s;
+  }
+  .containerButtons a img{
+    width: 70px;
+    transition: 0.5s;
+  }
+
+  .arrow{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+
+  }
+
+  .arrow:hover{
+    transition: 0.05s;
+    transform: scale(1.2);
+    filter:invert(11%) sepia(65%) saturate(4469%) hue-rotate(324deg) brightness(92%) contrast(100%);
+
+  }
+ 
+
+  .imageItem {
+    position: absolute;
+    border-radius: 1rem;
+    object-fit:cover;    
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+  }
+}
+
+
+@media (min-width:0px) and (max-width:1680px){
+  .container{
+    width: 100%;
+    height: 100%;
+    .containerButtons{
+      width: 100%;
+      height: 100%;
+    }
+    .imageItem{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+

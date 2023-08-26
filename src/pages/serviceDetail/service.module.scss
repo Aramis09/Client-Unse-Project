@@ -1,0 +1,52 @@
+.container {
+  margin-block: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: 900;
+  img {
+    width: 80%;
+  }
+  .title {
+    text-align: center;
+    margin-block: 3%;
+    font-size: 5ch;
+  }
+  .data {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 0.20fr 0.60fr 0.20fr;
+    align-items: center;
+    justify-content:center;
+    gap: 3%;
+  }
+  
+  .aside {
+    background-color: rgb(143, 141, 141);
+    height: 100%;
+    border-radius: 0.2rem;
+  }
+  .containerProperty{
+    position: relative;
+    .iconEdit{
+      position: absolute;
+      width: 30px;
+      right: 0;
+      top: 0;
+    }
+  }
+}
+.viewAll {
+  margin-top: 3rem;
+}
+@media (min-width:0px) and (max-width:1681px){
+  .container{
+    .title {
+      text-align: center;
+      margin-block: 3%;
+      font-size: 3ch;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.container{
+  height: 250px;
+  max-width:55%;
+  margin: 0 auto;
+  margin-bottom: 5%;
+  box-shadow: inset 0px 0px 10px 5px #900c3f94;
+  background-color: rgba(214, 51, 51, 0.171);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25%;
+  border-radius: 0.5rem;
+  color: black;
+  font-weight: 600;
+  .miniAbout{
+    width: 30%;
+    
+  }
+  .titles{
+    font-size: 2.3ch;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: #900c3ff8;
+  }
+
+  .networks{
+    list-style: none;
+    
+  }
+  .networks li {
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  .liContact{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    img{
+      width: 30px;
+      height: 30px;
+      border-radius: 10rem;
+    }
+  }
+}
+
+@media (min-width:0px) and (max-width:1681px){
+  .container{
+    font-size: 1.5ch;
+    height: 200px;
+  }
+}

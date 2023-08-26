@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin-top: 5%;
+  font-weight: 900;
+  img {
+    width: 60%;
+  }
+  .containerTitle{
+    position: relative;
+
+    .title {
+      text-align: center;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      font-size: 5ch;
+      min-width: 300px;
+
+    }
+    .iconEdit{
+      width: 30px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+
+    }
+
+  }
+  .data {
+    width: 80%;
+    
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0.20fr 0.60fr 0.20fr;
+    align-items: start;
+    justify-content:center;
+    gap: 3%;
+  }
+  
+
+  .aside {
+    background-color: #454545;
+    color: #f1f1f1;
+    border-radius: 0.2rem;
+    position: sticky;
+    top: 100px;
+  }
+}

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from 'react';
 
 interface UseStyleParams {
   styles: { readonly [key: string]: string };
@@ -11,8 +11,6 @@ export  const useStylesClick = ({ styles, first, second }: UseStyleParams) => {
   const flag = useRef(true);
   const [style, setStyle] = useState(styles[first]);
   const changeStyles = () => {
-    console.log(firstOption, secondOption);
-
     if (flag.current) {
       setStyle(secondOption);
       flag.current = false;
