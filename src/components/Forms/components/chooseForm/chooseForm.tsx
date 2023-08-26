@@ -1,6 +1,6 @@
 import React from "react";
 import ChooseInput from "../chooseInputs/chooseInput";
-import CheckBox from "@/components/checkBox/checkBox";
+import CheckBox from "@/components/checkBoxx/checkBoxx";
 import UploadWidget from "@/components/uploadWidget/uploadWidget";
 import ShowImage from "@/components/showImage/showImage";
 import { AllData } from "@/customHooks/useSelectStateForm";
