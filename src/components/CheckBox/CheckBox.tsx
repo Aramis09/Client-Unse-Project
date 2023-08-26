@@ -3,7 +3,6 @@ import styles from "./checkbox.module.scss";
 import useMakeRequest from "@/customHooks/makeRequest";
 import { ServiceParams } from "@/types/requestTypes";
 import { OrientationsType } from "@/types/interfaces";
-import { generateKey } from "crypto";
 import generateKeys from "@/utils/generateKeys";
 import { URL_GET_ORIENTATIONS } from "@/utils/consts";
 interface CheckProps {
