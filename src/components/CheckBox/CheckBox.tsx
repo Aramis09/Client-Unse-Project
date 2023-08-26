@@ -16,7 +16,7 @@ const initialHook: ServiceParams<null, null> = {
   url: URL_GET_ORIENTATIONS,
 };
 
-export default function CheckBox({ handleCheck, fieldName }: CheckProps) {
+export default function CheckBoxs({ handleCheck, fieldName }: CheckProps) {
   const [selectedOption, setSelectedOption] = useState("");
   const { data: orientations } = useMakeRequest<null, null, OrientationsType[]>(
     initialHook

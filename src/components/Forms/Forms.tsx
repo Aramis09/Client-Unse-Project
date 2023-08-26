@@ -13,7 +13,7 @@ import ErrorMessage from "./components/errorMessage/errorMessage";
 import AsideNavigation from "../asideNavigation/asideNavigation";
 import generateKeys from "@/utils/generateKeys";
 import otherStleToAside from "../asideNavigation/asideNavigationOnCreateNew.module.scss";
-import CheckBox from "@/components/checkBox/checkBox";
+import CheckBoxs from "@/components/checkBox/checkBox";
 
 const initialHook: ServiceParams<null, null> = {
   url: "https://servidor-unse.onrender.com",
@@ -119,7 +119,7 @@ export default function Forms({ type }: optionsForm) {
             )
           )}
         {type === "subservice" ? (
-          <CheckBox
+          <CheckBoxs
             handleCheck={handleOrientationUpdate}
             fieldName={"orientation"}
           />
