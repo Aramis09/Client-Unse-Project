@@ -6,13 +6,14 @@ import { ServiceParams } from "@/types/requestTypes";
 import { CarrouselImages, ResToGetCarrousel } from "@/types/interfaces";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { URL_GET_CARROUSEL_DETAIL } from "@/utils/consts";
 interface P {
   imageEdit: string[];
   locationToEdit: string;
 }
 
 const initState: ServiceParams<null, { location: string }> = {
-  url: "http://localhost:3001/carrousel/getDetail",
+  url: URL_GET_CARROUSEL_DETAIL,
   body: null,
   method: "GET",
   querys: { location: "" }, //!Esto depende de donde este

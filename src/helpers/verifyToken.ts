@@ -1,4 +1,5 @@
 import { ServiceParams } from "@/types/requestTypes"
+import { URL_VERIFY_TOKEN } from "@/utils/consts"
 import { generateRequest } from "@/utils/generateRequest"
 interface Res {
   error:string,
@@ -6,7 +7,7 @@ interface Res {
 }
 export const verificationToken = async ():Promise<Res> =>{
   const params:ServiceParams<null,null> = {
-    url:"http://localhost:3001/verificationToken",
+    url:URL_VERIFY_TOKEN,
     body:null,
     querys:null,
     method:"POST"

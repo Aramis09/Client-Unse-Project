@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Loader from "../loader/loader";
 import useChangeStyles from "@/customHooks/useChangeStyles";
+import { URL_GET_SUB_SERVICE } from "@/utils/consts";
 
 interface P {
   pageSize?: number;
@@ -22,7 +23,7 @@ type QueryParams = {
 };
 
 const initialHook: ServiceParams<null, any> = {
-  url: "http://localhost:3001/subServices/getSubservices",
+  url: URL_GET_SUB_SERVICE,
   body: null,
   querys: { page: 1, size: 6, orientation: "" },
   method: "GET",

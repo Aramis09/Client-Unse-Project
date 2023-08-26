@@ -1,7 +1,6 @@
 import { ServiceParams } from "@/types/requestTypes"
+import { URL_CREATE_CARROUSEL, URL_EDIT_CARROUSEL } from "@/utils/consts"
 import { generateRequest } from "@/utils/generateRequest"
-export const urlToEditCarrousel = "http://localhost:3001/carrousel/edit"
-export const urlToCreateCarrousel = "http://localhost:3001/carrousel/create"
 
 interface P {
   images:string[]
@@ -12,7 +11,7 @@ interface P {
 
 export const sendEditCarrouselHelper = async ({images,location,idAdvertising,action}:P) => {
   const condition = action === "edit"
-  const urlToSend = condition ?  urlToEditCarrousel : urlToCreateCarrousel
+  const urlToSend = condition ?  URL_EDIT_CARROUSEL : URL_CREATE_CARROUSEL
   const method = condition ? "PUT": "POST"
   
   const params:ServiceParams<any,null> = {

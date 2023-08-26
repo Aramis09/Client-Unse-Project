@@ -20,4 +20,12 @@
     width: 100%;
     z-index: 100;
   }
+  .iconEdit{
+    display: none;
+  }
+  .containerSummary{
+    .iconEdit{
+      display: none;
+    }
+  }
 }

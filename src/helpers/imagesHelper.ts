@@ -1,4 +1,5 @@
 import { ServiceParams } from "@/types/requestTypes"
+import { URL_DELETE_IMAGE } from "@/utils/consts"
 import { generateRequest } from "@/utils/generateRequest"
 
 interface P {
@@ -6,7 +7,7 @@ interface P {
 }
 export const deleteImage = async ({publicId}:P) => {
   const initParams:ServiceParams<null,any> = {
-    url:"http://localhost:3001/imageManager/delete",
+    url:URL_DELETE_IMAGE,
     body:null,
     querys:{
       publicId:publicId

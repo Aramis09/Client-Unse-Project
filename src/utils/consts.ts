@@ -37,8 +37,10 @@ export let messajes = {
 
 
 
-
-
+export const ICON_UPLOAD_IMAGE =
+    "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1693011952/samples/assets%20for%20web%20FCEYT/image_fwpzve.png";
+export const ICON_EDIT_ENTITIES =
+  "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1693011952/samples/assets%20for%20web%20FCEYT/edit_sbjnxr.png";
 export const ICON_SAVE_DATA_CARROUSEL = "https://res.cloudinary.com/dynnwv7md/image/upload/v1691506691/save_nvyiex.png"
 export const ICON_EDIT =
     "https://res.cloudinary.com/dynnwv7md/image/upload/v1691505197/edit-image_wxxstt.png";
@@ -58,3 +60,32 @@ export const ARROW_PAGINATE_L =
   "https://res.cloudinary.com/dynnwv7md/image/upload/v1691869581/icons8-back-to-96_gxejsr.png";
 export const ARROW_PAGINATE_R =
   "https://res.cloudinary.com/dynnwv7md/image/upload/v1691869581/icons8-next-page-96_vsud1m.png";
+
+
+export const URL_GET_ADVERTISING = "http://localhost:3001/advertising/getAdversiting/"
+export const URL_GET_CARROUSEL_DETAIL = "http://localhost:3001/carrousel/getDetail"
+
+export const URL_GET_ORIENTATIONS = "http://localhost:3001/orientation/getOrientations"
+
+export const URL_GET_SUB_SERVICE = "http://localhost:3001/subServices/getSubservices"
+
+export const URL_EDIT_CARROUSEL = "http://localhost:3001/carrousel/edit"
+export const URL_CREATE_CARROUSEL = "http://localhost:3001/carrousel/create"
+
+export const URL_EDIT_SECTION = "http://localhost:3001/sections/editSection"
+
+export const URL_EDIT_ADVERTISING = "http://localhost:3001/advertising/editAdvertising"
+
+export const URL_EDIT_SERVICE = "http://localhost:3001/services/editService"
+export const URL_EDIT_SUB_SERVICE = "http://localhost:3001/subServices/editSubService"
+export const URL_DELETE_IMAGE = "http://localhost:3001/imageManager/delete"
+export const URL_VERIFY_TOKEN = "http://localhost:3001/verificationToken"
+export const URL_LOGIN = "http://localhost:3001/login"
+
+export const URL_GET_DETAIL_SERVICE = "http://localhost:3001/services/getServices/detail"
+ 
+
+
+
+
+

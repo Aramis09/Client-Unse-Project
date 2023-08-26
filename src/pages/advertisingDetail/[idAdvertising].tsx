@@ -9,6 +9,9 @@ import Carrousel from "@/components/carrousel/carrousel";
 import Loader from "@/components/loader/loader";
 import { useEffect } from "react";
 import Advertisings from "@/components/advertisings/advertisings";
+import IconEdit from "@/components/iconEdit/iconEdit";
+import { URL_GET_ADVERTISING } from "@/utils/consts";
+import ButtonDelete from "@/components/buttonDelete/buttonDelete";
 
 type QueryParams = {
   page: number;
@@ -16,10 +19,10 @@ type QueryParams = {
 };
 
 const initialHook: ServiceParams<null, QueryParams> = {
-  url: "http://localhost:3001/advertising/getAdversiting/",
+  url: URL_GET_ADVERTISING,
   body: null,
   querys: { page: 1, size: 6 },
-  method: "GET"
+  method: "GET",
 };
 export default function AdvertisingDetail() {
   const router = useRouter();
@@ -37,15 +40,23 @@ export default function AdvertisingDetail() {
   return (
     <div className={styles.container}>
       <Carrousel imageEdit={[]} locationToEdit="" />
-
+      <ButtonDelete id={id} typeDelete="advertising" />
       {(advertising?.data && (
         <>
-          <h4 className={styles.title}>{advertising?.data.title}</h4>
+          <div className={styles.containerTitle}>
+            <h4 className={styles.title}>{advertising?.data.title}</h4>
+            <IconEdit
+              id={id}
+              property="title"
+              styles={styles.iconEdit}
+              typeEdit="text"
+              entitie="advertising"
+            />
+          </div>
           <div className={styles.data}>
             <AsideNavigation sectionsData={advertising.data.SectionsViews} />
             <Sections sectionsData={advertising.data.SectionsViews} />
             <Advertisings />
-            {/* <p className={styles.aside}>{advertising?.data.aside}</p> */}
           </div>
           <p className={styles.footer}>{advertising?.data.footer}</p>
         </>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import ShowImage from "../showImage/showImage";
 import { useRouter } from "next/router";
 import useChangeStyles from "@/customHooks/useChangeStyles";
+import IconEdit, { PropToEdit } from "../iconEdit/iconEdit";
 
 interface P {
   advertising: AdvertisingType;
@@ -29,8 +30,24 @@ export default function Advertising({ advertising }: P) {
       </Link>
       <h4>{title}</h4>
       <ShowImage idImage={image} type="thumbnail" />
+      <IconEdit
+        id={id}
+        property="image"
+        styles={(stylesChosen && stylesChosen.iconEdit) || ""}
+        typeEdit="image"
+        entitie="advertising"
+        oldValue={String(image)}
+      />
       <p className={stylesChosen && stylesChosen.date}>{date}</p>
       <section className={stylesChosen && stylesChosen.containerSummary}>
+        <IconEdit
+          id={id}
+          property="summary"
+          styles={(stylesChosen && stylesChosen["iconEdit"]) || ""}
+          typeEdit="text"
+          entitie="advertising"
+          oldValue={String(summary)}
+        />
         <p>{summary}</p>
       </section>
     </article>

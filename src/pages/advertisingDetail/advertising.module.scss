@@ -4,16 +4,31 @@
   align-items: center;
   justify-content: center;
   color: black;
-  
+  margin-top: 5%;
   font-weight: 900;
   img {
     width: 60%;
   }
-  .title {
-    text-align: center;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    font-size: 5ch;
+  .containerTitle{
+    position: relative;
+
+    .title {
+      text-align: center;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      font-size: 5ch;
+      min-width: 300px;
+
+    }
+    .iconEdit{
+      width: 30px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+
+    }
+
   }
   .data {
     width: 80%;
@@ -26,6 +41,7 @@
     gap: 3%;
   }
   
+
   .aside {
     background-color: #454545;
     color: #f1f1f1;

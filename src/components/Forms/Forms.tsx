@@ -38,7 +38,6 @@ export default function Forms({ type }: optionsForm) {
         [evt.target.name]: evt.target.value,
       };
       setErrors(validation(newState, type));
-
       return newState;
     });
   };
@@ -52,6 +51,8 @@ export default function Forms({ type }: optionsForm) {
   };
 
   const handleOrientationUpdate = (data: string) => {
+    console.log("entre al metodo 1");
+
     setFormData((prevFormData) => {
       const newState = prevFormData && {
         ...prevFormData,
@@ -87,7 +88,6 @@ export default function Forms({ type }: optionsForm) {
       setFormData(initialData);
     }
   };
-  console.log(formData);
 
   const fieldNames = formData && getFilteredFieldNames(formData);
   return (
@@ -143,63 +143,3 @@ export default function Forms({ type }: optionsForm) {
     </>
   );
 }
-
-// fieldName.includes("orientation") ? (
-//   <CheckBox
-//     handleCheck={handleOrientationUpdate}
-//     fieldName={"orientation"}
-//   />
-// ) :
-
-// formData.image ? (
-//   <div className={styles.imgContainer}>
-//     <ShowImage idImage={formData.image} type="auto" />
-//   </div>
-// ) : (
-//   <>
-//     <label>Suba la imagen de portada de la publicidad</label>
-//     <UploadWidget
-//       handleImageUrl={handleImageUrl}
-//       showImageToUpload={true}
-//       typeShowImage="auto"
-//     />
-//   </>
-// )
-
-// fieldName.includes("image") ? (
-//   formData.image ? (
-//     <div className={styles.imgContainer}>
-//       <ShowImage idImage={formData.image} type="thumbnail" />
-//     </div>
-//   ) : (
-//     <>
-//       <label>{fieldName}</label>
-//       <UploadWidget handleImageUrl={handleImageUrl} />
-//     </>
-//   )
-// ) : fieldName.includes("orientation") ? (
-//   <>
-//     <label htmlFor={fieldName}>{fieldName}</label>
-//     <CheckBox
-//       handleCheck={handleOrientationUpdate}
-//       fieldName={fieldName}
-//     />
-//   </>
-// ) : (
-//   <ChooseInput
-//     fieldName={fieldName}
-//     formData={formData}
-//     handleInputChange={handleInputChange}
-//   />
-// )
-
-//  <ChooseForm
-//           fieldNames={fieldNames}
-//           fieldName={fieldName}
-//           formData={formData}
-//           handleImageUrl={handleImageUrl}
-//           handleInputChange={handleInputChange}
-//           handleOrientationUpdate={handleOrientationUpdate}
-//           styles={styles}
-//           key={Math.random() * Math.random()}
-//         />

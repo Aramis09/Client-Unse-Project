@@ -2,6 +2,10 @@ import { useState } from "react";
 import styles from "./checkbox.module.scss";
 import useMakeRequest from "@/customHooks/makeRequest";
 import { ServiceParams } from "@/types/requestTypes";
+import { OrientationsType } from "@/types/interfaces";
+import { generateKey } from "crypto";
+import generateKeys from "@/utils/generateKeys";
+import { URL_GET_ORIENTATIONS } from "@/utils/consts";
 interface CheckProps {
   fieldName: string;
   handleCheck: (data: any) => void;
@@ -10,11 +14,14 @@ const initialHook: ServiceParams<null, null> = {
   body: null,
   querys: null,
   method: "GET",
-  url: "",
+  url: URL_GET_ORIENTATIONS,
 };
+
 export default function CheckBox({ handleCheck, fieldName }: CheckProps) {
   const [selectedOption, setSelectedOption] = useState("");
-  // const {} = useMakeRequest<null, null>(initialHook);
+  const { data: orientations } = useMakeRequest<null, null, OrientationsType[]>(
+    initialHook
+  );
   const handleSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
 
@@ -27,37 +34,39 @@ export default function CheckBox({ handleCheck, fieldName }: CheckProps) {
       <label htmlFor={fieldName} className={styles.message}>
         Por favor elija la orientacion del servicio
       </label>
-
-      <div className={styles.containerInputs}>
-        <label htmlFor={fieldName}>Servicio para Estudiantes</label>
-        <input
-          type="radio"
-          name={fieldName}
-          value="students"
-          checked={selectedOption === "students"}
-          onChange={handleSelect}
+      {orientations?.map((orientationObj) => (
+        <CheckBocCard
+          key={generateKeys()}
+          fieldName={fieldName}
+          handleSelect={handleSelect}
+          selectedOption={selectedOption}
+          option={orientationObj.name}
         />
-      </div>
-      <div className={styles.containerInputs}>
-        <label htmlFor={fieldName}>Servicio para Docentes</label>
-        <input
-          type="radio"
-          name={fieldName}
-          value="teachers"
-          checked={selectedOption === "teachers"}
-          onChange={handleSelect}
-        />
-      </div>
-      <div className={styles.containerInputs}>
-        <label htmlFor={fieldName}>Servicio para Instituciones</label>
-        <input
-          type="radio"
-          name={fieldName}
-          value="institutions"
-          checked={selectedOption === "institutions"}
-          onChange={handleSelect}
-        />
-      </div>
+      ))}
     </section>
   );
 }
+
+interface P {
+  fieldName: string;
+  selectedOption: string;
+  handleSelect: (value: React.ChangeEvent<HTMLInputElement>) => void;
+  option: string;
+}
+const CheckBocCard = ({
+  fieldName,
+  selectedOption,
+  handleSelect,
+  option,
+}: P) => (
+  <div className={styles.containerInputs}>
+    <label htmlFor={fieldName}>Servicio para {option}</label>
+    <input
+      type="radio"
+      name={fieldName}
+      value={option}
+      checked={selectedOption === option}
+      onChange={handleSelect}
+    />
+  </div>
+);

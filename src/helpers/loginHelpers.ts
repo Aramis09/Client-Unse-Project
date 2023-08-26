@@ -1,5 +1,6 @@
 import { Credentials } from "@/pages/login";
 import { ServiceParams } from "@/types/requestTypes";
+import { URL_LOGIN } from "@/utils/consts";
 import { generateRequest } from "@/utils/generateRequest";
 export interface ResLogin {
   user: string,
@@ -10,7 +11,7 @@ export interface ResLogin {
 export const sendCradentialsHelper = async (credentials:Credentials):Promise<ResLogin> => {
   
   const params:ServiceParams<Credentials,null> = {
-    url:"http://localhost:3001/login",
+    url:URL_LOGIN,
     body:credentials,
     querys:null, 
     method: "POST",

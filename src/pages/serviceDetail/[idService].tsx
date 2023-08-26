@@ -13,9 +13,12 @@ import AsideNavigation from "@/components/asideNavigation/asideNavigation";
 import SubServices from "@/components/subServices/subServices";
 import { useEffect, useRef, useState } from "react";
 import Loader from "@/components/loader/loader";
+import IconEdit from "@/components/iconEdit/iconEdit";
+import { URL_GET_DETAIL_SERVICE } from "@/utils/consts";
+import ButtonDelete from "@/components/buttonDelete/buttonDelete";
 
 const initialHook: ServiceParams<null, QueryParams> = {
-  url: "http://localhost:3001/services/getServices/detail",
+  url: URL_GET_DETAIL_SERVICE,
   body: null,
   querys: {},
   method: "GET",
@@ -43,6 +46,9 @@ export default function ServiceDetail() {
   // !NO TOCAR LA LINEA DE ARRIBA
   return (
     <>
+      {(service && service.data && (
+        <ButtonDelete id={service.data.id} typeDelete="service" />
+      )) || <></>}
       {service && service.data ? (
         <>
           {service && service?.data && (
@@ -59,7 +65,16 @@ export default function ServiceDetail() {
               </Link>
               {(service?.data && (
                 <>
-                  <h4 className={styles.title}>{service?.data.title}</h4>
+                  <div className={styles.containerProperty}>
+                    <IconEdit
+                      id={service.data.id}
+                      property="title"
+                      styles={styles.iconEdit}
+                      typeEdit="text"
+                      entitie="service"
+                    />
+                    <h4 className={styles.title}>{service?.data.title}</h4>
+                  </div>
                   <div className={styles.data}>
                     <AsideNavigation
                       sectionsData={service.data.SectionsViewsService}

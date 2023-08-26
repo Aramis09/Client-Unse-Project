@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./uploadWidget.module.scss";
 import { ImageData } from "@/types/interfaces";
 import ShowImage from "../showImage/showImage";
+import { ICON_UPLOAD_IMAGE } from "@/utils/consts";
 interface P {
   addImageToCarrousel?: (urlNewImage: string) => void;
   handleImageUrl?: (data: string) => void;
@@ -53,7 +54,7 @@ export default function UploadWidget({
         Subir imagen
       </button>
       <img
-        src="https://res.cloudinary.com/dzqxa7jfj/image/upload/v1692816510/image_qdcz9d.png"
+        src={ICON_UPLOAD_IMAGE}
         alt="uploadImage"
         onClick={() => widgetRef.current.open()}
         className={

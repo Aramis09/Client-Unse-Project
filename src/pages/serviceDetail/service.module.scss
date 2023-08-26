@@ -28,6 +28,15 @@
     height: 100%;
     border-radius: 0.2rem;
   }
+  .containerProperty{
+    position: relative;
+    .iconEdit{
+      position: absolute;
+      width: 30px;
+      right: 0;
+      top: 0;
+    }
+  }
 }
 .viewAll {
   margin-top: 3rem;

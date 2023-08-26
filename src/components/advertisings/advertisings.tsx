@@ -7,9 +7,10 @@ import Advertising from "../advertising/advertising";
 import Loader from "../loader/loader";
 import useChangeStyles from "@/customHooks/useChangeStyles";
 import { useRouter } from "next/router";
+import { URL_GET_ADVERTISING } from "@/utils/consts";
 
 const initialHook: ServiceParams<null, GetWithPage> = {
-  url: "http://localhost:3001/advertising/getAdversiting",
+  url: URL_GET_ADVERTISING,
   body: null,
   querys: { page: 1, size: null },
   method: "GET",

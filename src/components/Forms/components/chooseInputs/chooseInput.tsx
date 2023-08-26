@@ -5,7 +5,7 @@ interface Pr extends P {
 }
 interface P {
   fieldName: "title" | "image" | "sections" | "orientation";
-  formData: AllData | undefined;
+  formData: AllData;
   handleOrientationUpdate?: (orientation: string) => void;
   handleInputChange?: (
     evt:
@@ -57,14 +57,7 @@ export default function ChooseInput({
     </div>
   );
 }
-{
-  /* <InputText
-          fieldName={fieldName}
-          formData={formData}
-          handleOrientationUpdate={handleOrientationUpdate}
-          placeholder="Nombre de la orientacion de los servicios"
-        /> */
-}
+
 const InputText = ({
   fieldName,
   formData,
@@ -77,7 +70,7 @@ const InputText = ({
       type="text"
       name={fieldName}
       placeholder={placeholder}
-      value={String(formData && formData[fieldName])}
+      value={String(formData[fieldName])}
       onChange={(evt) => {
         handleInputChange
           ? handleInputChange(evt)

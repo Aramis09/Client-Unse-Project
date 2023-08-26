@@ -28,7 +28,7 @@ export function GoEdit({ whereRedirect, location, action }: P) {
           href={`${whereRedirect}?location=${location}&idAdvertising=${
             router.query["idAdvertising"]
           }&action=${condition ? "edit" : "create"}`}
-          className={stylesChosen.container}
+          className={stylesChosen && stylesChosen.container}
         >
           <img src={condition ? ICON_EDIT : ICON_CREATE} alt="iconToAction" />
         </Link>
