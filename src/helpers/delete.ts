@@ -17,7 +17,7 @@ export const sendDeleted = async ({id,typeDelete}:DeleteType) => {
 }
 
 let ulrs = {
-  advertising:"http://localhost:3001/advertising/delete",
-  service:"http://localhost:3001/services/delete",
-  subService:"http://localhost:3001/subServices/delete"
+  advertising:"https://servidor-unse.onrender.com/advertising/delete",
+  service:"https://servidor-unse.onrender.com/services/delete",
+  subService:"https://servidor-unse.onrender.com/subServices/delete"
 }

@@ -62,27 +62,27 @@ export const ARROW_PAGINATE_R =
   "https://res.cloudinary.com/dynnwv7md/image/upload/v1691869581/icons8-next-page-96_vsud1m.png";
 
 
-export const URL_GET_ADVERTISING = "http://localhost:3001/advertising/getAdversiting/"
-export const URL_GET_CARROUSEL_DETAIL = "http://localhost:3001/carrousel/getDetail"
+export const URL_GET_ADVERTISING = "https://servidor-unse.onrender.com/advertising/getAdversiting/"
+export const URL_GET_CARROUSEL_DETAIL = "https://servidor-unse.onrender.com/carrousel/getDetail"
 
-export const URL_GET_ORIENTATIONS = "http://localhost:3001/orientation/getOrientations"
+export const URL_GET_ORIENTATIONS = "https://servidor-unse.onrender.com/orientation/getOrientations"
 
-export const URL_GET_SUB_SERVICE = "http://localhost:3001/subServices/getSubservices"
+export const URL_GET_SUB_SERVICE = "https://servidor-unse.onrender.com/subServices/getSubservices"
 
-export const URL_EDIT_CARROUSEL = "http://localhost:3001/carrousel/edit"
-export const URL_CREATE_CARROUSEL = "http://localhost:3001/carrousel/create"
+export const URL_EDIT_CARROUSEL = "https://servidor-unse.onrender.com/carrousel/edit"
+export const URL_CREATE_CARROUSEL = "https://servidor-unse.onrender.com/carrousel/create"
 
-export const URL_EDIT_SECTION = "http://localhost:3001/sections/editSection"
+export const URL_EDIT_SECTION = "https://servidor-unse.onrender.com/sections/editSection"
 
-export const URL_EDIT_ADVERTISING = "http://localhost:3001/advertising/editAdvertising"
+export const URL_EDIT_ADVERTISING = "https://servidor-unse.onrender.com/advertising/editAdvertising"
 
-export const URL_EDIT_SERVICE = "http://localhost:3001/services/editService"
-export const URL_EDIT_SUB_SERVICE = "http://localhost:3001/subServices/editSubService"
-export const URL_DELETE_IMAGE = "http://localhost:3001/imageManager/delete"
-export const URL_VERIFY_TOKEN = "http://localhost:3001/verificationToken"
-export const URL_LOGIN = "http://localhost:3001/login"
+export const URL_EDIT_SERVICE = "https://servidor-unse.onrender.com/services/editService"
+export const URL_EDIT_SUB_SERVICE = "https://servidor-unse.onrender.com/subServices/editSubService"
+export const URL_DELETE_IMAGE = "https://servidor-unse.onrender.com/imageManager/delete"
+export const URL_VERIFY_TOKEN = "https://servidor-unse.onrender.com/verificationToken"
+export const URL_LOGIN = "https://servidor-unse.onrender.com/login"
 
-export const URL_GET_DETAIL_SERVICE = "http://localhost:3001/services/getServices/detail"
+export const URL_GET_DETAIL_SERVICE = "https://servidor-unse.onrender.com/services/getServices/detail"
  
 
 
