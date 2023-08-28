@@ -16,7 +16,6 @@ export default function Section({ sectionsData, idSection }: P) {
     textPartOne,
     textPartTwo,
   } = sectionsData;
-  console.log(sectionsData);
 
   return (
     <div id={String(idSection)} className={styles.container}>

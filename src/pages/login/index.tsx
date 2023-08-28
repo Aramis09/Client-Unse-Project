@@ -18,6 +18,8 @@ export default function Login() {
     const response = await sendCradentialsHelper(fields);
     setStatusSend(!response.error);
   };
+  console.log(statusSend);
+
   return (
     <section className={styles.container}>
       <form className={styles.formLogin} onSubmit={handleSubmit}>

@@ -8,11 +8,11 @@ import { getCookie } from "./actionCookie";
 //    queryX:"Holamundo"
 //}
 //
-
+//!es importante poner la cookies que setea cada servidor porque las cambian, (netlify,vercel,...etc)
 export async function generateRequest<B,C>({url,body,querys, method}:ServiceParams<B,C>):Promise<ResRequest> {          
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("auth-token",`${getCookie({nameCookie:"messiEntroAJugar"}).cookiesFound || null}`);
+  myHeaders.append("auth-token",`${getCookie({nameCookie:"__vercel_live_feedback"}).cookiesFound || null}`);
   myHeaders.append("auth-secret-key",`${process.env.NEXT_PUBLIC_SECRET_KEY}`);
   
   let urlToFetch = url
@@ -32,7 +32,7 @@ export async function generateRequest<B,C>({url,body,querys, method}:ServicePara
       body:JSON.stringify(body)
     }
   }
-
+  
   
   const res:Promise<ResRequest> = fetch(urlToFetch,config)
   .then(res=> res.json())

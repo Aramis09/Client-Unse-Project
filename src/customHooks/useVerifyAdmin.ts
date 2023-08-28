@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const useVerifyToken = () => {
   const router = useRouter();
   const [statusToken, setStatusToken] = useState<boolean>(false);
-
+  
   useEffect(() => {
     verificationToken().then((res) => {
       setStatusToken(res.acces);

@@ -4,6 +4,7 @@ interface P {
   nameCookie: string;
 }
 export const getCookie = ({ nameCookie }: P) => {
+  
   const cookies = new Cookies();
   const cookiesFound: string | undefined = cookies.get(nameCookie);
   return {
