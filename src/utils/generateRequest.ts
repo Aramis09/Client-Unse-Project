@@ -12,6 +12,7 @@ import { getCookie } from "./actionCookie";
 export async function generateRequest<B,C>({url,body,querys, method}:ServiceParams<B,C>):Promise<ResRequest> {          
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
+//!es importante poner la cookies que setea cada servidor porque las cambian, (netlify,vercel,...etc)
   myHeaders.append("auth-token",`${getCookie({nameCookie:"__vercel_live_feedback"}).cookiesFound || null}`);
   myHeaders.append("auth-secret-key",`${process.env.NEXT_PUBLIC_SECRET_KEY}`);
   
