@@ -25,6 +25,7 @@ const initialHook: ServiceParams<null, null> = {
 
 export default function Forms({ type }: optionsForm) {
   const { formData, setFormData, url, initialData } = useSelectStateForm(type);
+
   const [errors, setErrors] = useState<errorForm>({
     message: "",
     type: "",
@@ -53,8 +54,6 @@ export default function Forms({ type }: optionsForm) {
   };
 
   const handleOrientationUpdate = (data: string) => {
-    console.log("entre al metodo 1");
-
     setFormData((prevFormData) => {
       const newState = prevFormData && {
         ...prevFormData,
@@ -86,6 +85,8 @@ export default function Forms({ type }: optionsForm) {
         body: formData,
         url: url,
       };
+      console.log(JSON.stringify(initialHookPost));
+
       generateRequest(initialHookPost);
       setFormData(initialData);
     }

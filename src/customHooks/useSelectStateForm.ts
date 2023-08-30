@@ -8,6 +8,7 @@ import {
   DataService,
   DataSubService,
 } from "@/types/interfaces";
+import { NEXT_PUBLIC_DOMAIN_API_REST } from "@/utils/consts";
 import { useState, useEffect } from "react";
 
 export type AllData = DataAdvertising | DataService | DataSubService;
@@ -19,7 +20,7 @@ export default function useSelectStateForm(linkForm: string) {
 
   useEffect(() => {
     let typeForm = null;
-    let baseUrl = `${process.env}`; // Initialize baseUrl here
+    let baseUrl = `${NEXT_PUBLIC_DOMAIN_API_REST}`; // Initialize baseUrl here
 
     switch (linkForm) {
       case "service":
