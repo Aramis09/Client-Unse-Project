@@ -2,8 +2,9 @@ import NavBar from "@/components/navBar/navBar";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Footer from "@/components/footer/footer";
+import dynamic from "next/dynamic";
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <NavBar />
@@ -12,3 +13,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
+
+export default dynamic(() => Promise.resolve(App), { ssr: false });
