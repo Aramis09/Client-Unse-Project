@@ -66,8 +66,8 @@ export const ARROW_PAGINATE_R =
 
 
 // export const NEXT_PUBLIC_DOMAIN_API_REST = "https://servidor-unse.onrender.com"  
-// export const NEXT_PUBLIC_DOMAIN_API_REST = "http://localhost:3001"   
-export const NEXT_PUBLIC_DOMAIN_API_REST = "http://192.168.0.26:3001"   
+export const NEXT_PUBLIC_DOMAIN_API_REST = "http://localhost:3001"   
+// export const NEXT_PUBLIC_DOMAIN_API_REST = "http://192.168.0.26:3001"   
 
 
 export const URL_GET_ADVERTISING = `${NEXT_PUBLIC_DOMAIN_API_REST}/advertising/getAdversiting/`;
