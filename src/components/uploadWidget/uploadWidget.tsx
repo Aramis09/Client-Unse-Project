@@ -10,6 +10,7 @@ interface P {
   hidenImageUploaded?: boolean;
   showImageToUpload?: boolean;
   typeShowImage?: "thumbnail" | "cover" | "auto";
+  switchToDeletePreviwImage?: boolean;
 }
 
 export default function UploadWidget({
@@ -19,11 +20,15 @@ export default function UploadWidget({
   hidenImageUploaded,
   showImageToUpload,
   typeShowImage,
+  switchToDeletePreviwImage,
 }: P) {
   const [imageData, setImageData] = useState<ImageData>();
   const cloudinaryRef: any = useRef();
   const widgetRef: any = useRef();
 
+  useEffect(() => {
+    setImageData(undefined);
+  }, [switchToDeletePreviwImage]);
   useEffect(() => {
     // @ts-ignore
     cloudinaryRef.current = window.cloudinary;
