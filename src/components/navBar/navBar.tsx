@@ -22,7 +22,10 @@ function NavBar() {
           </IsLogedIn>
           <OptionMenuGoServices styles={styles} />
           <Link href="/about">
-            <h4 className={styles.about}>Quienes somos?</h4>
+            <h4 className={styles.about}>Quiénes somos?</h4>
+          </Link>
+          <Link href="/contacts">
+            <h4 className={styles.about}>Contáctenos</h4>
           </Link>
         </div>
       </div>

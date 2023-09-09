@@ -18,7 +18,8 @@ export default function Edit() {
     entitie === "section" ||
     entitie === "advertising" ||
     entitie === "service" ||
-    entitie === "subService";
+    entitie === "subService" ||
+    entitie === "about";
   const handleSendEdit = async () => {
     const status = await sendEdit({
       id: Number(id),

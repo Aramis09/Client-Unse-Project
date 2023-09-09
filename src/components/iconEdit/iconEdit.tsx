@@ -7,7 +7,7 @@ export interface PropToEdit {
   id: number;
   typeEdit: "text" | "image";
   property: string;
-  entitie: "advertising" | "service" | "subService" | "section";
+  entitie: "advertising" | "service" | "subService" | "section" | "about";
   oldValue?: string;
 }
 export default function IconEdit({

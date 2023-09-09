@@ -14,9 +14,12 @@ body {
   /* overflow-x: hidden; */
   font-family: "Aramis";
   color: white;
+}
+/*! esto es necesario para respetar los saltos de linea de todos los textos de la pagina */
+p { 
+  white-space: break-spaces;
 
 }
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
