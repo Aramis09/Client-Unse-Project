@@ -68,6 +68,8 @@
 
 .containerCard:hover {
   transform: scale(110%);
+  position: relative;
+  z-index: 990;
   .containerSummary{
     display: block;
     color: rgb(129, 82, 129);
@@ -77,8 +79,11 @@
     padding: 5%;
     text-align: left;
     opacity: 1;
-    transform: translate(0,-80%);
+    top: 100%;
+    width: 100%;
+    transform: translate(0,-60%);
     transition: 0.5s ;
+    height:85%;
   }
   .coverImage {
     opacity: 1;

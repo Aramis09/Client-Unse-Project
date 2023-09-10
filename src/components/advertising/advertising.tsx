@@ -49,7 +49,6 @@ export default function Advertising({ advertising }: P) {
           oldValue={String(summary)}
         />
         <Link href={`/advertisingDetail/${id}`}>
-          {" "}
           <p>{summary}</p>
         </Link>
       </section>

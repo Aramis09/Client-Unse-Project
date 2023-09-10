@@ -58,7 +58,7 @@ export default function AdvertisingDetail() {
             <Sections sectionsData={advertising.data.SectionsViews} />
             <Advertisings />
           </div>
-          <p className={styles.footer}>{advertising?.data.footer}</p>
+          {/* <p className={styles.footer}>{advertising?.data.footer}</p> */}
         </>
       )) || <Loader />}
     </div>
