@@ -1,14 +1,18 @@
-.iconSave{
-  position: fixed;
-  width: 5%;
-  z-index: 10000;
-  top: 10%;
-  left: 5%;
-  cursor: pointer;
-  transition: transform 0.5s;
+.container{
+  margin-top: 5%;
+  .iconSave{
+    position: fixed;
+    width: 5%;
+    z-index: 10000;
+    top: 10%;
+    left: 5%;
+    cursor: pointer;
+    transition: transform 0.5s;
+  
+  }
+  .iconSave:hover {
+    transition: transform 0.5s;
+    transform: scale(1.1);
+  }
+}
 
-}
-.iconSave:hover {
-  transition: transform 0.5s;
-  transform: scale(1.1);
-}

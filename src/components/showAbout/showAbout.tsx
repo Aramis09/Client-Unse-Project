@@ -3,6 +3,7 @@ import styles from "./showAbout.module.scss";
 import { ResponseGetAbout } from "@/types/interfaces";
 import ShowImage from "../showImage/showImage";
 import IconEdit from "../iconEdit/iconEdit";
+
 const ShowAboutData = ({ aboutData }: { aboutData: ResponseGetAbout }) => {
   return (
     <section className={styles.container}>

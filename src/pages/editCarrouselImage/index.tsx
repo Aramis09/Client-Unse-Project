@@ -41,7 +41,7 @@ export default function EditCarrouselImage() {
           <section className={styles.uploadWidget}>
             <p className={styles.text}>
               Por favor, haga click abajo y selecciones todas las imagenes que
-              desea agreagar al carrusel
+              desea agreagar al carrusel.
             </p>
             <UploadWidget
               addImageToCarrousel={handleArrayImage}

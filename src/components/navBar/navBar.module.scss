@@ -1,27 +1,32 @@
 .container {
+  height: 50px;
   display: flex;
   width: 100%;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: #900C3F;
+  background: linear-gradient(to bottom, #900C3F, rgb(190, 89, 129),#bb718e);
   position: fixed;
   top: 0;
-  text-align: center;
-  z-index: 500;
- .containerLinks{
-  width: 43%;
-  h4{
-    width: 160px;
-  }
+  // text-align: center;
+  z-index: 11500;
+
   .menu {
-      display: flex;
-    width: 400px;
+    width: 43%;
+    h4{
+      transition:  1s;
+      white-space: nowrap; 
+      font-weight: 500;
+
+    }
+    display: flex;
+    justify-content:center;
+    align-items: center;
     font-size: 2.2ch;
-    margin-right: 22%;
+    text-align: center;
     gap: 50px;
    
-  }
   .containerList{
     position: relative;
     h4{
@@ -33,7 +38,12 @@
     width: 70px;
     margin-left: 10%;
   }
- 
+  h4:hover {
+    transition: 0.2s;
+    color: rgb(253, 234, 211);
+    transform: scale(101%);
+    // font-weight: 600;
+  }
   
 
   .listShow {
@@ -58,15 +68,15 @@
   } 
 }
 
+
 @media (min-width:0px) and (max-width:1681px){
  .container{
-  .containerLinks{
-    width: 60%;
-  }
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .menu{
-    width: 200px;
-    font-size: 2ch;
-    margin-right: 0px;
     font-size:medium;
   }
  }

@@ -1,13 +1,17 @@
 .container{
-  margin-block: 8%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-inline: 20%;
   gap: 20px;
   color: rgb(36, 36, 36);
   font-weight: 500;
+  margin: 0 auto;
+  margin-block: 5%;
+  padding-block: 2%;
+  width: 60%;
+  background-color: #F2F2F2;
+  border-radius: 0.2rem;
   .image{
     max-width: 700px;
     min-width: 300px;
@@ -25,6 +29,7 @@
     right: 5%;
     padding: 10px;
     border-radius: 0.2rem;
+    
     cursor:pointer;
   }
   .conatinerText{

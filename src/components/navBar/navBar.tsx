@@ -6,28 +6,26 @@ import dynamic from "next/dynamic";
 import { LOGO } from "@/utils/consts";
 import OptionMenuCreateNew from "./components/optionMenuCreateNew/optionMenuCreateNew";
 import OptionMenuGoServices from "./components/optionMenuGoServices/optionMenuGoServices";
-import About from "../../pages/about/index";
 
 function NavBar() {
   return (
     <div className={styles.container}>
-      <Link href="/">
-        <img src={LOGO} alt="icon" />
-      </Link>
-      <div className={styles.containerLinks}>
-        <div className={styles.menu}>
-          {/* !protected options menu */}
-          <IsLogedIn>
-            <OptionMenuCreateNew styles={styles} />
-          </IsLogedIn>
-          <OptionMenuGoServices styles={styles} />
-          <Link href="/about">
-            <h4 className={styles.about}>Quiénes somos?</h4>
-          </Link>
-          <Link href="/contacts">
-            <h4 className={styles.about}>Contáctenos</h4>
-          </Link>
-        </div>
+      {/* <Link href="/"><img src={LOGO} alt="icon" /></Link> */}
+      <div className={styles.menu}>
+        <Link href="/">
+          <h4>Home</h4>
+        </Link>
+        {/* !protected options menu  inside IsLogedIn*/}
+        <IsLogedIn>
+          <OptionMenuCreateNew styles={styles} />
+        </IsLogedIn>
+        <OptionMenuGoServices styles={styles} />
+        <Link href="/about">
+          <h4 className={styles.about}>Quiénes somos?</h4>
+        </Link>
+        <Link href="/contacts">
+          <h4 className={styles.about}>Contáctenos</h4>
+        </Link>
       </div>
     </div>
   );
