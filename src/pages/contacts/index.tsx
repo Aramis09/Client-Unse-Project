@@ -1,28 +1,26 @@
 import styles from "./contacts.module.scss";
-import Network from "./dev/network";
+import Network from "./network/network";
 
 export default function Contacts() {
   return (
     <section className={styles.container}>
       <article className={styles.article}>
-        <h4>Medios para solicitar servicio</h4>
-        <ul>
-          <li> www.google.com</li>
-          <li> www.google.com</li>
-          <li> www.google.com</li>
-          <li> www.google.com</li>
-        </ul>
-      </article>
-      <article className={styles.article}>
-        <h4>Redes de docentes que participan</h4>
+        <h4>Comunicarse para obtener servicios</h4>
         <ul>
           <li>
-            {" "}
             <Network
               title={"Docente de fisica"}
               name="Claudia Anriquez"
               linkedin="instagram/claudiabanriquez"
               linkIn="https://www.instagram.com/claudiabanriquez/"
+              email="claudiabanriquez@gmail.com"
+            />
+          </li>
+          <li>
+            <Network
+              title={"Docente de fisica"}
+              name="Ana Ruggeri"
+              email="airuggeri@gmail.com"
             />
           </li>
         </ul>
@@ -42,7 +40,7 @@ export default function Contacts() {
             <Network
               title={"Desarrollador ayudante"}
               name="Gabriel Rouco"
-              linkedin="in/GabrielRouco"
+              linkedin="in/Ricardo-gabriel-rouco"
               linkIn="https://www.linkedin.com/in/ricardo-gabriel-rouco/"
             />
           </li>
