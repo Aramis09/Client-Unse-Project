@@ -66,7 +66,7 @@ export const ARROW_PAGINATE_R =
 export const  ICON_EMAIL = "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1694284825/samples/assets%20for%20web%20FCEYT/email_gssouv.png"
 
 // export const NEXT_PUBLIC_DOMAIN_API_REST = "https://servidor-unse.onrender.com"  
-//export const NEXT_PUBLIC_DOMAIN_API_REST = "http://localhost:3001"   
+// export const NEXT_PUBLIC_DOMAIN_API_REST = "http://localhost:3001"   
 
 export const NEXT_PUBLIC_DOMAIN_API_REST = "https://fisicafceyt.unse.edu.ar:10443"   
 
