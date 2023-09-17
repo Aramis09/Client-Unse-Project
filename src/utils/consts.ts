@@ -67,6 +67,7 @@ export const  ICON_EMAIL = "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1
 
 // export const NEXT_PUBLIC_DOMAIN_API_REST = "https://servidor-unse.onrender.com"  
 //export const NEXT_PUBLIC_DOMAIN_API_REST = "http://localhost:3001"   
+
 export const NEXT_PUBLIC_DOMAIN_API_REST = "http://192.168.0.26:3001"   
 
 export const URL_TO_CREATE_ABOUT = `${NEXT_PUBLIC_DOMAIN_API_REST}/about/createAbout` 
