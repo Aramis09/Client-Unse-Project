@@ -1,4 +1,3 @@
-import { useStylesClick } from "@/customHooks/useStylesClick";
 import styles from "./navBar.module.scss";
 import Link from "next/link";
 import IsLogedIn from "../isLogedIn/isLogedIn";
@@ -6,7 +5,6 @@ import dynamic from "next/dynamic";
 import { LOGO } from "@/utils/consts";
 import OptionMenuCreateNew from "./components/optionMenuCreateNew/optionMenuCreateNew";
 import OptionMenuGoServices from "./components/optionMenuGoServices/optionMenuGoServices";
-import { useState } from "react";
 
 function NavBar() {
   return (

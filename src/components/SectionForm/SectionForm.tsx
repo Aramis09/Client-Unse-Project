@@ -59,6 +59,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
       });
       setDeletePreviwImage(!deletePreviewImage);
       setImageUrls(initStateImages);
+      window.alert("Guardado");
     }
     setFormData(initialData);
   };
