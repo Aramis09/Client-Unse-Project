@@ -18,7 +18,6 @@ export default function About() {
   const { data: aboutData } = useMakeRequest<null, null, ResponseGetAbout>(
     initHook
   );
-
   return (
     <>
       {aboutData && aboutData.data ? (
