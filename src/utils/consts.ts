@@ -56,7 +56,7 @@ export const ICON_ARROW_LEFT =
   "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1692026296/samples/assets%20for%20web%20FCEYT/arrowL_c96iax.png";
 export const ICON_ARROW_RIGHT =
   "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1692026296/samples/assets%20for%20web%20FCEYT/arrowR_jv5sxe.png";
-
+export const ICON_ADD_SECTION = "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1695190704/samples/assets%20for%20web%20FCEYT/file_csv6a5.png"
 export const LOGO =
   "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1692026899/samples/assets%20for%20web%20FCEYT/nvfsrfic2merg0fjxli7.png";
 export const ARROW_PAGINATE_L =
@@ -65,10 +65,12 @@ export const ARROW_PAGINATE_R =
   "https://res.cloudinary.com/dynnwv7md/image/upload/v1691869581/icons8-next-page-96_vsud1m.png";
 export const  ICON_EMAIL = "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1694284825/samples/assets%20for%20web%20FCEYT/email_gssouv.png"
 
-// export const NEXT_PUBLIC_DOMAIN_API_REST = "https://servidor-unse.onrender.com"  
-// export const NEXT_PUBLIC_DOMAIN_API_REST = "http://localhost:3001"   
+export const  ICON_DELETE = "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1695185865/samples/assets%20for%20web%20FCEYT/delete_y30nye.png"
 
-export const NEXT_PUBLIC_DOMAIN_API_REST = "https://fisicafceyt.unse.edu.ar:10443"   
+// export const NEXT_PUBLIC_DOMAIN_API_REST = "https://servidor-unse.onrender.com"  
+export const NEXT_PUBLIC_DOMAIN_API_REST = "http://localhost:3001"   
+
+// export const NEXT_PUBLIC_DOMAIN_API_REST = "https://fisicafceyt.unse.edu.ar:10443"   
 
 export const URL_TO_CREATE_ABOUT = `${NEXT_PUBLIC_DOMAIN_API_REST}/about/createAbout` 
 export const URL_TO_GET_ABOUT = `${NEXT_PUBLIC_DOMAIN_API_REST}/about/getAbout`
@@ -96,3 +98,4 @@ export const URL_VERIFY_TOKEN = `${NEXT_PUBLIC_DOMAIN_API_REST}/verificationToke
 export const URL_LOGIN = `${NEXT_PUBLIC_DOMAIN_API_REST}/login`;
 
 export const URL_GET_DETAIL_SERVICE = `${NEXT_PUBLIC_DOMAIN_API_REST}/services/getServices/detail`;
+export const URL_CREATE_NEW_SECTION = `${NEXT_PUBLIC_DOMAIN_API_REST}/sections/create`

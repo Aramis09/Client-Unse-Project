@@ -1,6 +1,6 @@
 import { useStylesClick } from "@/customHooks/useStylesClick";
 import Link from "next/link";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 interface P {
   styles: {
     readonly [key: string]: string;
@@ -14,10 +14,13 @@ export default function OptionMenuCreateNew({ styles }: P) {
       first: "listHiden",
       second: "listShow",
     });
+
   return (
     <div className={styles.containerList}>
       <h4 onClick={changeStylesCreated}>Subir algo nuevo</h4>
-      <MenuCreate style={styleCreate} />
+      <div onClick={changeStylesCreated}>
+        <MenuCreate style={styleCreate} />
+      </div>
     </div>
   );
 }

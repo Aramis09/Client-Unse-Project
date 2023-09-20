@@ -1,4 +1,3 @@
-import { useStylesClick } from "@/customHooks/useStylesClick";
 import styles from "./navBar.module.scss";
 import Link from "next/link";
 import IsLogedIn from "../isLogedIn/isLogedIn";

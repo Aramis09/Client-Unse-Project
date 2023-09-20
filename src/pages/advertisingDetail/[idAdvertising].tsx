@@ -55,7 +55,11 @@ export default function AdvertisingDetail() {
           </div>
           <div className={styles.data}>
             <AsideNavigation sectionsData={advertising.data.SectionsViews} />
-            <Sections sectionsData={advertising.data.SectionsViews} />
+            <Sections
+              sectionsData={advertising.data.SectionsViews}
+              idOwner={id}
+              typeOwner="advertising"
+            />
             <Advertisings />
           </div>
           {/* <p className={styles.footer}>{advertising?.data.footer}</p> */}

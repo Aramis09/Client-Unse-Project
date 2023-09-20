@@ -81,6 +81,8 @@ export default function ServiceDetail() {
                     />
                     <Sections
                       sectionsData={service.data.SectionsViewsService}
+                      idOwner={service.data.id}
+                      typeOwner="service"
                     />
                   </div>
                 </>

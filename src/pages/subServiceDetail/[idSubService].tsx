@@ -34,7 +34,11 @@ export default function AdvertisingDetail() {
           <h4 className={styles.title}>{service.data.title}</h4>
           <div className={styles.data}>
             <AsideNavigation sectionsData={service.data.SectionsViewsSubServ} />
-            <Sections sectionsData={service.data.SectionsViewsSubServ} />
+            <Sections
+              sectionsData={service.data.SectionsViewsSubServ}
+              idOwner={service.data.id}
+              typeOwner="subServices"
+            />
           </div>
           <Link href={`/contact/${service.data.title}`}>
             Solicitar informacion
