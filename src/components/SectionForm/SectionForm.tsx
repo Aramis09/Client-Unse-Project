@@ -20,6 +20,11 @@ const initialData: DataInForm = {
   textPartTwo: "",
 };
 
+const initStateImages = {
+  topImage: null,
+  middleImage: null,
+  belowImage: null,
+};
 function SectionForm({ sections, handleSave }: sectionProps) {
   const [formData, setFormData] = useState<DataInForm>(initialData);
   const [errors, setErrors] = useState<errorForm>({
@@ -27,11 +32,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
   });
   const [imageUrls, setImageUrls] = useState<{
     [fieldName: string]: string | null;
-  }>({
-    topImage: null,
-    middleImage: null,
-    belowImage: null,
-  });
+  }>(initStateImages);
   const [deletePreviewImage, setDeletePreviwImage] = useState(false);
 
   const handleInputChange = (
@@ -57,6 +58,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
         belowImage: imageUrls.belowImage,
       });
       setDeletePreviwImage(!deletePreviewImage);
+      setImageUrls(initStateImages);
     }
     setFormData(initialData);
   };
