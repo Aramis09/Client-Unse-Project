@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   h4 {
     font-size: 3.5ch;
     text-align: center;
@@ -34,6 +35,14 @@
       cursor: pointer;
 
     }
+  }
+  .delete{
+    position: absolute;
+    width: 30px;
+    right: 30px;
+    top: 30px;
+    cursor:pointer;
+    border: none;
   }
 }
 

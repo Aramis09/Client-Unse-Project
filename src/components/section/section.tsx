@@ -4,6 +4,8 @@ import styles from "./section.module.scss";
 import IconEdit from "../iconEdit/iconEdit";
 import { verificationToken } from "@/helpers/verifyToken";
 import { useState } from "react";
+import { ICON_DELETE } from "@/utils/consts";
+import ButtonDeleteSection from "../buttonDeleteSection/buttonDeleteSection";
 interface P {
   sectionsData: SectionsView;
   idSection: number;
@@ -21,6 +23,7 @@ export default function Section({ sectionsData, idSection }: P) {
 
   return (
     <div id={String(idSection)} className={styles.container}>
+      <ButtonDeleteSection styles={styles.delete} id={id} />
       <div className={styles.containerProperty}>
         <IconEdit
           id={id}

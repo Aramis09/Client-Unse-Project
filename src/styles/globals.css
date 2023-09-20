@@ -36,7 +36,7 @@ a {
 }
 
 html {
-  background-image: linear-gradient(to right, #919191, #ffffff, #a0a0a0);
+  background-image: linear-gradient(to right, #49a5dbad, #ffffff, #49a5dbad);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
