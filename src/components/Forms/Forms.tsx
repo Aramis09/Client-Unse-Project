@@ -89,6 +89,7 @@ export default function Forms({ type }: optionsForm) {
 
       generateRequest(initialHookPost);
       setFormData(initialData);
+      window.alert("Los cambios fueron guardados");
     }
   };
 
