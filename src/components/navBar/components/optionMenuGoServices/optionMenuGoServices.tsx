@@ -6,6 +6,7 @@ import { URL_GET_ORIENTATIONS } from "@/utils/consts";
 import generateKeys from "@/utils/generateKeys";
 import { generateKey } from "crypto";
 import Link from "next/link";
+import { Dispatch, SetStateAction } from "react";
 interface P {
   styles: {
     readonly [key: string]: string;
@@ -27,10 +28,15 @@ export default function OptionMenuGoServices({ styles }: P) {
     first: "listHiden",
     second: "listShow",
   });
+
+  //!tengo que cambiar el sistema este de crossover menu, es para que un menu se cierre si abro otro
+
   return (
     <div className={styles.containerList}>
       <h4 onClick={changeStyles}>Servicios vigentes</h4>
-      <MenuService style={style} orientations={orientations} />
+      <div onClick={changeStyles}>
+        <MenuService style={style} orientations={orientations} />
+      </div>
     </div>
   );
 }

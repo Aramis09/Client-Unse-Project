@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   background-color: #900C3F;
-  background: linear-gradient(to bottom, #900C3F, rgb(190, 89, 129),#bb718e);
+  background: linear-gradient(to bottom, #900C3F, #be5981,#bb718e);
   position: fixed;
   top: 0;
   // text-align: center;
@@ -17,7 +17,7 @@
     h4{
       transition:  1s;
       white-space: nowrap; 
-      font-weight: 500;
+      font-weight: 700;
 
     }
     display: flex;
@@ -52,7 +52,7 @@
     left: -30px;
     top: 45px;
     list-style: none;
-    background-color:  #900C3F;
+    background-color:  #2f91ed;
     border-radius: 0.2rem;
     padding: 5px;
     li {
