@@ -1,5 +1,5 @@
 import { deleteCookie } from "@/utils/actionCookie";
-import styles from "./isLofedIn.module.scss";
+import styles from "./isLogedIn.module.scss";
 import Link from "next/link";
 import useVerifyToken from "@/customHooks/useVerifyAdmin";
 
@@ -25,11 +25,9 @@ export default function IsLogedIn({
           {children}
         </>
       ) : (
-        <>
-          <Link href="/login">
-            <h4 style={{ cursor: "pointer" }}>Login</h4>
-          </Link>
-        </>
+        <Link href="/login">
+          <h4 style={{ cursor: "pointer" }}>Login</h4>
+        </Link>
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 .container {
   background-color: #F2F2F2;
-  border-radius: 1rem;
+  border-radius: 0.2rem;
   padding: 8%;
   margin-bottom: 5%;
   color: #686868;
@@ -30,7 +30,7 @@
       width: 20px;
       position: absolute;
       top: 0;
-      right: 0;
+      right: -30px;
       cursor: pointer;
 
     }

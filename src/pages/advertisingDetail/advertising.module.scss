@@ -11,14 +11,14 @@
   }
   .containerTitle{
     position: relative;
-
     .title {
       text-align: center;
       margin-top: 5%;
       margin-bottom: 5%;
-      font-size: 5ch;
+      font-size: 4ch;
       min-width: 300px;
-
+      color: #555555;
+      text-decoration: underline;
     }
     .iconEdit{
       width: 30px;

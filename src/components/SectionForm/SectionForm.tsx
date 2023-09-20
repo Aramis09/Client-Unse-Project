@@ -32,6 +32,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
     middleImage: null,
     belowImage: null,
   });
+  const [deletePreviewImage, setDeletePreviwImage] = useState(false);
 
   const handleInputChange = (
     e:
@@ -55,6 +56,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
         middleImage: imageUrls.middleImage,
         belowImage: imageUrls.belowImage,
       });
+      setDeletePreviwImage(!deletePreviewImage);
     }
     setFormData(initialData);
   };
@@ -104,6 +106,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
             imageUrl={handleImageTop}
             showImageToUpload={true}
             typeShowImage="auto"
+            switchToDeletePreviwImage={deletePreviewImage}
           />
         </fieldset>
         <fieldset className={styles.containerFieldsSet}>
@@ -121,6 +124,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
             }
             showImageToUpload={true}
             typeShowImage="auto"
+            switchToDeletePreviwImage={deletePreviewImage}
           />
         </fieldset>
         <fieldset className={styles.containerFieldsSet}>
@@ -136,6 +140,7 @@ function SectionForm({ sections, handleSave }: sectionProps) {
             imageUrl={(imageData) => handleImageUpload("belowImage", imageData)}
             showImageToUpload={true}
             typeShowImage="auto"
+            switchToDeletePreviwImage={deletePreviewImage}
           />
           <button type="submit" className={styles.buttonConfirm}>
             Guardar informacion de seccion

@@ -1,13 +1,15 @@
 .containerCard{
   position: relative;
-  padding: 10%;
+  padding-block: 10%;
   text-align: left;
-  border-radius: 1rem;
+  border-radius: 0.2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #F2F2F2;
   flex-direction: column;
+  transition: 0.2s;
+  color: #686868;
   .date{
     display: none;
   }
@@ -24,8 +26,19 @@
     display: none;
   }
   .containerSummary{
+    font-size: 1.3ch;
+    padding: 5%;
     .iconEdit{
       display: none;
     }
   }
+}
+.containerCard:hover {
+  transition: .5s;
+  background-color: #f5d5e1;
+
+}
+
+@media (min-width:0px) and (max-width:1681px){
+
 }

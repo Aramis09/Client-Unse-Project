@@ -24,15 +24,17 @@ const SaveDataCarrousel = ({ images, location, idAdvertising, action }: P) => {
     setStatusSend(messajes.SendSuccessful);
   };
   return (
-    <>
+    <div className={styles.container}>
       <img
         src={ICON_SAVE_DATA_CARROUSEL}
         alt="iconSave"
         onClick={() => hanlderSendData()}
         className={styles.iconSave}
       />
-      <p style={statusSend}>{statusSend.messaje}</p>
-    </>
+      <p style={statusSend} className={styles.messageStatus}>
+        {statusSend.messaje}
+      </p>
+    </div>
   );
 };
 

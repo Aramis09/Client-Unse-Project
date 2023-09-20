@@ -1,11 +1,11 @@
 import { ServiceParams } from "@/types/requestTypes";
 import { generateRequest } from "@/utils/generateRequest";
 import { deleteImage } from "./imagesHelper";
-import { URL_EDIT_ADVERTISING, URL_EDIT_SECTION, URL_EDIT_SERVICE, URL_EDIT_SUB_SERVICE } from "@/utils/consts";
+import { URL_EDIT_ADVERTISING, URL_EDIT_SECTION, URL_EDIT_SERVICE, URL_EDIT_SUB_SERVICE, URL_TO_EDIT_ABOUT } from "@/utils/consts";
 
 interface P {
   id:number
-  typeUrl: "section" | "advertising" | "service" | "subService" | "defaul"
+  typeUrl: "section" | "advertising" | "service" | "subService" | "defaul" | "about"
   property:string
   newValue:string
   typeEdit:string
@@ -37,5 +37,6 @@ const urlsToEdit = {
   section:URL_EDIT_SECTION,
   advertising:URL_EDIT_ADVERTISING,
   service:URL_EDIT_SERVICE,
-  subService:URL_EDIT_SUB_SERVICE
+  subService:URL_EDIT_SUB_SERVICE,
+  about: URL_TO_EDIT_ABOUT
 }

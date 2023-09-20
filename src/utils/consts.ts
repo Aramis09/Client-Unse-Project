@@ -63,10 +63,17 @@ export const ARROW_PAGINATE_L =
   "https://res.cloudinary.com/dynnwv7md/image/upload/v1691869581/icons8-back-to-96_gxejsr.png";
 export const ARROW_PAGINATE_R =
   "https://res.cloudinary.com/dynnwv7md/image/upload/v1691869581/icons8-next-page-96_vsud1m.png";
-
+export const  ICON_EMAIL = "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1694284825/samples/assets%20for%20web%20FCEYT/email_gssouv.png"
 
 // export const NEXT_PUBLIC_DOMAIN_API_REST = "https://servidor-unse.onrender.com"  
-export const NEXT_PUBLIC_DOMAIN_API_REST = "http://localhost:3001"   
+// export const NEXT_PUBLIC_DOMAIN_API_REST = "http://localhost:3001"   
+
+export const NEXT_PUBLIC_DOMAIN_API_REST = "https://fisicafceyt.unse.edu.ar:10443"   
+
+export const URL_TO_CREATE_ABOUT = `${NEXT_PUBLIC_DOMAIN_API_REST}/about/createAbout` 
+export const URL_TO_GET_ABOUT = `${NEXT_PUBLIC_DOMAIN_API_REST}/about/getAbout`
+export const URL_TO_EDIT_ABOUT = `${NEXT_PUBLIC_DOMAIN_API_REST}/about/editAbout` 
+
 
 export const URL_GET_ADVERTISING = `${NEXT_PUBLIC_DOMAIN_API_REST}/advertising/getAdversiting/`;
 export const URL_GET_CARROUSEL_DETAIL = `${NEXT_PUBLIC_DOMAIN_API_REST}/carrousel/getDetail`;
