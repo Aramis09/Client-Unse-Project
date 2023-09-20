@@ -13,7 +13,7 @@ const RenderAnyImage = ({ arrayImages }: { arrayImages: string[] }) => {
     </section>
   );
 };
-
+//!psace
 const RenderImageCard = ({ imageUrl }: { imageUrl: string }) => {
   const { style, changeStyles } = useStylesClick({
     styles,
