@@ -56,7 +56,7 @@ export const ICON_ARROW_LEFT =
   "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1692026296/samples/assets%20for%20web%20FCEYT/arrowL_c96iax.png";
 export const ICON_ARROW_RIGHT =
   "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1692026296/samples/assets%20for%20web%20FCEYT/arrowR_jv5sxe.png";
-
+export const ICON_ADD_SECTION = "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1695190704/samples/assets%20for%20web%20FCEYT/file_csv6a5.png"
 export const LOGO =
   "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1692026899/samples/assets%20for%20web%20FCEYT/nvfsrfic2merg0fjxli7.png";
 export const ARROW_PAGINATE_L =
@@ -98,3 +98,4 @@ export const URL_VERIFY_TOKEN = `${NEXT_PUBLIC_DOMAIN_API_REST}/verificationToke
 export const URL_LOGIN = `${NEXT_PUBLIC_DOMAIN_API_REST}/login`;
 
 export const URL_GET_DETAIL_SERVICE = `${NEXT_PUBLIC_DOMAIN_API_REST}/services/getServices/detail`;
+export const URL_CREATE_NEW_SECTION = `${NEXT_PUBLIC_DOMAIN_API_REST}/sections/create`
