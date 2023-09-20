@@ -1,3 +1,4 @@
+import useVerifyToken from "@/customHooks/useVerifyAdmin";
 import { ICON_ADD_SECTION } from "@/utils/consts";
 import Link from "next/link";
 import React from "react";
@@ -7,12 +8,15 @@ interface P {
   typeOwner: string;
 }
 export default function ButtonAddSection({ styles, idOwner, typeOwner }: P) {
-  return (
+  const { statusToken } = useVerifyToken();
+  return statusToken ? (
     <Link
       className={styles}
       href={`/createOnlySection?idOwner=${idOwner}&typeOwner=${typeOwner}`}
     >
       <img src={ICON_ADD_SECTION} alt="iconAdd" />
     </Link>
+  ) : (
+    <></>
   );
 }
