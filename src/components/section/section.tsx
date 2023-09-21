@@ -161,11 +161,10 @@ export default function Section({ sectionsData, idSection }: P) {
             {textToAddInfo("imagen")}
             <IconEdit
               id={id}
-              property="textPartOne"
+              property="belowImage"
               styles={styles.iconEdit}
               typeEdit="image"
               entitie="section"
-              oldValue={String(textPartOne)}
             />
           </>
         )}
