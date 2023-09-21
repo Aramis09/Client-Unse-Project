@@ -21,9 +21,10 @@
     width: 80%;
   }
   .title {
-    text-align: center;
+    text-align: left;
     margin-block: 3%;
     font-size: 5ch;
+
   }
   .data {
     width: 80%;
@@ -41,6 +42,8 @@
   }
   .titleContainer{
     position: relative;
+    max-width: 50%;
+
   }
   .iconEditTitle{
     position: absolute;

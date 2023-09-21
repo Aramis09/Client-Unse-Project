@@ -22,7 +22,7 @@ export default function AsideNavigation({ sectionsData, otherStyle }: P) {
         <div className={stylesChosen && stylesChosen.container}>
           {sectionsData.map((section) => (
             <a key={generateKeys()} href={`#${String(section.id)}`}>
-              ➼ {section.title}
+              ➼ {section.title?.slice(0, 30) + "..."}
             </a>
           ))}
         </div>
