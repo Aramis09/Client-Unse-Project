@@ -68,8 +68,8 @@ export const  ICON_EMAIL = "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1
 export const  ICON_DELETE = "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1695185865/samples/assets%20for%20web%20FCEYT/delete_y30nye.png"
 
 // export const NEXT_PUBLIC_DOMAIN_API_REST = "https://servidor-unse.onrender.com"  
- //export const NEXT_PUBLIC_DOMAIN_API_REST = "http://localhost:3001"   
-export const NEXT_PUBLIC_DOMAIN_API_REST = "https://fisicafceyt.unse.edu.ar:10443"   
+export const NEXT_PUBLIC_DOMAIN_API_REST = "http://localhost:3001"   
+//export const NEXT_PUBLIC_DOMAIN_API_REST = "https://fisicafceyt.unse.edu.ar:10443"   
 
 
 export const URL_TO_CREATE_ABOUT = `${NEXT_PUBLIC_DOMAIN_API_REST}/about/createAbout` 
