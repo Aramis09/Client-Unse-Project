@@ -165,7 +165,6 @@ export default function Section({ sectionsData, idSection }: P) {
               styles={styles.iconEdit}
               typeEdit="image"
               entitie="section"
-              oldValue={String(textPartOne)}
             />
           </>
         )}
