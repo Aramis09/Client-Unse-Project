@@ -8,7 +8,7 @@ export const initialDataService: DataService = {
 export const initialDataSubService: DataSubService= {
   title:"",
   resume:"",
-  description:"",
+  // description:"",
   sections: [],
 }
 export const initialDataAdvertising: DataAdvertising= {

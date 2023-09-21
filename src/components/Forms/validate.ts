@@ -71,8 +71,8 @@ function validateSubService(object: DataSubServiceInForm) {
   if (!allRegex.regexInTitles.test(object.title))
     return (errors.message =
       "No se pueden usar caracteres especiales como: -, _ o (");
-  if (!object.description)
-    return (errors.message = "La descripcion no puede estar vacia");
+  // if (!object.description)
+  //   return (errors.message = "La descripcion no puede estar vacia");
   if (!object.resume)
     return (errors.message = "El resumen no puede estar vacio");
   if (!allRegex.regextInTextFields.test(object.resume))
