@@ -9,7 +9,7 @@ export default function CreateOnlySection() {
   const { idOwner, typeOwner } = router.query;
 
   const handleSendNewSection = async (data: DataInForm) => {
-    createNewSection({
+    await createNewSection({
       idOwner: Number(idOwner),
       typeOwner: String(typeOwner),
       dataSection: data,

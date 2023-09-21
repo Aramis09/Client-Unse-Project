@@ -13,6 +13,7 @@
     text-align: center;
     margin-block: 3%;
     font-size: 5ch;
+    
   }
   .data {
     width: 80%;
@@ -30,6 +31,8 @@
   }
   .containerProperty{
     position: relative;
+    max-width: 50%;
+
     .iconEdit{
       position: absolute;
       width: 30px;

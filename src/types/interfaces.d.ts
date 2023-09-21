@@ -132,7 +132,7 @@ export interface DataService {
 
 export interface DataSubService {
   title: string;
-  description: string;
+  // description: string;
   resume: string;
   sections: DataInForm[];
   image?: string;

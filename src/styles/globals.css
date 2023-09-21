@@ -7,7 +7,7 @@
 }
 @font-face {
   font-family: "Aramis";
-  src: url("../../public_fonts/Roboto-Light.ttf");
+  src: url("../../public_fonts/static/NunitoSans_7pt-ExtraLight.ttf");
 }
 html,
 body {
@@ -36,7 +36,8 @@ a {
 }
 
 html {
-  background-image: linear-gradient(to right, #49a5dbad, #ffffff, #49a5dbad);
+  /* background-image: linear-gradient(to right, #49a5dbad, #ffffff, #49a5dbad); */
+  background-color: rgb(255, 255, 255);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

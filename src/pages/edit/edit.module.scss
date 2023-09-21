@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   textarea{
     margin-top: 5%;
     width: 50%;
@@ -14,6 +13,8 @@
     padding: 5%;
     resize: none; 
     z-index: 100;
+  border: solid 2px black;
+
   }
   .messageSuccesfuly{
     color: white;

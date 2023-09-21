@@ -5,10 +5,17 @@
   border-radius: 0.2rem;
   text-align: center;
   transition:  transform 0.5s;
+  padding: 10px;
   position: relative;
   .iconEdit{
     position: absolute;
     width: 30px;
+    right: 0;
+  }
+  .iconEditTitle{
+    position: absolute;
+    width: 30px;
+    top: 0;
     right: 0;
   }
 }
@@ -17,6 +24,7 @@
   border-radius: 0.2rem 0.2rem;
   background-color: #C70039;
   font-size: 1.60rem;
+  text-align: left;
   color: rgb(233, 233, 232);
 }
 

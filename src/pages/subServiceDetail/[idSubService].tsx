@@ -8,6 +8,7 @@ import AsideNavigation from "@/components/asideNavigation/asideNavigation";
 import Link from "next/link";
 import { URL_GET_SUB_SERVICE } from "@/utils/consts";
 import ButtonDelete from "@/components/buttonDelete/buttonDelete";
+import IconEdit from "@/components/iconEdit/iconEdit";
 
 export default function AdvertisingDetail() {
   const router = useRouter();
@@ -31,7 +32,17 @@ export default function AdvertisingDetail() {
       )) || <></>}
       {service?.data && (
         <>
-          <h4 className={styles.title}>{service.data.title}</h4>
+          <div className={styles.titleContainer}>
+            <h4 className={styles.title}>{service.data.title}</h4>
+            <IconEdit
+              id={service.data.id}
+              property="title"
+              styles={styles.iconEditTitle}
+              typeEdit="text"
+              entitie="subService"
+              oldValue={String(service.data.title)}
+            />
+          </div>
           <div className={styles.data}>
             <AsideNavigation sectionsData={service.data.SectionsViewsSubServ} />
             <Sections
