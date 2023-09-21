@@ -109,7 +109,7 @@ export default function Section({ sectionsData, idSection }: P) {
               id={id}
               property="middleImage"
               styles={styles.iconEdit}
-              typeEdit="text"
+              typeEdit="image"
               entitie="section"
               oldValue={String(textPartOne)}
             />
@@ -163,7 +163,7 @@ export default function Section({ sectionsData, idSection }: P) {
               id={id}
               property="textPartOne"
               styles={styles.iconEdit}
-              typeEdit="text"
+              typeEdit="image"
               entitie="section"
               oldValue={String(textPartOne)}
             />
