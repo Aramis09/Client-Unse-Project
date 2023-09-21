@@ -13,6 +13,7 @@ export default function SubService({ subServiceProps }: P) {
   return (
     <Link href={`/subServiceDetail/${id}`} className={styles.container}>
       <span className={styles.title}>{title}</span>
+
       <IconEdit
         id={subServiceProps.id}
         property="resume"

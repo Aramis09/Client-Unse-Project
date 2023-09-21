@@ -16,6 +16,7 @@
   justify-content: center;
   color: black;
   font-weight: 900;
+  position: relative;
   img {
     width: 80%;
   }
@@ -37,5 +38,14 @@
     background-color: rgb(143, 141, 141);
     height: 100%;
     border-radius: 0.2rem;
+  }
+  .titleContainer{
+    position: relative;
+  }
+  .iconEditTitle{
+    position: absolute;
+    width: 30px;
+    top: 0;
+    right: -40px;
   }
 }

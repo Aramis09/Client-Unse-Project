@@ -5,10 +5,17 @@
   border-radius: 0.2rem;
   text-align: center;
   transition:  transform 0.5s;
+  padding: 10px;
   position: relative;
   .iconEdit{
     position: absolute;
     width: 30px;
+    right: 0;
+  }
+  .iconEditTitle{
+    position: absolute;
+    width: 30px;
+    top: 0;
     right: 0;
   }
 }
