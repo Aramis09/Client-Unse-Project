@@ -55,6 +55,9 @@ export default function AssetsReference() {
             Add photo icons created by SeyfDesigner - Flaticon
           </a>
         </li>
+        <li>
+          https://www.freepik.es/foto-gratis/hojas-carton-tonos-rosas-espacio-copia_5739211.htm#page=3&query=fondos%20para%20paginas%20web&position=4&from_view=keyword&track=ais
+        </li>
       </ul>
     </div>
   );
