@@ -49,7 +49,7 @@ export const ICON_CREATE =
 export const ICON_INSTAGRAM =
   "https://res.cloudinary.com/dynnwv7md/image/upload/v1692022920/instagram_criaqa.png";
 export const ICON_FACULTY =
-  "https://res.cloudinary.com/dynnwv7md/image/upload/v1692023407/iconoFacultad_lhba8n.png";
+  "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1692026296/samples/assets%20for%20web%20FCEYT/iconoFacultad_mcms4y.png";
 export const ICON_UNIVERSITY =
   "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1692026296/samples/assets%20for%20web%20FCEYT/iconoUnse_zqgpwq.png";
 export const ICON_ARROW_LEFT =

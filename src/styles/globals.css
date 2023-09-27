@@ -14,6 +14,7 @@ body {
   /* overflow-x: hidden; */
   font-family: "Aramis";
   color: white;
+  background-image: url(../../assets/wallpaper.jpg);
 }
 /*! esto es necesario para respetar los saltos de linea de todos los textos de la pagina */
 p { 

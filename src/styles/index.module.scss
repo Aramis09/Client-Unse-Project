@@ -3,4 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .assetsReference{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
 }

@@ -2,6 +2,7 @@ import Advertisings from "@/components/advertisings/advertisings";
 import Head from "next/head";
 import styes from "../styles/index.module.scss";
 import Carrousel from "@/components/carrousel/carrousel";
+import Link from "next/link";
 export default function Home() {
   return (
     <>
@@ -15,6 +16,9 @@ export default function Home() {
       <main className={styes.container}>
         <Carrousel imageEdit={[]} locationToEdit="" />
         <Advertisings />
+        <Link href="/assetsReference" className={styes.assetsReference}>
+          assets reference
+        </Link>
       </main>
     </>
   );

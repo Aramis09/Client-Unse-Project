@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export":"next export",
-    "output":"output: export"
+    "export": "next export",
+    "output": "output: export"
   },
   "dependencies": {
     "@cloudinary/react": "1.11.2",
@@ -20,6 +20,7 @@
     "cloudinary": "1.40.0",
     "cloudinary-react": "^1.8.1",
     "dotenv": "16.3.1",
+    "framer-motion": "^10.16.4",
     "jsonwebtoken": "^9.0.1",
     "next": "13.4.9",
     "react": "18.2.0",
