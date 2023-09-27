@@ -44,7 +44,7 @@ export const ICON_SAVE_DATA_CARROUSEL =
 export const ICON_EDIT =
   "https://res.cloudinary.com/dynnwv7md/image/upload/v1691505197/edit-image_wxxstt.png";
 export const ICON_CREATE =
-  "https://res.cloudinary.com/dynnwv7md/image/upload/v1691970445/2524748_add_add_photo_plus_upload_icon_oi2lt1.png";
+  "https://res.cloudinary.com/dzqxa7jfj/image/upload/v1692026297/samples/assets%20for%20web%20FCEYT/2524748_add_add_photo_plus_upload_icon_ukbt65.png";
 
 export const ICON_INSTAGRAM =
   "https://res.cloudinary.com/dynnwv7md/image/upload/v1692022920/instagram_criaqa.png";
