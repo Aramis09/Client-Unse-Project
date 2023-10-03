@@ -6,13 +6,14 @@ import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "framer-motion";
 import variantsFramerMotion from "@/framerMotion/transitionsVars";
 import { ReactNode } from "react";
+import { Router } from "next/router";
 
 function App({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <NavBar />
 
-      <Transition children={<Component {...pageProps} />} />
+      <Transition router={router} children={<Component {...pageProps} />} />
 
       <Footer />
     </>
@@ -22,20 +23,20 @@ function App({ Component, pageProps, router }: AppProps) {
 export default dynamic(() => Promise.resolve(App), { ssr: false });
 interface Props {
   children: ReactNode;
+  router: Router;
 }
-const Transition: React.FC<Props> = ({ children }) => (
+const Transition: React.FC<Props> = ({ children, router }) => (
   <AnimatePresence mode="wait">
     <motion.div
-      key={location.pathname}
-      variants={variantsFramerMotion}
-      initial={variantsFramerMotion.initial}
-      animate={variantsFramerMotion.animate}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      key={router.asPath}
       transition={{
-        ease: "linear",
-        duration: 0.2,
-        x: { duration: 0.1, type: "spring" },
+        duration: 0.3,
+        ease: "easeInOut",
+        type: "tween",
       }}
-      exit={variantsFramerMotion.extit}
     >
       {children}
     </motion.div>
