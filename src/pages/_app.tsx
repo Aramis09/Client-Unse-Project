@@ -26,7 +26,7 @@ interface Props {
   router: Router;
 }
 const Transition: React.FC<Props> = ({ children, router }) => (
-  <AnimatePresence mode="wait">
+  <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
